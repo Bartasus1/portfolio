@@ -1,6 +1,7 @@
 {
   "title" : "Coco Jumpo",
   "time_period" : "HackYeah 2020",
+  "engine" : "Unity",
   "role" : {
     "job": "Programista (generacja poziomu)",
     "where" : "w 5-osobowym zespole"

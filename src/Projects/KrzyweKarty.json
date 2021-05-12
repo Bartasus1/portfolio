@@ -1,6 +1,7 @@
 {
   "title" : "Krzywe Karty",
   "time_period" : "09.2020 - 02.2021",
+  "engine" : "Unreal Engine",
   "role" : {
     "job": "Programista",
     "where" : "w dwuosobowym zespole"

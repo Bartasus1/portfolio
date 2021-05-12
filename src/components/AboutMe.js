@@ -28,12 +28,11 @@ function AboutMe()
                     w którym obecnie doskonalę swoje umiejętności.
                 </p>
                 <p>
-                    Pierwszą styczność z Unreal Engine miałem <br/>
-                    w połowie 2020 roku. W ciągu 6-ciu miesięcy intensywnej <br />
-                    nauki i pracy udało mi się stworzyć grywalny protoptyp <br />
-                    mojej pierwszej gry - wieloosobowej karcianki 3D.
+                    Pierwszą styczność z Unreal Engine miałem w połowie 2020 roku. <br/>
+                    W ciągu 6-ciu miesięcy intensywnej nauki i pracy udało mi się stworzyć <br/>
+                    grywalny protoptyp mojej pierwszej gry - wieloosobowej karcianki 3D.
                 </p>
-                <p style={{float : "right"}}>
+                <p style={{float : "right", marginRight:"15%", fontSize:"0.9em"}}>
                     Moje zainteresowania to:
                     <ul>
                         <li>gry komputerowe</li>

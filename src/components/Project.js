@@ -15,6 +15,9 @@ function Project(props)
                 </p>
                 <p className="SectionInfo" id="TimePeriod">
                     {Json.time_period}
+                    <p style={{color:"#CF570C"}}>
+                        {Json.engine}
+                    </p>
                 </p>
             </div>
 

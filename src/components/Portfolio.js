@@ -15,6 +15,5 @@ function Portfolio()
         </div>
     )
 }
-//
-// <AboutMe/>
+
 export default Portfolio;
