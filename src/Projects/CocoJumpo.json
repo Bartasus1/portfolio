@@ -1,0 +1,16 @@
+{
+  "title" : "Coco Jumpo",
+  "time_period" : "HackYeah 2020",
+  "role" : {
+    "job": "Programista (generacja poziomu)",
+    "where" : "w 5-osobowym zespole"
+  },
+  "description" : "Gra na wzór IcyTower",
+  "links" : [
+      {
+        "link" : "https://www.youtube.com/watch?v=mSn-LewtKOs",
+        "icon" : "fab fa-youtube",
+        "name" : "YouTube"
+      }
+  ]
+}

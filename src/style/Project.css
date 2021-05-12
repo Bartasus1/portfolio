@@ -1,0 +1,63 @@
+
+.Project {
+    margin: auto;
+    width: 80%;
+    height: 95vh !important;
+    background-color: rgba(138,138,135,0.15);
+    border: 2px solid black;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 2fr 400px 2fr;
+    box-sizing: border-box;
+}
+
+.Project > div {
+    text-align: center;
+    border: 1px solid black;
+}
+
+.SectionName {
+    color: #CF570C;
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.SectionInfo {
+    color: #898888;
+    font-size: 21px;
+    text-align: center;
+}
+
+
+#Image {
+    width: 100%;
+    height: 400px;
+}
+
+#ProjectIcons {
+    font-size: 20px;
+    text-align: center;
+    margin: auto;
+}
+
+#Description {
+    font-size: 27px;
+    color: black;
+    grid-row: 4/5 ;
+    padding: 2%;
+
+}
+
+#ProjectTitle {
+    grid-row: 1/3;
+}
+#ProjectTitle > p {
+    margin-bottom: 2%;
+    font-size: 32px;
+}
+#TimePeriod {
+    margin-top: 2%;
+    font-size: 17px !important;
+}

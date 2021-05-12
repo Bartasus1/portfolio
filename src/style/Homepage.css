@@ -1,0 +1,27 @@
+.Home  {
+    display: grid;
+    grid-template-rows: 2fr 60% 4fr;
+    grid-template-columns: 1fr 1fr;
+
+    height: 100vh;
+    min-height: 650px;
+    background-image: url("../photos/Homepagephoto.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#Icons {
+    width: 100vw;
+    height: 64px;
+    margin-top: 20px;
+    text-align: right;
+}
+
+
+#Name {
+    color: white;
+    grid-row: 3/4;
+    font-size : 45px;
+    margin-left: 4% ;
+}

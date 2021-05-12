@@ -1,0 +1,26 @@
+{
+  "title" : "Krzywe Karty",
+  "time_period" : "09.2020 - 02.2021",
+  "role" : {
+    "job": "Programista",
+    "where" : "w dwuosobowym zespole"
+  },
+  "description" : "Gra powstała jako adaptacja stworzonej przez kolegę planszówki. Dzięki formie multiplayer gracze stają w szranki za pomocą trójwymiarowych pionów - awatarów z kart.",
+  "links" : [
+      {
+        "link" : "https://bartasus1.itch.io/krzywe-karty",
+        "icon" : "fab fa-itch-io",
+        "name" : "Itch.io"
+      },
+      {
+        "link" : "https://youtu.be/ZMROKo-jq-A?t=251",
+        "icon" : "fab fa-youtube",
+        "name" : "YouTube"
+      },
+      {
+        "link" : "https://github.com/Bartasus1/UKrzyweKarty",
+        "icon" : "fab fa-github",
+        "name" : "GitHub"
+      }
+  ]
+}

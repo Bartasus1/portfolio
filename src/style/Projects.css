@@ -1,0 +1,63 @@
+#Projects {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+
+    background-color: #3F3F3F;
+    background-image: linear-gradient(#000000, #2D2D2D);
+}
+
+#LeftButtonDiv {
+    float: left;
+    width: 10%;
+    height: 100vh;
+    display: flex;
+}
+
+#LeftButton {
+    background-color: #898888;
+    color: black;
+    border-radius: 50%;
+
+    margin: auto;
+    padding: 0;
+
+    height: 45px;
+    width: 45px;
+    border: none;
+}
+
+#LeftIcon {
+    font-size: 45px;
+    padding: 0;
+    margin: 0;
+}
+
+#RightButtonDiv {
+    float: right;
+    width: 10%;
+    height: 100vh;
+    display: flex;
+}
+
+#RightButton {
+    background-color: #898888;
+    color: black;
+    border-radius: 50%;
+
+    margin: auto;
+    padding: 0;
+
+    height: 45px;
+    width: 45px;
+    border: none;
+}
+
+#RightIcon {
+    color: black;
+    font-size: 45px;
+    background-color: #898888;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
