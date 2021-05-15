@@ -36,10 +36,10 @@ function AboutMe()
                     Moje zainteresowania to:
                     <ul>
                         <li>gry komputerowe</li>
+                        <li>programowanie</li>
+                        <li>ksiązki i filmy</li>
                         <li>łucznictwo</li>
                         <li>survival</li>
-                        <li>programowanie</li>
-                        <li>muzyka i filmy</li>
                     </ul>
                 </p>
             </div>
