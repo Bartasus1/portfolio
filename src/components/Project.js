@@ -33,14 +33,18 @@ function Project(props)
                     </p>
                 </div>
             </div>
+
             <div className="InfoCellWrapper">
                 <div className="SectionName InfoCell">
                     <p>
                         Linki zewnętrzne
                     </p>
                 </div>
-                <div>
-                    {Links}
+
+                <div className="SectionInfo" id="LinksInfo">
+                    <div id="Links">
+                        {Links}
+                    </div>
                 </div>
             </div>
 

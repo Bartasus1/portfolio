@@ -64,15 +64,21 @@ p {
     padding-bottom: 0.5rem;
 }
 #TimePeriod {
-    font-size: 0.9em;
+    font-size: 0.85em;
 }
 #Engine {
     color: #CF570C;
-    font-size: 0.98em;
+    font-size: 0.92em;
 }
-#MyRole {
 
+#Links{
+    margin:auto;
 }
+#LinksInfo {
+    display: flex;
+    height: 50%;
+}
+
 #ImageFrame {
     padding: 0;
     width: 100%;
