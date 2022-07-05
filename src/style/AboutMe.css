@@ -15,7 +15,7 @@
 
 #Fire {
     height: 100vh;
-    width: calc(25vw + 12vh);
+    width: calc(25vw + 10vh);
     grid-column: 1/2;
 }
 
