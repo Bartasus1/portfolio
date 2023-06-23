@@ -8,6 +8,9 @@ import KrzyweKartyImage from "../photos/game_photos/KrzyweKarty.jpg";
 import CocoJumpo from "../Projects/CocoJumpo.json";
 import CocoJumpoImage from "../photos/game_photos/Cocojumpo.jpg"
 
+import Andromeda from "../Projects/Andromeda.json";
+import AndromedaImage from "../photos/game_photos/AndromedaImage.png";
+
 let i = 0;
 
 class Projects extends React.Component
@@ -22,7 +25,8 @@ class Projects extends React.Component
 
         const ProjectsArray =  [
             [KrzyweKarty, KrzyweKartyImage],
-            [CocoJumpo, CocoJumpoImage]
+            [CocoJumpo, CocoJumpoImage],
+            [Andromeda, AndromedaImage]
         ]
 
         const SwitchLeft = () => {

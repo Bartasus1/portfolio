@@ -1,0 +1,17 @@
+{
+  "title" : "Andromeda",
+  "time_period" : "10.2022 - 02.2023",
+  "engine" : "Unreal Engine",
+  "role" : {
+    "job": "Programista, manager",
+    "where" : "8 osobowy zespół"
+  },
+  "description" : "Gra stworzona na uczelnianym kursie 'Zespołowy projekt programistyczny'. Utrzymana w klimacie Dark Fantasy RPG, jest prototypem gry, której historię możemy poznać na początku filmu. Obrazy do tej historii zostały wygenerowane przy pomocy sztucznej inteligencji.",
+  "links" : [
+      {
+        "link" : "https://youtu.be/w7NvI6eKasY",
+        "icon" : "fab fa-youtube",
+        "name" : "YouTube"
+      }
+  ]
+}
