@@ -1,15 +1,15 @@
 .Icon {
-    box-sizing: border-box  !important;
-    margin: 15px            !important;
-    height: 60px            !important;
-    font-size: 35px         !important;
+	box-sizing: border-box !important;
+	height: 60px !important;
+	margin: 15px !important;
+	font-size: 35px !important;
 }
 
 .Homepage {
-    color: black;
+	color: black;
 }
 
 .ProjectIcon {
-    color: #898888;
-    font-size: calc(1.4vw + 2.8vh) !important;
+	color: white;
+	/* font-size: calc(1.4vw + 2.8vh) !important; */
 }

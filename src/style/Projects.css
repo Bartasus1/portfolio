@@ -1,83 +1,109 @@
 #Projects {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    display: flex;
-    box-sizing: border-box;
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0 5%;
 
-    background-color: #3F3F3F;
-    background-image: linear-gradient(#000000, #2D2D2D);
+	background-color: #141414;
+}
+#SwitchProjectsButtons {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	width: 18vw;
+	height: 100%;
+	/* background-color: red; */
+	margin-right: 20px;
+}
+#SwitchProjectsButtons .ProjectIconContainer {
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 180px;
+	overflow: hidden; /* Ukrycie nadmiarowych elementów */
+	border-radius: 24px;
+	background-color: #232323; /* Domyślny kolor */
+	cursor: pointer;
 }
 
-#LeftButtonDiv {
-    float: left;
-    width: 10%;
-    height: 100vh;
-    display: flex;
+#SwitchProjectsButtons .ProjectIconContainer h3 {
+	z-index: 2; /* Tekst nad paskiem ładowania */
+	color: white; /* Kontrastowy kolor tekstu */
 }
 
-#LeftButton {
-    background-color: #898888;
-    color: black;
-    border-radius: 50%;
-
-    margin: auto;
-    padding: 0;
-
-    height: 45px;
-    width: 45px;
-    border: none;
+#SwitchProjectsButtons .ProjectIconContainer .progress-bar {
+	z-index: 1; /* Pasek pod tekstem */
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0%; /* Pasek ładowania zaczyna od zera */
+	height: 100%;
+	background-color: #585858; /* Kolor paska ładowania */
+	transition: width 1s linear; /* Płynne przejście podczas ręcznej zmiany */
 }
 
-#LeftIcon {
-    font-size: 45px;
-    padding: 0;
-    margin: 0;
+#SwitchProjectsButtons .ProjectIconContainer.animate .progress-bar {
+	animation: fill-bar 8s linear forwards; /* Animacja wypełniania w 10 sekund */
+}
+#SwitchProjectsButtons .ProjectIconContainer:hover{
+  background-color: #333333;
 }
 
-#RightButtonDiv {
-    float: right;
-    width: 10%;
-    height: 100vh;
-    display: flex;
+@keyframes fill-bar {
+	0% {
+		width: 0%; /* Start */
+	}
+	100% {
+		width: 100%; /* Koniec */
+	}
 }
-
-#RightButton {
-    background-color: #898888;
-    color: black;
-    border-radius: 50%;
-
-    margin: auto;
-    padding: 0;
-
-    height: 45px;
-    width: 45px;
-    border: none;
+.ProjectIconContainer .image {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 35%;
+	height: 100%;
 }
-
-#RightIcon {
-    color: black;
-    font-size: 45px;
-    background-color: #898888;
-    border-radius: 50%;
-    display: block;
-    margin: auto;
+.ProjectIconContainer .ProjectName {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 75%;
+	height: 100%;
 }
-
+.ProjectIconContainer .ProjectName h3 {
+	color: black;
+	font-size: 24px;
+}
+.ProjectIconContainer .image {
+	width: 64px;
+	height: 64px;
+	background-color: red;
+}
 @media (max-width: 700px) {
-    #RightButton {
-        height: 35px;
-        width: 35px;
-    }
-    #RightIcon {
-        font-size: 35px;
-    }
+	#RightButton {
+		width: 35px;
+		height: 35px;
+	}
+	#RightIcon {
+		font-size: 35px;
+	}
 
-    #LeftButton {
-        height: 35px;
-        width: 35px;
-    }
-    #LeftIcon {
-        font-size: 35px;
-    }
+	#LeftButton {
+		width: 35px;
+		height: 35px;
+	}
+	#LeftIcon {
+		font-size: 35px;
+	}
 }

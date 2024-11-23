@@ -1,97 +1,193 @@
-
+* {
+	box-sizing: border-box;
+}
 .Project {
-    margin: auto;
-    width: 80%;
-    height: 95% !important;
-    background-color: rgba(138,138,135,0.15);
-    border: 2px solid black;
-    text-align: center;
-    font-size: calc(0.9vw + 1vh) !important;
-
-    display: grid;
-    grid-template-rows: 1fr 65% 1fr;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: stretch;
-    align-content: stretch;
-
+	display: flex;
+	z-index: 10;
+	position: relative;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	width: calc(100vw - 20px - 20vw - 10%);
+	height: 95vh;
+	overflow: hidden;
+	border-radius: 24px;
+	background-color: #343434;
+	font-size: calc(0.9vw + 1vh) !important;
+	text-align: center;
 }
 
 .LongRow {
-    padding: 0 !important;
-    grid-column: 1/4;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 24%;
+}
+.LongRowOverlay {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: auto;
+	margin-top: 20px;
 }
 
 @media (max-width: 700px) {
-    .Project {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(3,1fr) 40% 1fr;
-    }
-    .LongRow {
-        grid-column: 1/2;
-    }
+	.Project {
+		grid-template-rows: repeat(3, 1fr) 40% 1fr;
+		grid-template-columns: 1fr;
+	}
+	.LongRow {
+		/* grid-column: 1/2; */
+	}
 }
-
 
 .Project > div {
-    border: 1px solid black;
-
-
+	/* border: 1px solid black; */
 }
 
-p {
-    margin: 15px;
+#Description p {
+	height: 70px;
+	margin: 15px;
 }
 
 .InfoCell {
-    border-bottom: 2px solid black;
+	/* border-bottom: 2px solid black; */
 }
 .InfoCellWrapper {
-    padding: 0 !important;
+	padding: 0 !important;
 }
 
 .SectionName {
-    color: #CF570C;
-    font-size: 1.15em;
+	height: auto;
+	margin: 10px;
+	color: #cf570c;
+	font-weight: 700;
+	font-size: 1.15em;
+	font-family: 'Archivo', serif;
 }
 
 .SectionInfo {
-    color: #898888;
-    font-size: 1.08em;
+	color: white;
+	font-size: 28px;
+	letter-spacing: 1px;
 }
 
 #Title {
-    line-height: 1.1;
-    padding-bottom: 0.5rem;
+	padding-bottom: 0.5rem;
+	font-size: 44px;
+	line-height: 1.1;
+	font-family: 'Archivo', serif;
+	letter-spacing: 1.5px;
 }
 #TimePeriod {
-    font-size: 0.85em;
+	font-size: 0.85em;
 }
 #Engine {
-    color: #CF570C;
-    font-size: 0.92em;
+	color: white;
+	font-size: 30px;
 }
 
-#Links{
-    margin:auto;
+#Links {
+	width: 100%;
+	height: 100%;
 }
 #LinksInfo {
-    display: flex;
-    height: 50%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: flex-start;
+	height: 40px;
+	margin-bottom: 10px;
+	color: white;
+}
+#LinksInfo a {
+	height: 40px;
+}
+#LinksInfo a i {
+	font-size: 40px;
 }
 
 #ImageFrame {
-    padding: 0;
-    width: 100%;
-    height: 100%;
+	width: 100%;
+	height: 76%;
+	max-height: 80%;
+	padding: 0;
 }
-#Image {
-    width: inherit;
-    height: inherit;
-    object-fit: fill;
-    object-position: center center;
+img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center center;
 }
 #Description {
-    margin: auto;
-    padding-top: 10px;
+	margin: auto;
+	padding-top: 10px;
+	padding-right: 120px;
+	padding-left: 120px;
+	color: white;
+	font-size: 28px;
+	letter-spacing: 1px;
+	text-align: justify;
+}
+#zobaczWiecejButton {
+	display: flex;
+	flex-grow: 1;
+	align-items: flex-end;
+	justify-content: flex-end;
+	width: 100%;
+	min-height: 40px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+#zobaczWiecejButton button {
+	width: 100px;
+	height: 40px;
+	border-radius: 6px;
+	background-color: #cf570c;
+	color: white;
+	font-size: 20px;
+}
+#zobaczWiecejButton button:hover {
+	background-color: white;
+	color: #cf570c;
+}
+#ProjectInfoOverlay {
+	display: none;
+	z-index: 99999;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+#offOverlayBuutton {
+	display: flex;
+	position: relative; /* Kontener do pozycjonowania */
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	margin-left: 20px;
+	cursor: pointer;
 }
 
+#offOverlayBuutton strong {
+	display: block;
+	position: absolute;
+	width: 40px; /* Długość belki */
+	height: 4px; /* Grubość belki */
+	border-radius: 2px; /* Opcjonalnie zaokrąglenie */
+	background-color: white; /* Kolor */
+}
+
+#jedenX {
+	transform: rotate(45deg); /* Obrót o 45 stopni */
+}
+
+#dwaX {
+	transform: rotate(-45deg); /* Obrót o -45 stopni */
+}

@@ -1,17 +1,18 @@
 {
-  "title" : "Coco Jumpo",
-  "time_period" : "HackYeah 2020",
-  "engine" : "Unity",
-  "role" : {
-    "job": "Programista (generacja poziomu)",
-    "where" : "w 5-osobowym zespole"
-  },
-  "description" : "Gra na wzór IcyTower, wykonana na GameJamie podczas HackYeah w 2020r.",
-  "links" : [
-      {
-        "link" : "https://www.youtube.com/watch?v=mSn-LewtKOs",
-        "icon" : "fab fa-youtube",
-        "name" : "YouTube"
-      }
-  ]
+	"title": "Coco Jumpo",
+	"time_period": "HackYeah 2020",
+	"engine": "Unity",
+	"role": {
+		"job": "Programista (generacja poziomu)",
+		"where": "w 5-osobowym zespole"
+	},
+	"description": "Gra na wzór IcyTower, wykonana na GameJamie podczas HackYeah w 2020r.",
+	"links": [
+		{
+			"link": "https://www.youtube.com/watch?v=mSn-LewtKOs",
+			"icon": "fab fa-youtube",
+			"name": "YouTube"
+		}
+	],
+	"image": "../photos/game_photos/Cocojumpo.jpg"
 }

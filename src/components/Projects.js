@@ -1,79 +1,100 @@
-import React from "react";
-import Project from "./Project";
-import "../style/Projects.css";
+import React from 'react';
+import Project from './Project';
+import '../style/Projects.css';
+import ProjectsData from '../Projects/Projects.json';
 
-import KrzyweKarty from "../Projects/KrzyweKarty.json";
-import KrzyweKartyImage from "../photos/game_photos/KrzyweKarty.jpg";
+class Projects extends React.Component {
+	state = {
+		currentProjectIndex: 0, // Aktualny indeks projektu
+		isAnimating: true, // Flaga kontrolująca animację
+		isOverlayVisible: false, // Flaga kontrolująca widoczność overlayu
+		timer: null, // Timer
+	};
 
-import CocoJumpo from "../Projects/CocoJumpo.json";
-import CocoJumpoImage from "../photos/game_photos/Cocojumpo.jpg"
+	componentDidMount() {
+		this.startAutoSwitch();
+	}
 
-import Andromeda from "../Projects/Andromeda.json";
-import AndromedaImage from "../photos/game_photos/AndromedaImage.png";
+	componentWillUnmount() {
+		clearInterval(this.state.timer); // Usunięcie timera przy odmontowywaniu
+	}
 
-let i = 0;
+	startAutoSwitch = () => {
+		this.setState({
+			timer: setInterval(() => {
+				this.handleNextProject();
+			}, 8200),
+		});
+	};
 
-class Projects extends React.Component
-{
+	pauseAutoSwitch = () => {
+		clearInterval(this.state.timer); // Wstrzymanie timera
+		this.setState({ isAnimating: false }); // Zatrzymanie animacji
+	};
 
-    state = {
-        CurrentProject : [KrzyweKarty, KrzyweKartyImage]
-    }
+	resumeAutoSwitch = () => {
+		this.setState({ isAnimating: true }); // Wznowienie animacji
+		this.startAutoSwitch(); // Ponowne uruchomienie timera
+	};
 
-    render ()
-    {
+	handleNextProject = () => {
+		this.setState(prevState => ({
+			currentProjectIndex: (prevState.currentProjectIndex + 1) % ProjectsData.length, // Przejście do kolejnego projektu
+		}));
+	};
 
-        const ProjectsArray =  [
-            [KrzyweKarty, KrzyweKartyImage],
-            [CocoJumpo, CocoJumpoImage],
-            [Andromeda, AndromedaImage]
-        ]
+	handleProjectChange = index => {
+		if (this.state.isOverlayVisible) return; // Blokowanie kliknięcia, gdy overlay jest widoczny
+		clearInterval(this.state.timer); // Reset timera
+		this.setState({ isAnimating: false }, () => {
+			// Zresetuj animację i przełącz projekt
+			this.setState({ currentProjectIndex: index, isAnimating: true });
+		});
+		this.startAutoSwitch(); // Ponowne uruchomienie automatycznego przełączania
+	};
 
-        const SwitchLeft = () => {
-            var x = i;
-            if(x <= 0)
-            {
-                x = ProjectsArray.length - 1;
-            }
-            else
-            {
-                x -= 1;
-            }
-            i = x;
-            this.setState({CurrentProject: ProjectsArray[i]})
-        }
+	handleOverlayToggle = isVisible => {
+		this.setState({ isOverlayVisible: isVisible }, () => {
+			// Jeśli overlay jest widoczny, zatrzymaj timer i animację
+			if (isVisible) {
+				this.pauseAutoSwitch();
+			} else {
+				this.resumeAutoSwitch(); // Wznów timer i animację, gdy overlay zostanie zamknięty
+			}
+		});
+	};
 
-        const SwitchRight = () => {
-            var x = i;
-            if(x >= ProjectsArray.length - 1)
-            {
-                x = 0;
-            }
-            else
-            {
-                x += 1
-            }
-            i = x;
-            this.setState({CurrentProject : ProjectsArray[i]});
-        }
+	render() {
+		const { currentProjectIndex, isAnimating, isOverlayVisible } = this.state;
 
+		return (
+			<div id='Projects'>
+				<div
+					id='SwitchProjectsButtons'
+					className={isOverlayVisible ? 'disabled' : ''} // Dodanie klasy 'disabled', gdy overlay jest widoczny
+				>
+					{/* Dynamically render buttons based on JSON data */}
+					{ProjectsData.map((project, index) => (
+						<div
+							key={index}
+							className={`ProjectIconContainer ${isAnimating && index === currentProjectIndex ? 'animate' : ''}`}
+							onClick={() => this.handleProjectChange(index)}>
+							<div className='progress-bar'></div>
+							<div className='ProjectName'>
+								<h3>{project.title}</h3>
+							</div>
+						</div>
+					))}
+				</div>
 
-        return (
-        <div id="Projects">
-            <div id="LeftButtonDiv">
-                <button id="LeftButton" onClick={SwitchLeft}>
-                    <i id="LeftIcon" className=" fas fa-arrow-circle-left"></i>
-                </button>
-            </div>
-            < Project json = {this.state.CurrentProject[0]} image = {this.state.CurrentProject[1]} />
-            <div id="RightButtonDiv">
-                <button id="RightButton" onClick={SwitchRight}>
-                    <i id="RightIcon" className="fas fa-arrow-circle-right"></i>
-                </button>
-            </div>
-        </div>
-        )
-    }
+				{/* Wyświetlanie aktywnego projektu */}
+				<Project
+					json={ProjectsData[currentProjectIndex]}
+					onOverlayToggle={this.handleOverlayToggle} // Przekazywanie funkcji do obsługi widoczności overlayu
+				/>
+			</div>
+		);
+	}
 }
 
 export default Projects;

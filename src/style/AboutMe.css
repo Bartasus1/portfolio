@@ -1,53 +1,47 @@
 #AboutMe {
-    height: 100vh;
-    width: 100vw;
-
-    background-color: black;
-    color: #9D9C9C;
-
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: 100vh;
-    text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+	padding: 0 10%;
+	background-color: #141414;
+	color: #9d9c9c;
+	text-align: center;
 }
-
-
 
 #Fire {
-    height: 100vh;
-    width: calc(25vw + 10vh);
-    grid-column: 1/2;
+	width: auto;
+	height: 80vh;
 }
-
 
 #Text {
-    margin: auto;
-    padding-right: 5%;
-    grid-column: 2/3;
-
-    max-height: 90%;
-    width: 90%;
-
-    font-size: calc(0.9vw + 1vh);
-
-    word-break: break-word;
-
-    line-height: 1;
-    letter-spacing: 2px;
-    word-spacing: 3px;
-
-    box-sizing: border-box;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	width: 70%;
+	height: 100%;
+	padding-top: 10%;
+	padding-right: 15%;
+	font-size: calc(0.9vw + 1vh);
+	word-break: break-word;
+	word-spacing: 3px;
 }
-
-.Introduction {
-    position: center;
+#Text h1 {
+	position: static;
+	margin: 0;
+	color: white;
+	font-weight: 200;
+	font-size: 64px;
+	font-family: 'Roboto Mono', monospace;
 }
-
-ul {
-    font-size: 0.9em;
-    text-align: right;
-}
-
-li {
-    text-align: left;
+#Text p {
+	width: 70%;
+	font-size: 30px;
+	line-height: 40px;
+	font-family: 'Roboto Mono', monospace;
+	text-align: justify;
+  letter-spacing: 2px;
 }

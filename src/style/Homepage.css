@@ -1,38 +1,90 @@
-.Home  {
-
-    display: grid;
-    grid-template-rows: 2fr 60% 4fr;
-    grid-template-columns: repeat(2,1fr);
-
-    height: 100vh;
-    width: 100vw;
-    background-image: url("../photos/Homepagephoto.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Archivo:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+#HomePageID {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	width: 100vw;
+	height: 100vh;
+	background-image: url('../photos/Homepagephoto.jpg');
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
-@media (max-width: 700px) {
-    .Home {
-        grid-template-columns: 1fr;
-        grid-template-rows: 2fr 50% 4fr;
-    }
+/* @media (max-width: 700px) {
+	.Home {
+		grid-template-rows: 2fr 50% 4fr;
+		grid-template-columns: 1fr;
+	}
+} */
+nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 100%;
+	height: 6vh;
 }
+nav #navBar {
+	width: 70%;
+	height: 100%;
+	padding-left: 10%;
+}
+nav #navBar ul {
+	display: flex;
+	align-items: center;
 
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+nav #navBar ul li {
+	margin: 0 20px;
+	font-size: 24px;
+	list-style: none;
+  cursor: pointer;
+}
+nav #navBar ul li:hover{
+  text-decoration: underline;
+}
 #Icons {
-    width: 100vw;
-    height: 64px;
-    margin-top: 30px;
-    text-align: right;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 30%;
+	height: 6vh;
+}
+h1 {
+	position: absolute;
+	color: black;
+	font-weight: 800;
+	font-size: 128px;
+	font-family: 'Archivo', serif;
 }
 
-
-#Name {
-    color: white;
-    grid-row: 3/4;
-    grid-column: 1;
-    font-size : 45px;
-    margin-left: 4%;
-    margin-top: 5%;
-
+#Name1 {
+	top: 10%;
+	right: 25%;
+}
+#Name2 {
+	top: 25%;
+	right: 18%;
+}
+#TitleName {
+	display: flex;
+	position: absolute;
+	bottom: 10%;
+	left: 10%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+#TitleName h2 {
+	margin: 0;
+	color: white;
+	font-weight: 400;
+	font-size: 48px;
+	font-family: 'Archivo Narrow', sans-serif;
 }
