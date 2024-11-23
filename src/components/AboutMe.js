@@ -1,5 +1,5 @@
 import '../style/AboutMe.css';
-import fire from '../photos/OgienTakiDuzy.png';
+import fire from '../photos/fire.png';
 
 function AboutMe() {
 	return (

@@ -56,7 +56,7 @@ function Project(props) {
 			</div>
 
 			<div id='ImageFrame'>
-				<img src={require(`../photos/game_photos/${props.json.image}`)} alt={props.json.title} />
+				<img src={require(`../photos/projects/${props.json.image}`)} alt={props.json.title} />
 			</div>
 
 			<div className='LongRow'>
