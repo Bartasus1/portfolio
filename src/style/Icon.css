@@ -1,8 +1,8 @@
 .Icon {
 	box-sizing: border-box !important;
-	height: 60px !important;
-	margin: 15px !important;
-	font-size: 35px !important;
+	height: 60px;
+	margin: 15px;
+	font-size: 35px;
 }
 
 .Homepage {
@@ -12,4 +12,10 @@
 .ProjectIcon {
 	color: white;
 	/* font-size: calc(1.4vw + 2.8vh) !important; */
+}
+@media only screen and (min-width: 360px) and (max-width: 760px){
+  .Icon{
+    font-size: 25px;
+    margin: 5px;
+  }
 }

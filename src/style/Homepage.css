@@ -44,10 +44,10 @@ nav #navBar ul li {
 	margin: 0 20px;
 	font-size: 24px;
 	list-style: none;
-  cursor: pointer;
+	cursor: pointer;
 }
-nav #navBar ul li:hover{
-  text-decoration: underline;
+nav #navBar ul li:hover {
+	text-decoration: underline;
 }
 #Icons {
 	display: flex;
@@ -87,4 +87,82 @@ h1 {
 	font-weight: 400;
 	font-size: 48px;
 	font-family: 'Archivo Narrow', sans-serif;
+}
+@media only screen and (min-width: 360px) and (max-width: 760px) {
+	#HomePageID {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		width: 100vw;
+		height: 90vh;
+		background-image: url('../photos/Homepagephoto.jpg');
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	nav {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-evenly;
+		width: 100%;
+		height: 20vh;
+	}
+	nav #navBar {
+		width: 90%;
+		height: 100%;
+		padding: 0;
+	}
+	nav #navBar ul {
+		display: flex;
+		align-items: flex-start;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 20px 0 0 10px;
+	}
+	nav #navBar ul li {
+		margin: 0 20px 0 0;
+		font-weight: 600;
+		font-size: 15px;
+		list-style: none;
+		cursor: pointer;
+	}
+	#Icons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		width: 10%;
+		height: 20vh;
+		padding-top: 10px;
+	}
+	#Name1 {
+		top: 25%;
+		right: 35%;
+		font-size: 40px;
+	}
+	#Name2 {
+		top: 30%;
+		right: 22%;
+		font-size: 40px;
+	}
+  #TitleName {
+    display: flex;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #TitleName h2 {
+    margin: 0;
+    color: white;
+    font-weight: 400;
+    font-size: 30px;
+    font-family: 'Archivo Narrow', sans-serif;
+  }
 }
