@@ -1,7 +1,7 @@
 import React from 'react';
 import Project from './Project';
 import '../style/Projects.css';
-import ProjectsData from '../Projects/Projects.json';
+import ProjectsData from '../data/Projects.json';
 
 class Projects extends React.Component {
 	state = {
