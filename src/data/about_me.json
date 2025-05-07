@@ -1,3 +1,20 @@
 {
-
+    "title": "Gameplay & UI Programmer",
+    "description": "I'm a game developer with 5 years of experience, including 4 years in Unreal Engine and 15 months in a commercial setting. Proficient in both Blueprints and C++, focused on building clean and robust systems & mechanics. I've worked on a variety of personal projects and have taken on leadership roles in collaborative team efforts. My goal is to continue growing as a game developer and deepen my expertise through professional opportunities.",
+    "hobbies": [
+        "Micro-knowledge: I enjoy learning about various topics, including history, psychology, and technology", 
+        "Programming & game development",
+        "Physics simulations and procedural generation",
+        "Video games, especially RPGs and FPSs",
+        "Sports: archery and basketball",
+        "Films, books, anime"       
+    ],
+    "soft_skills": [
+        "Hard-working & dedicated",
+        "Rapid knowledge acquisition",
+        "Problem-solving",
+        "Teamwork oriented",
+        "Creativity",
+        "Attention to detail"
+    ]
 }

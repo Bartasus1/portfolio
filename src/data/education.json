@@ -1,3 +1,26 @@
-{
-
-}
+[
+	{
+		"degree": "Engineer of Computer Science",
+		"institution": "[University of Wroclaw, Poland](https://www.uwr.edu.pl)",
+		"start_date": "2019",
+		"end_date": "2023",
+		"skills": [
+			"Algorithms and data structures",
+			"Game programming with Unreal Engine",
+			"Advanced C++ programming and concepts",
+			"Web and mobile development, database management",
+			"Physics simulations"
+		]
+	},
+	{
+		"degree": "Master of Video Game Science",
+		"institution": "[Jagiellonian University of Krakow, Poland](https://en.uj.edu.pl)",
+		"start_date": "2024",
+		"end_date": "Present",
+		"skills": [
+			"Game design, management and development",
+			"Advanced math and physics for games",
+			"Graphics programming with OpenGL"
+		]
+	}
+]

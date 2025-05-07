@@ -1,38 +1,102 @@
 {
 	"jobs": [
 		{
-			"title": "Backend Developer",
-			"company": "Getmen",
+			"title": "Java Backend Developer",
+			"company": "[Getmen](https://getmen.com)",
 			"location": "Opole, Poland",
 			"start_date": "10-2024",
 			"end_date": "Present",
 			"technologies": [
-				"java",
-				"spring",
-				"docker",
-				"git"
+				{
+					"name": "Java 21",
+					"icon": "./icons/java.svg"
+				},
+				{
+					"name": "Spring Boot",
+					"icon": "./icons/spring.svg"
+				},
+				{
+					"name": "Docker & Docker Compose",
+					"icon": "./icons/docker.svg"
+				},
+				{
+					"name": "Git",
+					"icon": "./icons/git.svg"
+				}
 			],
 			"responsibilities": [
-				"Developed backend for a web application using Spring Boot and PostgreSQL.",
-				"Created microservice architecture hidden within a Docker network.",
+				"Developed backend with REST API using Spring Boot and PostgreSQL.",
+				"Integrated Keycloak service for user authentication and authorization.",
+				"Created microservice architecture secured within a Docker network.",
 				"Participated in code reviews and contributed to the documentation."
 			]
 	},
 	{
 			"title": "Junior Gameplay & UI Programmer",
-			"company": "Reikon Games",
+			"company": "[Reikon Games](https://reikongames.com)",
 			"location": "Remote",
 			"start_date": "06-2023",
 			"end_date": "09-2023",
 			"technologies": [
-				"unreal",
-				"cpp",
-				"perforce"
+				{
+					"name": "Unreal Engine 5",
+					"icon": "./icons/unreal.svg"
+				},
+				{
+					"name": "C++",
+					"icon": "./icons/cpp.svg"
+				},
+				{
+					"name": "Helix Perforce",
+					"icon": "./icons/perforce.svg"
+				}
 			],
 			"responsibilities": [
-				"Assisted in the development of a mobile application using Flutter.",
-				"Conducted testing and debugging of software applications.",
-				"Worked closely with senior developers to learn best practices."
+
+			]
+		},
+		{
+			"title": "Junior Gameplay Programmer (Internship)",
+			"company": "[Critical Hit Games](https://criticalhitgames.com)",
+			"location": "Wroclaw, Poland",
+			"start_date": "07-2022",
+			"end_date": "09-2022",
+			"technologies": [
+				{
+					"name": "Unreal Engine 5",
+					"icon": "./icons/unreal.svg"
+				},
+				{
+					"name": "C++",
+					"icon": "./icons/cpp.svg"
+				},
+				{
+					"name": "Subversion",
+					"icon": "./icons/svn.svg"
+				}
+			],
+			"responsibilities": [
+
+			]
+		},
+		{
+			"title": "Junior Unreal Engine Programmer",
+			"company": "[Image Power](https://imagepower.pl)",
+			"location": "Remote",
+			"start_date": "06-2021",
+			"end_date": "03-2022",
+			"technologies": [
+				{
+					"name": "Unreal Engine 5",
+					"icon": "./icons/unreal.svg"
+				},
+				{
+					"name": "Git",
+					"icon": "./icons/git.svg"
+				}
+			],
+			"responsibilities": [
+
 			]
 		}
 	]
