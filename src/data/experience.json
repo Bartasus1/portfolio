@@ -1,0 +1,39 @@
+{
+	"jobs": [
+		{
+			"title": "Backend Developer",
+			"company": "Getmen",
+			"location": "Opole, Poland",
+			"start_date": "10-2024",
+			"end_date": "Present",
+			"technologies": [
+				"java",
+				"spring",
+				"docker",
+				"git"
+			],
+			"responsibilities": [
+				"Developed backend for a web application using Spring Boot and PostgreSQL.",
+				"Created microservice architecture hidden within a Docker network.",
+				"Participated in code reviews and contributed to the documentation."
+			]
+	},
+	{
+			"title": "Junior Gameplay & UI Programmer",
+			"company": "Reikon Games",
+			"location": "Remote",
+			"start_date": "06-2023",
+			"end_date": "09-2023",
+			"technologies": [
+				"unreal",
+				"cpp",
+				"perforce"
+			],
+			"responsibilities": [
+				"Assisted in the development of a mobile application using Flutter.",
+				"Conducted testing and debugging of software applications.",
+				"Worked closely with senior developers to learn best practices."
+			]
+		}
+	]
+}
