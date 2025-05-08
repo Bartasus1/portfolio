@@ -30,8 +30,8 @@
 				"Created microservice architecture secured within a Docker network.",
 				"Participated in code reviews and contributed to the documentation."
 			]
-	},
-	{
+		},
+		{
 			"title": "Junior Gameplay & UI Programmer",
 			"company": "[Reikon Games](https://reikongames.com)",
 			"location": "Remote",
@@ -40,7 +40,7 @@
 			"technologies": [
 				{
 					"name": "Unreal Engine 5",
-					"icon": "/icons/unreal.svg"
+					"icon": "/icons/unreal-engine.svg"
 				},
 				{
 					"name": "C++",
@@ -51,9 +51,7 @@
 					"icon": "/icons/perforce.svg"
 				}
 			],
-			"responsibilities": [
-
-			]
+			"responsibilities": []
 		},
 		{
 			"title": "Junior Gameplay Programmer (Internship)",
@@ -64,7 +62,7 @@
 			"technologies": [
 				{
 					"name": "Unreal Engine 5",
-					"icon": "/icons/unreal.svg"
+					"icon": "/icons/unreal-engine.svg"
 				},
 				{
 					"name": "C++",
@@ -75,9 +73,7 @@
 					"icon": "/icons/svn.svg"
 				}
 			],
-			"responsibilities": [
-
-			]
+			"responsibilities": []
 		},
 		{
 			"title": "Junior Unreal Engine Programmer",
@@ -88,16 +84,14 @@
 			"technologies": [
 				{
 					"name": "Unreal Engine 5",
-					"icon": "/icons/unreal.svg"
+					"icon": "/icons/unreal-engine.svg"
 				},
 				{
 					"name": "Git",
 					"icon": "/icons/git.svg"
 				}
 			],
-			"responsibilities": [
-
-			]
+			"responsibilities": []
 		}
 	]
 }
