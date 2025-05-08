@@ -1,4 +1,4 @@
-<script setup> // lang="ts"
+<script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import HomepageView from './views/HomepageView.vue';
 import AboutMeView from './views/AboutMeView.vue';

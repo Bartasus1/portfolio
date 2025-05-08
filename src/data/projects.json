@@ -1,3 +1,29 @@
 [
-	
+	{
+		"title": "Krzywe Karty",
+		"image": "/images/CrookedCards.png",
+		"description": [
+			"Multiplayer strategic card game where player can choose their own deck and play against each other. The game is based on a board game developed by my friend."
+		],
+		"technologies": [
+			{
+				"name": "Unreal Engine 5",
+				"icon": "/icons/unreal-engine.svg"
+			},
+			{
+				"name": "C++",
+				"icon": "/icons/cpp.svg"
+			}
+		],
+		"links": [
+			{
+				"name": "GitHub",
+				"url": "https://github.com/Bartasus1/CrookedCards"
+			},
+			{
+				"name": "Itch.io",
+				"url": "https://bartasus1.itch.io/krzywe-karty/download/9Sc2bvmDh9CR3fQUhWmbddVfOS1raOG9hiL6aNGI"
+			}
+		]
+	}
 ]
