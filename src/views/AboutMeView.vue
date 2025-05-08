@@ -1,5 +1,5 @@
-<script>
-import AboutMeSection from '../components/AboutMeSection.vue';
+<script setup lang="ts">
+import AboutMeSection from '../components/AboutMeSection.vue'
 </script>
 
 <template>
