@@ -2,9 +2,12 @@
 	"jobs": [
 		{
 			"title": "Java Backend Developer",
-			"company": "[Getmen](https://getmen.com)",
+			"company": {
+				"name": "Getmen",
+				"link": "https://getmen.com"
+			},
 			"location": "Opole, Poland",
-			"start_date": "10-2024",
+			"start_date": "10.2024",
 			"end_date": "Present",
 			"technologies": [
 				{
@@ -33,10 +36,13 @@
 		},
 		{
 			"title": "Junior Gameplay & UI Programmer",
-			"company": "[Reikon Games](https://reikongames.com)",
+			"company": {
+				"name": "Reikon Games",
+				"link": "https://reikongames.com"
+			},
 			"location": "Remote",
-			"start_date": "06-2023",
-			"end_date": "09-2023",
+			"start_date": "06.2023",
+			"end_date": "09.2023",
 			"technologies": [
 				{
 					"name": "Unreal Engine 5",
@@ -55,10 +61,13 @@
 		},
 		{
 			"title": "Junior Gameplay Programmer (Internship)",
-			"company": "[Critical Hit Games](https://criticalhitgames.com)",
+			"company": {
+				"name": "Critical Hit Games",
+				"link": "https://criticalhitgames.com"
+			},
 			"location": "Wroclaw, Poland",
-			"start_date": "07-2022",
-			"end_date": "09-2022",
+			"start_date": "07.2022",
+			"end_date": "09.2022",
 			"technologies": [
 				{
 					"name": "Unreal Engine 5",
@@ -77,13 +86,16 @@
 		},
 		{
 			"title": "Junior Unreal Engine Programmer",
-			"company": "[Image Power](https://imagepower.pl)",
+			"company": {
+				"name": "Image Power",
+				"link": "https://imagepower.pl"
+			},
 			"location": "Remote",
-			"start_date": "06-2021",
-			"end_date": "03-2022",
+			"start_date": "06.2021",
+			"end_date": "03.2022",
 			"technologies": [
 				{
-					"name": "Unreal Engine 5",
+					"name": "Unreal Engine 4",
 					"icon": "/icons/unreal-engine.svg"
 				},
 				{

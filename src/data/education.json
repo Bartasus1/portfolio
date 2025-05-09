@@ -1,7 +1,10 @@
 [
 	{
 		"degree": "Engineer of Computer Science",
-		"institution": "[University of Wroclaw, Poland](https://www.uwr.edu.pl)",
+		"institution": {
+			"name": "University of Wroclaw, Poland",
+			"link": "https://www.uwr.edu.pl"
+		},
 		"start_date": "2019",
 		"end_date": "2023",
 		"skills": [
@@ -14,7 +17,10 @@
 	},
 	{
 		"degree": "Master of Video Game Science",
-		"institution": "[Jagiellonian University of Krakow, Poland](https://en.uj.edu.pl)",
+		"institution": {
+			"name": "Jagiellonian University of Krakow, Poland",
+			"link": "https://en.uj.edu.pl"
+		},
 		"start_date": "2024",
 		"end_date": "Present",
 		"skills": [
