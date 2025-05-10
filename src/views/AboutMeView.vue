@@ -5,28 +5,26 @@
 	import ExperiencePage from '@/components/AboutMe/AboutMePages/ExperiencePage.vue';
 	import EducationPage from '@/components/AboutMe/AboutMePages/EducationPage.vue';
 
-	const activeSection = ref(''); 
 	const sectionIndex = ref(-1); 
 	
-	function setActiveSection(sectionKey: string, index: number) {
-		activeSection.value = sectionKey;
+	function setActiveSection(index: number) {
 		sectionIndex.value = index;
 	}
 
 	const sections = [
 		{
 			name: 'About Me',
-			description: 'Nosce te ipsum, temet nosce',
+			description: 'Nosce te ipsum, temet nosce', // know thyself
 			component: AboutMePage,
 		},
 		{
 			name: 'Experience',
-			description: 'Per aspera ad astra',
+			description: 'Per aspera ad astra', // through hardships to the stars
 			component: ExperiencePage,
 		},
 		{
 			name: 'Education',
-			description: 'Sapere aude',
+			description: 'Sapere aude', // dare to know
 			component: EducationPage,
 		},
 	];
@@ -38,14 +36,13 @@
 			<AboutMeSection v-for="(section, index) in sections" :key="index"
 				:name="section.name" 
 				:description="section.description" 
-				:class="{ active: activeSection === section.name }" 
-				@click="setActiveSection(section.name, index)" 
+				:class="{ active: sectionIndex === index }" 
+				@click="setActiveSection(index)" 
 			/>
 	</div>	
 	<div class="content">
 		<Transition name="slide" mode="out-in">
-			<!-- This wrapper is necessary for the transition to work properly -->
-			<div v-if="sectionIndex != -1" :key="activeSection" class="content-wrapper">
+			<div v-if="sectionIndex != -1" :key="sectionIndex" class="content-wrapper">
 				<component :is="sections[sectionIndex].component" class="section-content"/>
 			</div>
 		</Transition>
