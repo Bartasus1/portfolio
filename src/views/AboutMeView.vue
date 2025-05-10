@@ -1,15 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import AboutMeSection from '@/components/AboutMe/AboutMeSection.vue';
-import AboutMePage from "@/components/AboutMe/AboutMePages/AboutMePage.vue";
-import ExperiencePage from '@/components/AboutMe/AboutMePages/ExperiencePage.vue';
-import EducationPage from '@/components/AboutMe/AboutMePages/EducationPage.vue';
+	import { ref } from 'vue';
+	import AboutMeSection from '@/components/AboutMe/AboutMeSection.vue';
+	import AboutMePage from "@/components/AboutMe/AboutMePages/AboutMePage.vue";
+	import ExperiencePage from '@/components/AboutMe/AboutMePages/ExperiencePage.vue';
+	import EducationPage from '@/components/AboutMe/AboutMePages/EducationPage.vue';
 
-const activeSection = ref(''); // Initial section: 'aboutMe', 'education', 'experience'
-// Function to be called by AboutMeSection components or click handlers
-function setActiveSection(sectionKey: string) {
-	activeSection.value = sectionKey;
-}
+	const activeSection = ref(''); // Initial section: 'aboutMe', 'education', 'experience'
+
+	// Function to be called by AboutMeSection components or click handlers
+	function setActiveSection(sectionKey: string) {
+		activeSection.value = sectionKey;
+	}
 
 </script>
 

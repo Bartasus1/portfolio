@@ -8,7 +8,7 @@ interface Company {
 
 interface Technology {
 	name: string;
-	icon?: string;
+	icon: string;
 }
 
 interface Job {
@@ -58,6 +58,7 @@ defineProps<{
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.3);
 	padding: 1rem;
+	padding-left: 1.5rem;
 	margin-bottom: 1rem;
 	border-radius: 8px;
 }

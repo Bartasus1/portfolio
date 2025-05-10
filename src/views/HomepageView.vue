@@ -1,10 +1,12 @@
 <template>
-	<div class="welcomeImage"></div>
-	<div class="headerContainer">
-		<div class="welcome">
-			<h1 class="myName">Bartłomiej Banaś</h1>
-			<span class="separator"></span>
-			<h2 class="myProfession">Gameplay & UI Programmer</h2>
+	<div class="homepage">
+		<div class="welcomeImage"></div>
+		<div class="headerContainer">
+			<div class="welcome">
+				<h1 class="myName">Bartłomiej Banaś</h1>
+				<span class="separator"></span>
+				<h2 class="myProfession">Gameplay & UI Programmer</h2>
+			</div>
 		</div>
 	</div>
 </template>
@@ -13,6 +15,16 @@
 </script>
 
 <style scoped>
+
+.homepage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100vh;
+	max-height: 100vh;
+	overflow: hidden;
+}
 .welcomeImage {
 	position: fixed;
 	top: 0;

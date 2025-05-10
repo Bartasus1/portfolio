@@ -47,6 +47,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
+	h1 {
+		font-size: clamp(1rem, 4rem, 4.5rem);
+	}
 }
 .separator {
 	width: 100%;
@@ -59,8 +62,6 @@
 	font-style: italic; /* Added cursive font style */
 }
 
-h1 {
-	font-size: 4rem;
-}
+
 	
 </style>
