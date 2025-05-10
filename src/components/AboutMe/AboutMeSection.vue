@@ -1,7 +1,7 @@
 <script setup lang="ts">
 	defineProps<{
 		name: string;
-		description: string;
+		quote: string;
 	}>()
 </script>
 
@@ -11,9 +11,9 @@
 			<h1>{{ name }}</h1>
 		</div>
 		<div class="separator"></div>
-		<div class="description">
+		<div class="quote">
 			<p>
-				{{ description }}
+				{{ quote }}
 			</p>
 		</div>
 	</div>
@@ -57,7 +57,7 @@
 	background-color: #202020;
 	margin: 5px 0;
 }
-.description {
+.quote {
 	font-size: 1.4rem;
 	font-style: italic; /* Added cursive font style */
 }

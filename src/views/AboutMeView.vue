@@ -14,17 +14,17 @@
 	const sections = [
 		{
 			name: 'About Me',
-			description: 'Nosce te ipsum, temet nosce', // know thyself
+			quote: 'Nosce te ipsum, temet nosce', // know thyself
 			component: AboutMePage,
 		},
 		{
 			name: 'Experience',
-			description: 'Per aspera ad astra', // through hardships to the stars
+			quote: 'Per aspera ad astra', // through hardships to the stars
 			component: ExperiencePage,
 		},
 		{
 			name: 'Education',
-			description: 'Sapere aude', // dare to know
+			quote: 'Sapere aude', // dare to know
 			component: EducationPage,
 		},
 	];
@@ -35,7 +35,7 @@
 	<div class="sidebar">
 			<AboutMeSection v-for="(section, index) in sections" :key="index"
 				:name="section.name" 
-				:description="section.description" 
+				:quote="section.quote" 
 				:class="{ active: sectionIndex === index }" 
 				@click="setActiveSection(index)" 
 			/>
