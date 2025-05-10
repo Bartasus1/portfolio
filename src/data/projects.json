@@ -3,7 +3,8 @@
 		"title": "Krzywe Karty",
 		"image": "/images/CrookedCards.png",
 		"description": [
-			"Multiplayer strategic card game where player can choose their own deck and play against each other. The game is based on a board game developed by my friend."
+			"Multiplayer strategic card game where player can choose their own deck and play against each other.",
+			"The game is based on a board game developed by my friend."
 		],
 		"technologies": [
 			{

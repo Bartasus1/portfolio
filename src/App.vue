@@ -3,6 +3,8 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import animateScrollTo from 'animated-scroll-to';
 import HomepageView from './views/HomepageView.vue';
 import AboutMeView from './views/AboutMeView.vue';
+import experience from '@/data/experience.json';
+import projects from '@/data/projects.json';
 
 var prevScrollTarget = 0;
 var scrollTarget = 0;
@@ -48,6 +50,28 @@ onMounted(() => {
 		speed: 400,
 		easing: t => t * (2 - t), // Custom easing function
 	})
+
+	/* PRE-FETCH IMPORTANT THINGS FROM PUBLIC FOLDER*/
+	// experience.jobs.forEach((job) => {
+	// 	const tech = job.technologies;
+	// 	tech.forEach((t) => {
+	// 		if (t.icon) {
+	// 			const img = new Image();
+	// 			img.src = t.icon;
+	// 		}
+	// 	})
+	// })
+	// projects.forEach((project) => {
+	// 	const img = new Image();
+	// 	img.src = project.image;
+	// 	const tech = project.technologies;
+	// 	tech.forEach((t) => {
+	// 		if (t.icon) {
+	// 			const img = new Image();
+	// 			img.src = t.icon;
+	// 		}
+	// 	})
+	// })
 })
 
 // onUnmounted(() => {

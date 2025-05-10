@@ -6,7 +6,7 @@
 	import EducationPage from '@/components/AboutMe/AboutMePages/EducationPage.vue';
 
 	const activeSection = ref(''); 
-	const sectionIndex = ref(0); 
+	const sectionIndex = ref(-1); 
 	
 	function setActiveSection(sectionKey: string, index: number) {
 		activeSection.value = sectionKey;
@@ -45,7 +45,7 @@
 	<div class="content">
 		<Transition name="slide" mode="out-in">
 			<!-- This wrapper is necessary for the transition to work properly -->
-			<div :key="activeSection" class="content-wrapper">
+			<div v-if="sectionIndex != -1" :key="activeSection" class="content-wrapper">
 				<component :is="sections[sectionIndex].component" class="section-content"/>
 			</div>
 		</Transition>
