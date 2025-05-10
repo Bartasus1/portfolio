@@ -13,7 +13,6 @@ const views = [
 	AboutMeView
 ]
 
-
 const handleWheel = (event: WheelEvent) => {
 	event.preventDefault()
 
@@ -31,7 +30,7 @@ const handleWheel = (event: WheelEvent) => {
 
 	animateScrollTo(sections[scrollTarget], {
 		speed: 400,
-		easing: t => t * (2 - t), // Custom easing function
+		easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1, // Custom easing function
 		cancelOnUserAction: false
 	})
 }
@@ -64,6 +63,16 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.view-section {
+	display: flex;
+	align-items: center; /* Changed from stretch to center for vertical alignment */
+	justify-content: flex-start;
+	width: 100%;
+	height: 100%; /* Ensure this is 100vh or similar if it's a full page section */
+	max-height: 100vh; /* Or a fixed height if preferred */
+	overflow: hidden;
+}
+
 /* Optional: Add this to the parent container if you want to enable native scroll snapping as a fallback */
 :root {
 	scroll-behavior: smooth;

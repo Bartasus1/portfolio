@@ -5,54 +5,54 @@
 	import ExperiencePage from '@/components/AboutMe/AboutMePages/ExperiencePage.vue';
 	import EducationPage from '@/components/AboutMe/AboutMePages/EducationPage.vue';
 
-	const activeSection = ref(''); // Initial section: 'aboutMe', 'education', 'experience'
-
-	// Function to be called by AboutMeSection components or click handlers
-	function setActiveSection(sectionKey: string) {
+	const activeSection = ref(''); 
+	const sectionIndex = ref(0); 
+	
+	function setActiveSection(sectionKey: string, index: number) {
 		activeSection.value = sectionKey;
+		sectionIndex.value = index;
 	}
+
+	const sections = [
+		{
+			name: 'About Me',
+			description: 'Nosce te ipsum, temet nosce',
+			component: AboutMePage,
+		},
+		{
+			name: 'Experience',
+			description: 'Per aspera ad astra',
+			component: ExperiencePage,
+		},
+		{
+			name: 'Education',
+			description: 'Sapere aude',
+			component: EducationPage,
+		},
+	];
 
 </script>
 
 <template>
-	<section class="aboutMe">
-		<div class="sidebar">
-			<AboutMeSection name="About Me" description="Nosce te ipsum, temet nosce" @click="setActiveSection('aboutMe')" :class="{ active: activeSection === 'aboutMe' }" />
-			<AboutMeSection name="Experience" description="Per aspera ad astra" @click="setActiveSection('experience')" :class="{ active: activeSection === 'experience' }" />
-			<AboutMeSection name="Education" description="Sapere aude" @click="setActiveSection('education')" :class="{ active: activeSection === 'education' }" />
-		</div>
-		<div class="content">
-			<Transition name="slide" mode="out-in">
-				<!-- This wrapper is necessary for the transition to work properly -->
-				<div :key="activeSection" class="content-wrapper">
-						<!-- About Me Content -->
-						<div v-if="activeSection === 'aboutMe'" class="aboutMeInfo section-content">
-							<AboutMePage/>
-						</div>
-						<!-- Experience Content -->
-						<div v-else-if="activeSection === 'experience'" class="ExperienceInfo section-content">
-							<ExperiencePage/>
-						</div>
-						<!-- Education Content -->
-						<div v-else-if="activeSection === 'education'" class="EducationInfo section-content">
-							<EducationPage/>
-						</div>
-				</div>
-			</Transition>
-		</div>
-	</section>
+	<div class="sidebar">
+			<AboutMeSection v-for="(section, index) in sections" :key="index"
+				:name="section.name" 
+				:description="section.description" 
+				:class="{ active: activeSection === section.name }" 
+				@click="setActiveSection(section.name, index)" 
+			/>
+	</div>	
+	<div class="content">
+		<Transition name="slide" mode="out-in">
+			<!-- This wrapper is necessary for the transition to work properly -->
+			<div :key="activeSection" class="content-wrapper">
+				<component :is="sections[sectionIndex].component" class="section-content"/>
+			</div>
+		</Transition>
+	</div>
 </template>
 
 <style scoped>
-.aboutMe {
-	display: flex;
-	align-items: center; /* Changed from stretch to center for vertical alignment */
-	justify-content: flex-start;
-	width: 100%;
-	height: 100%; /* Ensure this is 100vh or similar if it's a full page section */
-	max-height: 100vh; /* Or a fixed height if preferred */
-	overflow: hidden;
-}
 .sidebar {
 	display: flex;
 	flex-direction: column;
