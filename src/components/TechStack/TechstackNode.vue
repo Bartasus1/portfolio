@@ -7,7 +7,6 @@
 	}
 
 	const props = defineProps<{
-		index: number;
 		tech: Technology;
 	}>();
 

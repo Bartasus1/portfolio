@@ -2,6 +2,8 @@
 	{
 		"title": "Krzywe Karty",
 		"image": "/images/CrookedCards.png",
+		"scope": "Personal",
+		"short_description": "Multiplayer strategic card game",
 		"description": [
 			"Multiplayer strategic card game where player can choose their own deck and play against each other.",
 			"The game is based on a board game developed by my friend."
@@ -19,11 +21,99 @@
 		"links": [
 			{
 				"name": "GitHub",
+				"icon": "/icons/github.svg",
 				"url": "https://github.com/Bartasus1/CrookedCards"
 			},
 			{
 				"name": "Itch.io",
+				"icon": "/icons/itch-io.svg",
 				"url": "https://bartasus1.itch.io/krzywe-karty/download/9Sc2bvmDh9CR3fQUhWmbddVfOS1raOG9hiL6aNGI"
+			}
+		]
+	},
+	{
+		"title": "Andromeda",
+		"image": "/images/Andromeda.png",
+		"scope": "Personal",
+		"short_description": "A prototype of an Action-Adventure RPG game",
+		"description": [
+			"The game me & my friends developed during our last semester at university of Wroclaw.",
+			"Our goal was to make a prototype of an Action-Adventure RPG for the narrative we came up with (watch the video).",
+			"We had a lot of fun working on it, and we learned a lot about game development and project management.",
+			"Me personally, were responsible for the coordination of the project, as well as the programming most important parts of the game."
+		],
+		"technologies": [
+			{
+				"name": "Unreal Engine 5",
+				"icon": "/icons/unreal-engine.svg"
+			},
+			{
+				"name": "C++",
+				"icon": "/icons/cpp.svg"
+			}
+		],
+		"links": [
+			{
+				"name": "YouTube",
+				"icon": "/icons/youtube.svg",
+				"url": "https://www.youtube.com/watch?v=w7NvI6eKasY"
+			}
+		]
+	},
+	{
+		"title": "Coco Jumpo",
+		"image": "/images/CocoJumpo.jpg",
+		"scope": "Personal",
+		"short_description": "A fast-paced vertical platformer",
+		"description": [
+			"A game developed during Hackathon 2020 with my friends. We had 48 hours to create this game.",
+			"We were inspired by the game of our childhood - IcyTower.",
+			"I was responsible for developing the levels and programming procedural generation of the platforms."
+		],
+		"technologies": [
+			{
+				"name": "Unity Engine",
+				"icon": "/icons/unity.svg"
+			},
+			{
+				"name": "C++",
+				"icon": "/icons/csharp.svg"
+			}
+		],
+		"links": [
+			{
+				"name": "YouTube",
+				"icon": "/icons/youtube.svg",
+				"url": "https://www.youtube.com/watch?v=mSn-LewtKOs"
+			}
+		]
+	},
+	{
+		"title": "Procedural terrain generator",
+		"image": "/images/Terrain.png",
+		"scope": "Personal",
+		"short_description": "A tool for procedural terrain generation in UE5",
+		"description": [
+			"Tool for procedural terrain generation in UE5 developed as a part of my engineer degree.",
+			"Works for Unreal's built-in Landscape actor by attaching a component to it and adding special Terrain Modifier.",
+			"There are two built-in modifiers: Perlin Noise and Radial-FadeOut.",
+			"I used them both to create an island visible on the screenshot."
+		],
+		"technologies": [
+			{
+				"name": "Unreal Engine 5",
+				"icon": "/icons/unreal-engine.svg"
+			},
+			{
+				"name": "C++",
+				"icon": "/icons/cpp.svg"
+			}
+		],
+		"links": [
+			{
+				"name": "GitHub",
+				"icon": "/icons/github.svg",
+				"url": "https://github.com/Bartasus1/LandmassGeneration"
 			}
 		]
 	}

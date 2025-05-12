@@ -4,6 +4,7 @@ import animateScrollTo from 'animated-scroll-to';
 import HomepageSection from './sections/HomepageSection.vue';
 import AboutMeSection from './sections/AboutMeSection.vue';
 import TechStackSection from './sections/TechStackSection.vue';
+import ProjectsSection from './sections/ProjectsSection.vue';
 
 var prevScrollTarget = 0;
 var scrollTarget = 0;
@@ -12,7 +13,8 @@ var sections: HTMLElement[] = [];
 const sectionPages = [
 	HomepageSection,
 	AboutMeSection,
-	TechStackSection
+	TechStackSection,
+	ProjectsSection
 ]
 
 const handleWheel = (event: WheelEvent) => {
