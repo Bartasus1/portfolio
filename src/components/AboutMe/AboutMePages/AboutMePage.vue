@@ -24,6 +24,12 @@
 					<li v-for="(skill, sIndex) in data.soft_skills" :key="`skill-${sIndex}`">{{ skill }}</li>
 				</ul>
 			</div>
+			<div class="languages">
+				<h3>Languages</h3>
+				<ul>
+					<li v-for="(language, sIndex) in data.languages" :key="`language-${sIndex}`">{{ language.name + ": " + language.level }}</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </template>
@@ -42,7 +48,7 @@
 }
 .title {
 	width: 100%;
-	font-size: 5rem;
+	font-size: 4.5rem;
 	color: black;
 	font-weight: 800;
 	text-align: center;
@@ -58,26 +64,28 @@
 }
 .description {
 	flex-shrink: 0;
+	padding: 1%;
 	width: 100%;
-	font-size: 2rem;
+	font-size: 1.8rem;
 	color: black;
 	text-align: justify;
 }
 .others {
 	width: 100%;
-	padding: 3% 10% 0 10%;
+	padding: 3% 5% 0 5%;
 	display: flex;
-	justify-content: space-around;
-	align-items: flex-start;
-	gap: 20%;
+	justify-content: space-between;
+	gap: 5%;
 }
 
-.hobbies, .skills {
-	width: 50%;
+.hobbies, .skills, .languages {
+	width: auto;
+	max-width: 33%;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	color: black;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 }
 
 </style>

@@ -46,7 +46,7 @@
 	flex-direction: column;
 	justify-content: center;
 	color: white;
-	border-radius: 8px;
+	border-radius: 16px;
 	overflow: hidden;
 }
 .project-image {

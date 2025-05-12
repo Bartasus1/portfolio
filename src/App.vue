@@ -84,7 +84,7 @@ onMounted(() => {
 </script>
 
 <template>
-	<div v-for="(section, index) in sectionPages" :key="index" :class="`section-page`">
+	<div v-for="(section, index) in sectionPages" :key="index" class="section-page">
 		<component :is="section" />
 	</div>
 </template>
