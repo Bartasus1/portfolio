@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import { ref } from 'vue';
-	import AboutMeSection from '@/components/AboutMe/AboutMeSection.vue';
+	import AboutMeExpander from '@/components/AboutMe/AboutMeExpander.vue';
 	import AboutMePage from "@/components/AboutMe/AboutMePages/AboutMePage.vue";
 	import ExperiencePage from '@/components/AboutMe/AboutMePages/ExperiencePage.vue';
 	import EducationPage from '@/components/AboutMe/AboutMePages/EducationPage.vue';
@@ -33,7 +33,7 @@
 
 <template>
 	<div class="sidebar">
-			<AboutMeSection v-for="(section, index) in sections" :key="index"
+			<AboutMeExpander v-for="(section, index) in sections" :key="index"
 				:name="section.name" 
 				:quote="section.quote" 
 				:class="{ active: sectionIndex === index }" 

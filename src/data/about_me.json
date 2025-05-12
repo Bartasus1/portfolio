@@ -21,5 +21,19 @@
 		"Teamwork oriented",
 		"Creativity",
 		"Attention to detail"
+	],
+	"languages": [
+		{
+			"name": "Polish",
+			"level": "Native"
+		},
+		{
+			"name": "English",
+			"level": "B2"
+		},
+		{
+			"name": "German",
+			"level": "A2"
+		}
 	]
 }

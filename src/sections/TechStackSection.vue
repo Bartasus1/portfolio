@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import JavaTile from './Tiles/JavaTile.vue';
-import CSharpTile from './Tiles/CSharpTile.vue';
-import CppTile from './Tiles/CppTile.vue';
-import PythonTile from './Tiles/PythonTile.vue';
-import Ue5Tile from './Tiles/UE5Tile.vue';
+	import TechstackNode from '@/components/TechStack/TechstackNode.vue';
+	import data from '@/data/techstack.json';
+
 </script>
 
 <template>
 	<div class="tech-stack-section">
 		<div class="grid-container">
-			<java-tile class="grid-item" />
-			<c-sharp-tile class="grid-item" />
-			<cpp-tile class="grid-item" />
-			<python-tile class="grid-item" />
-			<ue5-tile class="grid-item full-width" />
+			<TechstackNode 
+				v-for="(tech, index) in data.sort((a, b) => b.proficiency - a.proficiency)"
+				:key="index"
+				:index="index"
+				:tech="tech"
+				class="grid-item"
+			/>
 		</div>
 	</div>
 </template>
@@ -32,18 +32,16 @@ import Ue5Tile from './Tiles/UE5Tile.vue';
 
 .grid-container {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr); /* Changed to 2 columns */
-	grid-template-rows: auto auto auto; /* For three distinct rows of content */
-	gap: 20px;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: repeat(4, 1fr); 
+	gap: 15px;
 	width: 100%;
-	max-width: 1200px; /* Max width for the grid */
 	height: 100%;
-	max-height: 800px; /* Max height for the grid */
 }
 
 
 .grid-item {
-	background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+	background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent dark background */
 	color: white;
 	padding: 20px;
 	border-radius: 8px;
@@ -52,7 +50,6 @@ import Ue5Tile from './Tiles/UE5Tile.vue';
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	overflow: hidden; /* Ensures content fits */
 }
 
 .grid-item.full-width {

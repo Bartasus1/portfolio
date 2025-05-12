@@ -1,25 +1,24 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import animateScrollTo from 'animated-scroll-to';
-import HomepageView from './views/HomepageView.vue';
-import AboutMeView from './views/AboutMeView.vue';
-import TechStackSection from './components/TechStack/TechStackSection.vue';
-import experience from '@/data/experience.json';
-import projects from '@/data/projects.json';
+import HomepageSection from './sections/HomepageSection.vue';
+import AboutMeSection from './sections/AboutMeSection.vue';
+import TechStackSection from './sections/TechStackSection.vue';
 
 var prevScrollTarget = 0;
 var scrollTarget = 0;
 var sections: HTMLElement[] = [];
 
-const views = [
-	HomepageView,
-	AboutMeView,
+const sectionPages = [
+	HomepageSection,
+	AboutMeSection,
 	TechStackSection
 ]
 
 const handleWheel = (event: WheelEvent) => {
 	event.preventDefault()
-
+	console.log(event.deltaY);
+	
 	prevScrollTarget = scrollTarget;
 
 	if (event.deltaY > 0) {
@@ -43,7 +42,7 @@ onMounted(() => {
 	// Get all sections
 	const app = document.querySelector('#app') as HTMLElement
 	sections = Array.from(app.children).filter(child => {
-		return child.classList.contains('view-section')
+		return child.classList.contains('section-page')
 	}) as HTMLElement[]
 	
 	// Add wheel event listener
@@ -83,13 +82,13 @@ onMounted(() => {
 </script>
 
 <template>
-	<div v-for="(view, index) in views" :key="index" :class="`view-section view-section-${index}`">
-		<component :is="view" />
+	<div v-for="(section, index) in sectionPages" :key="index" :class="`section-page`">
+		<component :is="section" />
 	</div>
 </template>
 
 <style scoped>
-.view-section {
+.section-page {
 	display: flex;
 	align-items: center; /* Changed from stretch to center for vertical alignment */
 	justify-content: flex-start;
