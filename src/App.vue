@@ -3,6 +3,7 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import animateScrollTo from 'animated-scroll-to';
 import HomepageView from './views/HomepageView.vue';
 import AboutMeView from './views/AboutMeView.vue';
+import TechStackSection from './components/TechStack/TechStackSection.vue';
 import experience from '@/data/experience.json';
 import projects from '@/data/projects.json';
 
@@ -12,7 +13,8 @@ var sections: HTMLElement[] = [];
 
 const views = [
 	HomepageView,
-	AboutMeView
+	AboutMeView,
+	TechStackSection
 ]
 
 const handleWheel = (event: WheelEvent) => {
@@ -91,8 +93,8 @@ onMounted(() => {
 	display: flex;
 	align-items: center; /* Changed from stretch to center for vertical alignment */
 	justify-content: flex-start;
-	width: 100%;
-	height: 100%; /* Ensure this is 100vh or similar if it's a full page section */
+	width: 100vw;
+	height: 100vh; /* Ensure this is 100vh or similar if it's a full page section */
 	max-height: 100vh; /* Or a fixed height if preferred */
 	overflow: hidden;
 }
