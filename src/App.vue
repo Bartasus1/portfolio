@@ -19,7 +19,6 @@ const sectionPages = [
 
 const handleWheel = (event: WheelEvent) => {
 	event.preventDefault()
-	console.log(event.deltaY);
 	
 	prevScrollTarget = scrollTarget;
 
@@ -96,7 +95,6 @@ onMounted(() => {
 	justify-content: flex-start;
 	width: 100vw;
 	height: 100vh; /* Ensure this is 100vh or similar if it's a full page section */
-	max-height: 100vh; /* Or a fixed height if preferred */
 	overflow: hidden;
 }
 

@@ -5,9 +5,6 @@
 
 <template>
 	<div class="experience">
-		<h2 class="title">
-			Experience
-		</h2>
 		<div class="jobs">
 			<JobExperienceCard
 				v-for="(job, index) in data.jobs"

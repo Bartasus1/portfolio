@@ -5,9 +5,6 @@
 
 <template>
 	<div>
-		<h2 class="title">
-			Education
-		</h2>
 		<div class="education">
 			<EducationCard
 				v-for="(edu, index) in data"

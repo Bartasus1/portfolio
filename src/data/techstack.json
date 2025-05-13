@@ -11,8 +11,8 @@
 	},
 	{
 		"tech": "Java",
-		"icon": "/icons/java.svg",
-		"proficiency": 4
+		"icon": "/icons/java-transparent.svg",
+		"proficiency": 5
 	},
 	{
 		"tech": "Spring Boot",
@@ -30,7 +30,7 @@
 		"proficiency": 4
 	},
 	{
-		"tech": "Perforce",
+		"tech": "Helix Perforce",
 		"icon": "/icons/perforce.svg",
 		"proficiency": 3
 	},
@@ -83,5 +83,10 @@
 		"tech": "PostgreSQL",
 		"icon": "/icons/postgresql.svg",
 		"proficiency": 3
+	},
+	{
+		"tech": "Design Patterns",
+		"icon": "/icons/puzzle.svg",
+		"proficiency": 4
 	}
 ]
