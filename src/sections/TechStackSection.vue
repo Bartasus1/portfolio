@@ -3,7 +3,10 @@
 		<h1 class="title">
 			Techstack
 		</h1>
-		<div class="chart-container" v-html="chart">
+		<p class="description">
+			Here are the technologies I have worked with. The size of the circle represents my proficiency in that technology.
+		</p>
+		<div class="chart-container" v-html="createChart()">
 		</div>
 	</div>
 </template>
@@ -12,9 +15,11 @@
 import * as d3 from 'd3';
 import data from '@/data/techstack.json';
 
+const createChart = () => svg.node().outerHTML;
+
 const randomRange = () => {
-	let min = 550
-	let	max = 750
+	const min = 550
+	const	max = 750
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
@@ -39,7 +44,6 @@ const svg = d3.create("svg")
 	.attr("font-size", 10)
 	.attr("font-family", "sans-serif")
 	.attr("text-anchor", "middle");
-
 	
 const leaf = svg.selectAll("g")
 	.data(root.leaves())
@@ -52,9 +56,6 @@ leaf.append("circle")
 	.attr("fill-opacity", 0.7)
 	.attr("fill", "white");
 
-leaf.append("clipPath")
-		.attr("id", d => d.data.tech)
-
 leaf.append("image")
 	.attr("xlink:href", d => d.data.icon)
 	.attr("x", d => -d.r/ 2)
@@ -62,19 +63,8 @@ leaf.append("image")
 	.attr("width", d => d.r)
 	.attr("height", d => d.r);
 
-// leaf.append("text")
-// 	.attr("clip-path", d => d.clipUid)
-// 	.selectAll("tspan")
-// 	.data(d => d.data.tech.split(/(?=[A-Z][a-z])|\s+/g))
-// 	.join("tspan")
-// 		.attr("x", 0)
-// 		.attr("y", (d, i, nodes) => `${i - nodes.length / 2 + 0.8}em`)
-// 		.text(d => d);
-
 leaf.append("title")
   .text(d => d.data.tech);
-
-const chart = svg.node().outerHTML;
     
 </script>
 
@@ -102,5 +92,11 @@ const chart = svg.node().outerHTML;
 	font-size: 3rem;
 	text-align: center;
 	padding-top: 5%;
+}
+
+.description {
+	color: grey;
+	font-size: 1.2rem;
+	text-align: center;
 }
 </style>

@@ -47,7 +47,7 @@
 	{
 		"tech": "Subversion",
 		"icon": "/icons/svn.svg",
-		"proficiency": 3
+		"proficiency": 2.3
 	},
 	{
 		"tech": "Blender",
@@ -62,7 +62,7 @@
 	{
 		"tech": "Vue.js",
 		"icon": "/icons/vue.svg",
-		"proficiency": 2
+		"proficiency": 2.3
 	},
 	{
 		"tech": "Android",
@@ -83,10 +83,5 @@
 		"tech": "PostgreSQL",
 		"icon": "/icons/postgresql.svg",
 		"proficiency": 3
-	},
-	{
-		"tech": "Design Patterns",
-		"icon": "/icons/puzzle.svg",
-		"proficiency": 4
 	}
 ]
