@@ -14,7 +14,7 @@
 	const sections = [
 		{
 			name: 'About Me',
-			quote: 'Nosce te ipsum, temet nosce', // know thyself
+			quote: 'Nosce te ipsum', // know thyself
 			component: AboutMePage,
 		},
 		{
@@ -80,13 +80,10 @@
 
 .section-content {
 	position: absolute;
-	top: 0;
-	left: 0;
 	width: 100%;
 	height: 100%;
-	padding: 5% 10% 5% 0;
+	padding: 5% 10% 5% 2%;
 	background-color: #f2c53d; /* Consider making this dynamic or more neutral */
-	color: white;
 	box-sizing: border-box; /* Ensures padding doesn't overflow */
 	overflow-y: auto; /* Allow scrolling for long content */
 }

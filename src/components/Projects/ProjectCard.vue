@@ -33,6 +33,9 @@
 			<h1>
 				{{ project.title }}
 			</h1>
+			<p class="description">
+				{{ project.short_description }}
+			</p>
 		</div>
 	</div>
 </template>
@@ -41,7 +44,7 @@
 <style scoped>
 .project-card {
 	width: 20%;
-	height: 80%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -58,12 +61,18 @@
 }
 .info {
 	display: flex;
-	height: 20%;
-	width: 100%;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	height: 20%;
+	width: 100%;
 	background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
 	color: white;
+}
 
+.description {
+	color: #e0e0e0;
+	text-align: center;
+	padding: 10px;
 }
 </style>

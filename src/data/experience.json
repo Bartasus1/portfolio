@@ -28,10 +28,10 @@
 				}
 			],
 			"responsibilities": [
-				"Developed backend with REST API using Spring Boot and PostgreSQL.",
-				"Integrated Keycloak service for user authentication and authorization.",
-				"Created microservice architecture secured within a Docker network.",
-				"Participated in code reviews and contributed to the documentation."
+				"Developed REST API backend using Spring Boot and PostgreSQL",
+				"Integrated Keycloak service for user authentication and authorization",
+				"Created microservice architecture secured within a Docker network",
+				"Designed and implemented scalable and clean architecture for the backend services"
 			]
 		},
 		{
@@ -57,7 +57,11 @@
 					"icon": "/icons/perforce.svg"
 				}
 			],
-			"responsibilities": []
+			"responsibilities": [
+				"Worked on gameplay mechanics and features using Gameplay Ability System and C++",
+				"Implemented complex UI elements and panels with UMG and C++",
+				"Collaborated with artists and designers to ensure a cohesive game experience"
+			]
 		},
 		{
 			"title": "Junior Gameplay Programmer (Internship)",
@@ -82,7 +86,10 @@
 					"icon": "/icons/svn.svg"
 				}
 			],
-			"responsibilities": []
+			"responsibilities": [
+				"Assisted in the development of gameplay mechanics and features",
+				"Introduced dynamic UI features that improved user experience and allowed for faster iterations"
+			]
 		},
 		{
 			"title": "Junior Unreal Engine Programmer",
@@ -103,7 +110,12 @@
 					"icon": "/icons/git.svg"
 				}
 			],
-			"responsibilities": []
+			"responsibilities": [
+				"Implemented various UI panels and elements according to the design specifications",
+				"Developed many gameplay mechanics and connected them with the user interface",
+				"Introduced plenty optimizations & fixes for smoother gameplay experience",
+				"Created procedural solutions for visual elements in the game"
+			]
 		}
 	]
 }

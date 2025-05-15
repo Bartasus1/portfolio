@@ -2,7 +2,7 @@
 	{
 		"title": "Krzywe Karty",
 		"image": "/images/CrookedCards.png",
-		"scope": "Personal",
+		"scope": "PERSONAL",
 		"short_description": "Multiplayer strategic card game",
 		"description": [
 			"Multiplayer strategic card game where player can choose their own deck and play against each other.",
@@ -34,7 +34,7 @@
 	{
 		"title": "Andromeda",
 		"image": "/images/Andromeda.png",
-		"scope": "Personal",
+		"scope": "PERSONAL",
 		"short_description": "A prototype of an Action-Adventure RPG game",
 		"description": [
 			"The game me & my friends developed during our last semester at university of Wroclaw.",
@@ -63,7 +63,7 @@
 	{
 		"title": "Coco Jumpo",
 		"image": "/images/CocoJumpo.jpg",
-		"scope": "Personal",
+		"scope": "PERSONAL",
 		"short_description": "A fast-paced vertical platformer",
 		"description": [
 			"A game developed during Hackathon 2020 with my friends. We had 48 hours to create this game.",
@@ -91,8 +91,8 @@
 	{
 		"title": "Procedural terrain generator",
 		"image": "/images/Terrain.png",
-		"scope": "Personal",
-		"short_description": "A tool for procedural terrain generation in UE5",
+		"scope": "PERSONAL",
+		"short_description": "A tool for procedural terrain generation in Unreal Engine",
 		"description": [
 			"Tool for procedural terrain generation in UE5 developed as a part of my engineer degree.",
 			"Works for Unreal's built-in Landscape actor by attaching a component to it and adding special Terrain Modifier.",

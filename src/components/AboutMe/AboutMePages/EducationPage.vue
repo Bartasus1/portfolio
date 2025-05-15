@@ -7,7 +7,7 @@
 	<div>
 		<div class="education">
 			<EducationCard
-				v-for="(edu, index) in data"
+				v-for="(edu, index) in data.sort((a, b) => a.start_date < b.start_date ? 1 : -1)"
 				:key="`edu-${index}`"
 				:index=index
 				:edu="edu"
@@ -21,8 +21,10 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
+	gap: 40px;
 	width: 100%;
 	height: 100%;
+	overflow: scroll;
 }
 </style>

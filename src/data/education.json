@@ -2,15 +2,16 @@
 	{
 		"degree": "Engineer of Computer Science",
 		"institution": {
-			"name": "University of Wroclaw, Poland",
-			"link": "https://www.uwr.edu.pl"
+			"name": "University of Wroclaw",
+			"link": "https://www.uwr.edu.pl",
+			"logo": "/images/logo-UWr.png"
 		},
 		"start_date": "2019",
 		"end_date": "2023",
 		"skills": [
 			"Algorithms and data structures",
 			"Game programming with Unreal Engine",
-			"Advanced C++ programming and concepts",
+			"Advanced C++ programming concepts and practices",
 			"Web and mobile development, database management",
 			"Physics simulations"
 		]
@@ -18,8 +19,9 @@
 	{
 		"degree": "Master of Video Game Science",
 		"institution": {
-			"name": "Jagiellonian University of Krakow, Poland",
-			"link": "https://en.uj.edu.pl"
+			"name": "Jagiellonian University",
+			"link": "https://en.uj.edu.pl",
+			"logo": "/images/logo-UJ.png"
 		},
 		"start_date": "2024",
 		"end_date": "Present",

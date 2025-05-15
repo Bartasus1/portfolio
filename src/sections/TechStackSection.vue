@@ -84,14 +84,13 @@ leaf.append("title")
 	justify-content: center;
   width: 100%;
   height: 100%;
-	padding: 2%;
+	overflow: hidden;
 }
 
 .title {
 	color: white;
 	font-size: 3rem;
 	text-align: center;
-	padding-top: 5%;
 }
 
 .description {

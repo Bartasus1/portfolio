@@ -33,19 +33,22 @@ defineProps<{
 			{{ job.title }} at 
 			<a :href="job.company.link" target="_blank" rel="noopener noreferrer" class="external-link">{{job.company.name}}</a>
 		</h3>
-		<p class="job-details">{{ job.location }} | {{ job.start_date }} - {{ job.end_date }}</p>
-			<!-- <h4>Technologies:</h4> -->
+		<p class="job-details">
+			{{ job.location }}  
+			<span class="details-divider"> | </span>  
+			{{ job.start_date }} - {{ job.end_date }}
+		</p>
 			<ul class="tech-list">
 				<li v-for="(tech, techIndex) in job.technologies" :key="`job-tech-${index}-${techIndex}`">
-					<img v-if="tech.icon" :src="tech.icon" :alt="tech.name" class="tech-icon" />
+					<img v-if="tech.icon" :src="tech.icon" class="tech-icon" />
 					{{ tech.name }}
 				</li>
 			</ul>
 			<div class="responsibilities">
-				<!-- <h4>Responsibilities:</h4> -->
 				<ul>
-					<li v-for="(resp, respIndex) in job.responsibilities" :key="`job-resp-${index}-${respIndex}`">{{ resp }}</li>
-
+					<li v-for="(resp, respIndex) in job.responsibilities" :key="`job-resp-${index}-${respIndex}`">
+						{{ resp }}
+					</li>
 				</ul>
 			</div>
 	</div>
@@ -55,12 +58,13 @@ defineProps<{
 
 <style scoped>
 .job-card {
-	width: 100%;
-	background-color: rgba(0, 0, 0, 0.3);
-	padding: 1rem;
+	width: 80%;
+	background-color:#1a202c;
+	color: #e0e0e0;
+	/* opacity: 0.9; */
+	padding: 1.2rem;
 	padding-left: 1.5rem;
-	margin-bottom: 1rem;
-	border-radius: 8px;
+	border-radius: 16px;
 }
 
 .job-title {
@@ -74,7 +78,7 @@ defineProps<{
 
 .job-details {
 	font-size: 0.9em;
-	color: #e0e0e0;
+
 	margin-bottom: 0.5rem;
 }
 
@@ -90,6 +94,7 @@ li {
 .tech-list {
 	list-style-type: none;
 	padding-left: 0;
+	margin: 12px 0 10px 0;
 }
 .tech-list li {
 	display: inline-flex; /* Align icon and text */
@@ -107,5 +112,11 @@ li {
 	height: 18px;
 	margin-right: 8px; /* Increased margin for better spacing */
 	vertical-align: middle; /* Better alignment with text */
+}
+
+.details-divider {
+	color: #e0e0e0;
+	font-weight: bold;
+	margin: 0 5px; /* Added margin for spacing */
 }
 </style>
