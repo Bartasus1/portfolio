@@ -31,7 +31,7 @@
 				"Developed REST API backend using Spring Boot and PostgreSQL",
 				"Integrated Keycloak service for user authentication and authorization",
 				"Created microservice architecture secured within a Docker network",
-				"Designed and implemented scalable and clean architecture for the backend services"
+				"Designed and implemented clean and scalable codebase for the backend services"
 			]
 		},
 		{

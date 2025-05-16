@@ -7,11 +7,11 @@
 	{
 		"name": "GitHub",
 		"icon": "/icons/github.svg",
-		"url": "https://github.com/Bartasus1"
+		"link": "https://github.com/Bartasus1"
 	},
 	{
 		"name": "Steam",
 		"icon": "/icons/steam.svg",
-		"url": "https://steamcommunity.com/profiles/76561198244377476/"
+		"link": "https://steamcommunity.com/profiles/76561198244377476/"
 	}
 ]

@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted } from 'vue'
 import animateScrollTo from 'animated-scroll-to'
 import Navbar from './sections/Navbar.vue';
@@ -6,9 +6,9 @@ import router from '@/router';
 
 var prevScrollTarget = 0;
 var scrollTarget = 0;
-var scrollableSections = [];
+var scrollableSections: HTMLElement[] = [];
 
-const handleWheel = (event) => {
+const handleWheel = (event: WheelEvent) => {
 	event.preventDefault()
 	
 	prevScrollTarget = scrollTarget;
@@ -32,10 +32,10 @@ const handleWheel = (event) => {
 
 onMounted(() => {
 	// Get all sections
-	const app = document.querySelector('#app')
+	const app = document.querySelector('#app') as HTMLElement
 	scrollableSections = Array.from(app.children).filter(child => {
 		return child.classList.contains('section-page')
-	})
+	}) as HTMLElement[]
 	
 	// Add wheel event listener
 	window.addEventListener('wheel', handleWheel, { passive: false })
@@ -48,7 +48,7 @@ onMounted(() => {
 const getSections = () => {
 	return router.getRoutes()
 		.filter(r => r.components && r.components.default)
-		.map(route => route.components.default)
+		.map(route => route.components?.default)
 }
 </script>
 
