@@ -25,6 +25,7 @@
 	top: 0;
 	left: 0;
 	margin: 1%;
+	margin-top: 2.5%;
 	width: 38%;
 	height: 64px;
 	padding: 0 2%;

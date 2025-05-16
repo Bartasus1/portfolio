@@ -44,6 +44,7 @@
 		width: 40%;
 		height: 100%;
 		padding-left: 2%;
+		padding-top: 15%;
 		background-color: #f2c53dff;
 		.myName {
 			width: 100%;
