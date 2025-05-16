@@ -1,23 +1,14 @@
-<script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
-import animateScrollTo from 'animated-scroll-to';
-import HomepageSection from './sections/HomepageSection.vue';
-import AboutMeSection from './sections/AboutMeSection.vue';
-import TechStackSection from './sections/TechStackSection.vue';
-import ProjectsSection from './sections/ProjectsSection.vue';
+<script setup>
+import { onMounted } from 'vue'
+import animateScrollTo from 'animated-scroll-to'
+import Navbar from './sections/Navbar.vue';
+import router from '@/router';
 
 var prevScrollTarget = 0;
 var scrollTarget = 0;
-var sections: HTMLElement[] = [];
+var scrollableSections = [];
 
-const sectionPages = [
-	HomepageSection,
-	AboutMeSection,
-	TechStackSection,
-	ProjectsSection
-]
-
-const handleWheel = (event: WheelEvent) => {
+const handleWheel = (event) => {
 	event.preventDefault()
 	
 	prevScrollTarget = scrollTarget;
@@ -27,12 +18,12 @@ const handleWheel = (event: WheelEvent) => {
 	} else {
 		scrollTarget -= 1;
 	}
-	scrollTarget = Math.min(Math.max(scrollTarget, 0), sections.length - 1);
+	scrollTarget = Math.min(Math.max(scrollTarget, 0), scrollableSections.length - 1);
 	if(prevScrollTarget === scrollTarget) {
 		return;
 	}
 
-	animateScrollTo(sections[scrollTarget], {
+	animateScrollTo(scrollableSections[scrollTarget], {
 		speed: 400,
 		easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1, // Custom easing function
 		cancelOnUserAction: false
@@ -41,49 +32,29 @@ const handleWheel = (event: WheelEvent) => {
 
 onMounted(() => {
 	// Get all sections
-	const app = document.querySelector('#app') as HTMLElement
-	sections = Array.from(app.children).filter(child => {
+	const app = document.querySelector('#app')
+	scrollableSections = Array.from(app.children).filter(child => {
 		return child.classList.contains('section-page')
-	}) as HTMLElement[]
+	})
 	
 	// Add wheel event listener
 	window.addEventListener('wheel', handleWheel, { passive: false })
-		animateScrollTo(sections[scrollTarget], {
+		animateScrollTo(scrollableSections[scrollTarget], {
 		speed: 400,
 		easing: t => t * (2 - t), // Custom easing function
 	})
-
-	/* PRE-FETCH IMPORTANT THINGS FROM PUBLIC FOLDER*/
-	// experience.jobs.forEach((job) => {
-	// 	const tech = job.technologies;
-	// 	tech.forEach((t) => {
-	// 		if (t.icon) {
-	// 			const img = new Image();
-	// 			img.src = t.icon;
-	// 		}
-	// 	})
-	// })
-	// projects.forEach((project) => {
-	// 	const img = new Image();
-	// 	img.src = project.image;
-	// 	const tech = project.technologies;
-	// 	tech.forEach((t) => {
-	// 		if (t.icon) {
-	// 			const img = new Image();
-	// 			img.src = t.icon;
-	// 		}
-	// 	})
-	// })
 })
 
-// onUnmounted(() => {
-// 	// Clean up event listener
-// 	window.removeEventListener('wheel', handleWheel)
-// })
+const getSections = () => {
+	return router.getRoutes()
+		.filter(r => r.components && r.components.default)
+		.map(route => route.components.default)
+}
 </script>
 
 <template>
-	<div v-for="(section, index) in sectionPages" :key="index" class="section-page">
+	<Navbar />
+	<div v-for="(section, index) in getSections()" :key="index" class="section-page">
 		<component :is="section" />
 	</div>
 </template>

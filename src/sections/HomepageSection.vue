@@ -47,7 +47,7 @@
 		background-color: #f2c53dff;
 		.myName {
 			width: 100%;
-			font-size: 6.5rem;
+			font-size: 7rem;
 			color: white;
 			font-weight: 800;
 		}
@@ -56,13 +56,13 @@
 			height: 8px;
 			border-radius: 4px;
 			background-color: #fff;
-			margin-top: 40px;
-			margin-bottom: 40px;
+			/* margin-top: 10px; */
+			margin-bottom: 20px;
 		}
 		.myProfession {
 			width: 100%;
-			font-size: 6.5rem;
-			color: #202020;
+			font-size: 4rem;
+			color: #1a202c;
 			font-weight: 600;
 			line-height: 6rem;
 		}

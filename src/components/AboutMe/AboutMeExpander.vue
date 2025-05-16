@@ -32,6 +32,7 @@
 	padding: 10px 15px; /* Added padding for better click area and appearance */
 	border-radius: 5px; /* Optional: for rounded corners */
 	margin-bottom: 5px; /* Optional: for spacing between items */
+	/* font-family: 'Archivo', sans-serif; */
 }
 .section:hover {
 	transform: translateX(10px);

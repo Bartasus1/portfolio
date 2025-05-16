@@ -25,9 +25,9 @@
 			Projects
 		</h2>
 		<div class="filters">
-			<div class="filter-button" @click="filter = Filter.ALL">All</div>
-			<div class="filter-button" @click="filter = Filter.PERSONAL">Personal</div>
-			<div class="filter-button" @click="filter = Filter.WORK">Work</div>
+			<!-- <div class="filter-button" @click="filter = Filter.ALL">All</div> -->
+			<!-- <div class="filter-button" @click="filter = Filter.PERSONAL">Personal</div> -->
+			<!-- <div class="filter-button" @click="filter = Filter.WORK">Work</div> -->
 			<!-- <div class="filter-button" @click="filter = Filter.OPEN_SOURCE">Open Source</div> -->
 		</div>
 		<div class="projects">
