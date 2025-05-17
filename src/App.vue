@@ -7,9 +7,16 @@ import router from '@/router';
 var prevScrollTarget = 0;
 var scrollTarget = 0;
 var scrollableSections: HTMLElement[] = [];
+var preventScroll = false;
 
 const handleWheel = (event: WheelEvent) => {
 	event.preventDefault()
+	
+	//TODO: Enable scroll prevention when pushing to production
+	// if (preventScroll) {
+	// 	return;
+	// }
+
 	
 	prevScrollTarget = scrollTarget;
 
@@ -23,10 +30,13 @@ const handleWheel = (event: WheelEvent) => {
 		return;
 	}
 
+	preventScroll = true;
 	animateScrollTo(scrollableSections[scrollTarget], {
 		speed: 400,
 		easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1, // Custom easing function
 		cancelOnUserAction: false
+	}).then(() => {
+		preventScroll = false;
 	})
 }
 
