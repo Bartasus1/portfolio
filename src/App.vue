@@ -3,6 +3,7 @@ import { onMounted } from 'vue'
 import animateScrollTo from 'animated-scroll-to'
 import Navbar from './sections/Navbar.vue';
 import router from '@/router';
+import { RouterView } from 'vue-router';
 
 var prevScrollTarget = 0;
 var scrollTarget = 0;
@@ -58,14 +59,24 @@ onMounted(() => {
 const getSections = () => {
 	return router.getRoutes()
 		.filter(r => r.components && r.components.default)
-		.map(route => route.components?.default)
+		.map(route => ({
+			component: route.components?.default,
+			name: route.name
+		}))
 }
 </script>
 
 <template>
 	<Navbar />
-	<div v-for="(section, index) in getSections()" :key="index" class="section-page">
-		<component :is="section" />
+	<!-- <RouterView /> -->
+	<div 
+		v-for="(section, index) in getSections()" 
+		:key="index" 
+		:id="String(section.name)" 
+		class="section-page" >
+
+		<component :is="section.component" />
+		
 	</div>
 </template>
 

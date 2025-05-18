@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import data from "@/data/experience.json";
+	import experience from "@/data/experience.json";
 	import ExperienceCard from '@/components/AboutMe/AboutMeEntries/ExperienceCard.vue';
 </script>
 
@@ -7,7 +7,7 @@
 	<div class="experience">
 		<div class="jobs">
 			<ExperienceCard
-				v-for="(job, index) in data.jobs"
+				v-for="(job, index) in experience.jobs"
 				:key="`job-${index}`"
 				:index=index
 				:job="job"

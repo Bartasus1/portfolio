@@ -1,5 +1,5 @@
 <script setup lang="ts">
-	import data from "@/data/education.json";
+	import education from "@/data/education.json";
 	import EducationCard from '@/components/AboutMe/AboutMeEntries/EducationCard.vue';
 </script>
 
@@ -7,10 +7,9 @@
 	<div>
 		<div class="education">
 			<EducationCard
-				v-for="(edu, index) in data.sort((a, b) => a.start_date < b.start_date ? 1 : -1)"
-				:key="`edu-${index}`"
+				v-for="(education, index) in education.sort((a, b) => a.start_date < b.start_date ? 1 : -1)"
 				:index=index
-				:edu="edu"
+				:education="education"
 			/>
 		</div>
 	</div>

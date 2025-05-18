@@ -1,4 +1,5 @@
 <script setup lang="ts">
+	import { RouterLink } from 'vue-router';
 	import socials from '@/data/socials.json';
 	import router from '@/router';
 
@@ -6,11 +7,12 @@
 
 <template>
 	<nav class="navbar">
-		<div class="sections">
-			<div v-for="(route, index) in router.getRoutes()" :key="index">
-				<a :href="`/${route.path}`"> {{ route.name }}</a>
-			</div>
-		</div>
+		<nav class="sections">
+			<!-- <RouteLink v-for="(route, index) in router.getRoutes()" :to="route.path"-->
+			<a v-for="(route, index) in router.getRoutes()" :key="index" :href="`${route.path}`">
+				{{ route.name }}
+			</a>
+		</nav>
 		<div class="socials">
 			<a v-for="(social, index) in socials" :key="index" :href="social.link" target="_blank" rel="noopener noreferrer">
 				<img :src="social.icon" :alt="social.name" class="social-icon" />
