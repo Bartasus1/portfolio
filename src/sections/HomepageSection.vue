@@ -50,7 +50,7 @@
 			width: 100%;
 			font-size: 7rem;
 			color: white;
-			font-weight: 800;
+			font-weight: 1000;
 		}
 		.separator {
 			width: 90%;

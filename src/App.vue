@@ -3,7 +3,6 @@ import { onMounted } from 'vue'
 import animateScrollTo from 'animated-scroll-to'
 import Navbar from './sections/Navbar.vue';
 import router from '@/router';
-import { RouterView } from 'vue-router';
 
 var prevScrollTarget = 0;
 var scrollTarget = 0;
@@ -50,7 +49,9 @@ onMounted(() => {
 	
 	// Add wheel event listener
 	window.addEventListener('wheel', handleWheel, { passive: false })
-		animateScrollTo(scrollableSections[scrollTarget], {
+
+	// Scroll to the initial section
+	animateScrollTo(scrollableSections[scrollTarget], {
 		speed: 400,
 		easing: t => t * (2 - t), // Custom easing function
 	})
@@ -72,7 +73,7 @@ const getSections = () => {
 	<div 
 		v-for="(section, index) in getSections()" 
 		:key="index" 
-		:id="String(section.name)" 
+		:id="String(section.name).toLowerCase()" 
 		class="section-page" >
 
 		<component :is="section.component" />

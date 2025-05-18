@@ -9,13 +9,13 @@
 	<nav class="navbar">
 		<nav class="sections">
 			<!-- <RouteLink v-for="(route, index) in router.getRoutes()" :to="route.path"-->
-			<a v-for="(route, index) in router.getRoutes()" :key="index" :href="`${route.path}`">
-				{{ route.name }}
+			<a v-for="(route, index) in router.getRoutes()" :key="index" :href="`#${String(route.name).toLowerCase()}`">
+				{{ String(route.name) }}
 			</a>
 		</nav>
 		<div class="socials">
-			<a v-for="(social, index) in socials" :key="index" :href="social.link" target="_blank" rel="noopener noreferrer">
-				<img :src="social.icon" :alt="social.name" class="social-icon" />
+			<a v-for="(social, index) in socials" :key="index" :href="social.link" target="_blank" rel="noopener noreferrer" class="social-icon">
+				<img :src="social.icon" :alt="social.name" />
 			</a>
 		</div>
 	</nav>
@@ -32,6 +32,7 @@
 	height: 64px;
 	padding: 0 2%;
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
 	background: #1a202c;
@@ -42,30 +43,41 @@
 
 .sections {
 	display: flex;
+	align-items: center;
+	height: 70%;
 	gap: 3rem;
+
+	a {
+		text-decoration: none;
+		color: #f2c53dff;
+		font-size: 1.2rem;
+		font-weight: 500;
+		letter-spacing: 1px;
+	}
 }
 
-a {
-	text-decoration: none;
-	color: #f2c53dff;
-	font-size: 1.2rem;
-	font-weight: 500;
-	letter-spacing: 1px;
-}
+
 
 .socials {
 	display: flex;
 	align-items: center;
+	height: 70%;
 	gap: 2rem;
 	margin-right: 5%;
+	color: #f2c53dff;
 }
 
 .social-icon {
 	width: 28px;
 	height: 28px;
-	/* https://isotropic.co/tool/hex-color-to-css-filter/  =>  #f2c53d */
-	filter: invert(92%) sepia(53%) saturate(5944%) hue-rotate(322deg) brightness(96%) contrast(98%);
 	border-radius: 50%;
+
+	img {
+		width: 100%;
+		height: 100%;
+		/* https://isotropic.co/tool/hex-color-to-css-filter/  =>  #f2c53d */
+		filter: invert(92%) sepia(53%) saturate(5944%) hue-rotate(322deg) brightness(96%) contrast(98%);
+	}
 }
 
 /* .social-icon:hover {
