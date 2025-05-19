@@ -43,7 +43,7 @@
 
 <style scoped>
 .project-card {
-	width: 20%;
+	width: clamp(800px, 20%, 1200px);
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -68,6 +68,11 @@
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
 	color: white;
+}
+
+.info > h1 {
+	text-align: center;
+	text-wrap: break-word;
 }
 
 .description {
