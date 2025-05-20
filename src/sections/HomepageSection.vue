@@ -11,11 +11,9 @@
 	</div>
 </template>
 
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
-
 .homepage {
 	display: flex;
 	flex-direction: row;
@@ -49,8 +47,6 @@
 	align-items: flex-start;
 	width: 100%;
 	height: auto;
-	position: relative;
-	top: 50%;
 }
 
 .myName {
@@ -74,35 +70,45 @@
 }
 
 @media screen and (max-width: 1024px) {
-	.welcomeImage {
-		left: 0 !important;
-		background-position: center;
+	.homepage {
+		display: flex;
+		flex-direction: column !important;
+		align-items: center;
+		justify-content: flex-end;
 	}
-	
+	.welcomeImage {
+		width: 100%;
+		background-size: 140%;
+		background-position: top;
+	}
+
 	.headerContainer {
 		flex-direction: column;
-		height: 100vh;
-		
-		.welcome {
-			width: 100%;
-			height: 50%;
-			padding: 2rem;
-			padding-top: 5%;
-			align-items: center;
-			text-align: center;
-			
-			.myName {
-				font-size: 4rem;
-			}
-			
-			.separator {
-				width: 60%;
-			}
-			
-			.myProfession {
-				font-size: 2.5rem;
-				line-height: 3rem;
-			}
+		align-items: center;
+		justify-content: flex-start;
+		height: 40vh;
+		width: 100%;
+	}
+	.welcome {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding-top: 5%;
+		.myName {
+			font-size: 3rem;
+		}
+
+		.separator {
+			width: 60%;
+		}
+
+		.myProfession {
+			font-size: 2rem;
+			line-height: 3rem;
 		}
 	}
 }
