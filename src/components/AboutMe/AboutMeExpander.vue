@@ -7,15 +7,11 @@
 
 <template>
 	<div class="section">
-		<div class="title">
-			<h1>{{ name }}</h1>
-		</div>
+			<h1 class="title">{{ name }}</h1>
 		<div class="separator"></div>
-		<div class="quote">
-			<p>
+			<p class="quote">
 				{{ quote }}
 			</p>
-		</div>
 	</div>
 </template>
 
@@ -28,16 +24,17 @@
 	width: 60%;
 	color: #202020;
 	cursor: pointer;
-	transition: transform 0.3s ease, background-color 0.3s ease; /* Added background-color transition */
-	padding: 10px 15px; /* Added padding for better click area and appearance */
-	border-radius: 5px; /* Optional: for rounded corners */
-	margin-bottom: 5px; /* Optional: for spacing between items */
-	/* font-family: 'Archivo', sans-serif; */
+	transition: transform 0.3s ease, background-color 0.3s ease;
+	padding: 10px 15px;
+	border-radius: 5px;
+	margin-bottom: 5px;
 }
+
 .section:hover {
 	transform: translateX(10px);
-	background-color: rgba(255, 255, 255, 0.05); /* Subtle hover effect */
+	background-color: rgba(255, 255, 255, 0.05);
 }
+
 .section.active { 
 	transform: translateX(20px); 
 	background-color: rgba(255, 255, 255, 0.2); 
@@ -52,17 +49,51 @@
 		font-size: clamp(1rem, 4rem, 4.5rem);
 	}
 }
+
 .separator {
 	width: 100%;
 	height: 2px;
 	background-color: #202020;
 	margin: 5px 0;
 }
+
 .quote {
 	font-size: 1.4rem;
-	font-style: italic; /* Added cursive font style */
+	font-style: italic;
 }
 
+@media screen and (max-width: 1024px) {
+	.section {
+		width: 100%;
+		height: 100%;
+		align-items: center;
+		justify-content: flex-start;
+		text-align: center;
+		padding: 10px;
+		margin: 0;
+	}
 
-	
+	.section:hover {
+		transform: translateY(-3px);
+	}
+
+	.section.active {
+		transform: translateY(-3px);
+	}
+
+	.title {
+		font-size: clamp(1rem, 1.5rem, 2rem);
+		line-height: 1.2;
+	}
+
+	.quote {
+		font-size: 0.9rem;
+		line-height: 1.2;
+	}
+
+	.separator {
+		width: 60%;
+		margin: 3px 0;
+	}
+}
 </style>

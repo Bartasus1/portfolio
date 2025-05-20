@@ -1,7 +1,28 @@
 <script setup lang="ts">
 	import ProjectCard from '@/components/Projects/ProjectCard.vue';
+	import ProjectOverlay from '@/components/Projects/ProjectOverlay.vue';
 	import data from '@/data/projects.json';
 	import { ref } from 'vue';
+
+	interface Project {
+		title: string;
+		image: string;
+		short_description: string;
+		description: string[];
+		technologies: Technology[];
+		links: Link[];
+	}
+
+	interface Link {
+		name: string;
+		url: string;
+		icon: string;
+	}
+
+	interface Technology {
+		name: string;
+		icon: string;
+	}
 
 	enum Filter {
 		ALL = 'ALL',
@@ -11,11 +32,22 @@
 	}
 
 	const filter = ref(Filter.ALL);
+	const selectedProject = ref<Project | null>(null);
+	const isOverlayVisible = ref(false);
 
 	const filteredData = () => {
 		return filter.value === Filter.ALL ? data : data.filter(project => project.scope === filter.value);
 	}
 
+	const showProjectDetails = (project: Project) => {
+		selectedProject.value = project;
+		isOverlayVisible.value = true;
+	};
+
+	const closeOverlay = () => {
+		isOverlayVisible.value = false;
+		selectedProject.value = null;
+	};
 </script>
 
 
@@ -37,8 +69,15 @@
 				:index="index"
 				:project="project"
 				class="project-item"
+				@showDetails="showProjectDetails"
 			/>
 		</div>
+
+		<ProjectOverlay
+			:project="selectedProject"
+			:isVisible="isOverlayVisible"
+			@close="closeOverlay"
+		/>
 	</div>
 </template>
 
@@ -64,7 +103,7 @@
 
 .filters {
 	width: 80%;
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	gap: 20px; 
@@ -72,7 +111,7 @@
 }
 
 .filter-button {
-	background-color: #2d3748; /* Dark background */
+	background-color: #2d3748;
 	color: white;
 	font-size: 1.2rem;
 	padding: 10px 20px;
@@ -83,7 +122,7 @@
 }
 
 .filter-button:active {
-	background-color: #4a5568; /* Darker background on click */
+	background-color: #4a5568;
 }
 
 .projects {
@@ -99,5 +138,57 @@
 
 .project-item {
 	height: 90%;
+}
+
+/* Add responsive styles */
+@media screen and (max-width: 768px) {
+	.projects-section {
+		height: 100vh;
+		padding: 4% 0;
+	}
+
+	.title {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.filters {
+		width: 90%;
+		flex-wrap: wrap;
+		padding: 10px;
+	}
+
+	.projects {
+		flex-direction: column;
+		overflow: scroll;
+		gap: 30px;
+		padding: 20px;
+	}
+
+	.project-item {
+		min-height: 400px;
+		width: 90%;
+	}
+}
+
+/* Additional breakpoint for very small devices */
+@media screen and (max-width: 480px) {
+	.projects {
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		overflow: scroll;
+		gap: 30px;
+		padding: 15px;
+	}
+
+	.title {
+		font-size: 3rem;
+	}
+
+	.project-item {
+		min-height: 400px;
+		width: 100%;
+}
 }
 </style>

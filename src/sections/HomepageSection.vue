@@ -72,4 +72,38 @@
 	font-weight: 600;
 	line-height: 6rem;
 }
+
+@media screen and (max-width: 1024px) {
+	.welcomeImage {
+		left: 0 !important;
+		background-position: center;
+	}
+	
+	.headerContainer {
+		flex-direction: column;
+		height: 100vh;
+		
+		.welcome {
+			width: 100%;
+			height: 50%;
+			padding: 2rem;
+			padding-top: 5%;
+			align-items: center;
+			text-align: center;
+			
+			.myName {
+				font-size: 4rem;
+			}
+			
+			.separator {
+				width: 60%;
+			}
+			
+			.myProfession {
+				font-size: 2.5rem;
+				line-height: 3rem;
+			}
+		}
+	}
+}
 </style>

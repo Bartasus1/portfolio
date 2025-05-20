@@ -12,6 +12,7 @@
 	interface Link {
 		name: string;
 		url:  string;
+		icon: string;
 	}
 
 	interface Technology {
@@ -19,15 +20,23 @@
 		icon: string;
 	}
 
-	defineProps<{
+	const props = defineProps<{
 		index: number,
 		project: Project
 	}>();
 
+	const emit = defineEmits<{
+		(e: 'showDetails', project: Project): void;
+	}>();
+
+	const handleClick = () => {
+		emit('showDetails', props.project);
+	};
+
 </script>
 
 <template>
-	<div class="project-card">
+	<div class="project-card" @click="handleClick">
 		<img :src="project.image" :alt="project.title" class="project-image" />
 		<div class="info">
 			<h1>
@@ -80,4 +89,5 @@
 	text-align: center;
 	padding: 10px;
 }
+
 </style>
