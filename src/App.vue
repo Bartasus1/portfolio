@@ -2,6 +2,7 @@
 import { onMounted } from 'vue'
 import animateScrollTo from 'animated-scroll-to'
 import Navbar from './sections/Navbar.vue';
+import NavbarVertical from './sections/NavbarVertical.vue';
 import router from '@/router';
 
 var prevScrollTarget = 0;
@@ -11,22 +12,31 @@ var preventScroll = false;
 
 const handleWheel = (event: WheelEvent) => {
 	event.preventDefault()
+	console.log('[Debug] handleWheel triggered');
 	
 	//TODO: Enable scroll prevention when pushing to production
 	// if (preventScroll) {
 	// 	return;
 	// }
 
-	
+	console.log('[Debug] event.deltaY:', event.deltaY);
 	prevScrollTarget = scrollTarget;
+	let newScrollTarget = scrollTarget;
 
 	if (event.deltaY > 0) {
-		scrollTarget += 1;
+		newScrollTarget += 1;
 	} else {
-		scrollTarget -= 1;
+		newScrollTarget -= 1;
 	}
-	scrollTarget = Math.min(Math.max(scrollTarget, 0), scrollableSections.length - 1);
+	console.log('[Debug] scrollTarget before clamp:', newScrollTarget);
+	console.log('[Debug] scrollableSections.length:', scrollableSections.length);
+
+	scrollTarget = Math.min(Math.max(newScrollTarget, 0), scrollableSections.length - 1);
+	console.log('[Debug] scrollTarget after clamp:', scrollTarget);
+	console.log('[Debug] prevScrollTarget:', prevScrollTarget);
+
 	if(prevScrollTarget === scrollTarget) {
+		console.log('[Debug] scrollTarget did not change, returning.');
 		return;
 	}
 
@@ -37,15 +47,27 @@ const handleWheel = (event: WheelEvent) => {
 		cancelOnUserAction: false
 	}).then(() => {
 		preventScroll = false;
+		const newRouteName = getSections()[scrollTarget].name as string;
+		if (router.currentRoute.value.name !== newRouteName) {
+			router.push({ name: newRouteName });
+		}
 	})
 }
 
 onMounted(() => {
-	// Get all sections
 	const app = document.querySelector('#app') as HTMLElement
 	scrollableSections = Array.from(app.children).filter(child => {
 		return child.classList.contains('section-page')
 	}) as HTMLElement[]
+	console.log('[Debug] Number of scrollable sections detected:', scrollableSections.length);
+	console.log('[Debug] Sections from getSections():', JSON.stringify(getSections(), null, 2));
+	
+	// Set initial scroll target based on current route
+	const currentRouteName = router.currentRoute.value.name;
+	const initialSectionIndex = getSections().findIndex(section => section.name === currentRouteName);
+	if (initialSectionIndex !== -1) {
+		scrollTarget = initialSectionIndex;
+	}
 	
 	// Add wheel event listener
 	window.addEventListener('wheel', handleWheel, { passive: false })
@@ -54,6 +76,12 @@ onMounted(() => {
 	animateScrollTo(scrollableSections[scrollTarget], {
 		speed: 400,
 		easing: t => t * (2 - t), // Custom easing function
+	}).then(() => {
+		// Ensure the URL is correct on initial load if not already matching
+		const currentSectionName = getSections()[scrollTarget].name as string;
+		if (router.currentRoute.value.name !== currentSectionName) {
+			router.push({ name: currentSectionName });
+		}
 	})
 })
 
@@ -62,13 +90,17 @@ const getSections = () => {
 		.filter(r => r.components && r.components.default)
 		.map(route => ({
 			component: route.components?.default,
-			name: route.name
+			name: route.name,
+			path: route.path
 		}))
 }
 </script>
 
 <template>
-	<Navbar />
+	<!-- <Transition name="navbar-switch" mode="out-in"> -->
+		<Navbar />
+		<NavbarVertical :sections="getSections()" :currentSectionIndex="scrollTarget" />
+	<!-- </Transition> -->
 	<!-- <RouterView /> -->
 	<div 
 		v-for="(section, index) in getSections()" 
@@ -98,4 +130,45 @@ const getSections = () => {
 	overflow-y: scroll;
 	height: 100vh;
 }
+
+/* Navbar transitions - Temporarily commented out or remove if not needed without Transition component
+.navbar-switch-enter-active,
+.navbar-switch-leave-active {
+	transition-property: opacity, transform;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-in-out;
+}
+
+.navbar.navbar-switch-enter-from,
+.navbar.navbar-switch-leave-to {
+	opacity: 0;
+	transform: translateY(-20px); 
+}
+
+.navbar.navbar-switch-enter-to,
+.navbar.navbar-switch-leave-from {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.navbar-vertical.navbar-switch-enter-from {
+	opacity: 0;
+	transform: translateX(-100%);
+}
+
+.navbar-vertical.navbar-switch-enter-to {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.navbar-vertical.navbar-switch-leave-from {
+	opacity: 1;
+	transform: translateX(0);
+}
+
+.navbar-vertical.navbar-switch-leave-to {
+	opacity: 0;
+	transform: translateX(-100%);
+}
+*/
 </style>

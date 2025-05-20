@@ -24,6 +24,16 @@
 	gap: 40px;
 	width: 100%;
 	height: 100%;
-	overflow: scroll;
+
+}
+
+@media screen and (max-width: 1024px) {
+	.education {
+		justify-content: flex-start;
+		align-items: center;
+		padding: 0;
+		gap: 15px;
+		overflow-y: scroll;
+	}
 }
 </style>

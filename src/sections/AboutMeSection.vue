@@ -57,6 +57,7 @@
 	flex-direction: row;
 	width: 100vw;
 	height: 100vh; 
+	overflow: hidden;
 }
 .sidebar {
 	display: flex;
@@ -103,20 +104,61 @@
 }
 
 .slide-enter-from {
-	transform: translateX(-100%); /* Slide in from left */
+	transform: translateY(100%); /* Slide in from bottom */
 }
 
 .slide-leave-to {
-	transform: translateX(100%); /* Slide out to right */
+	transform: translateY(-100%); /* Slide out to top */
 }
 
 .slide-enter-to, .slide-leave-from {
-	transform: translateX(0);
+	transform: translateY(0);
 }
 
 .headerContainer, .aboutMe {
 	scroll-snap-align: start;
 	height: 100vh; /* Ensure this is intended and consistent */
 	overflow: hidden; /* Keep this, it's important for the layout */
+}
+
+@media screen and (max-width: 1024px) {
+	.aboutMe {
+		flex-direction: column;
+		width: 100vw;
+		max-width: 100vw;
+		height: 100vh;
+		overflow: hidden;
+	}
+
+	.sidebar {
+		width: 100%;
+		height: auto;
+		min-height: 120px;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.5rem 10px;
+		:deep(.section){
+		width: calc((100% / 3) - 10px) !important;
+	}
+	}
+
+
+	.content {
+		width: 100%;
+		height: calc(100vh - 120px);
+		overflow: hidden;
+	}
+
+	.section-content {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+		padding: 1rem;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
 }
 </style>

@@ -25,6 +25,16 @@
 	gap: 20px;
 	width: 100%;
 	height: 100%;
-	overflow: scroll;
+
+}
+
+@media screen and (max-width: 1024px) {
+	.jobs {
+		padding: 0rem;
+		gap: 15px;
+		justify-content: flex-start;
+		align-items: center;
+		overflow-y: scroll;
+	}
 }
 </style>

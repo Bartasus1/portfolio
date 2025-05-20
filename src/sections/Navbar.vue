@@ -41,6 +41,12 @@
 	border-radius: 16px;
 }
 
+@media (max-width: 1024px) {
+	.navbar {
+		display: none;
+	}
+}
+
 .sections {
 	display: flex;
 	align-items: center;
@@ -55,8 +61,6 @@
 		letter-spacing: 1px;
 	}
 }
-
-
 
 .socials {
 	display: flex;
@@ -80,8 +84,4 @@
 	}
 }
 
-/* .social-icon:hover {
-	transform: scale(1.12) rotate(-6deg);
-	filter: grayscale(0%) brightness(1.1) drop-shadow(0 2px 8px #0002);
-} */
 </style>
