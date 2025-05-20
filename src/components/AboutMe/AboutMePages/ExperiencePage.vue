@@ -20,7 +20,7 @@
 .jobs {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: flex-start;
 	gap: 20px;
 	width: 100%;

@@ -5,8 +5,14 @@
 		"scope": "PERSONAL",
 		"short_description": "Multiplayer strategic card game",
 		"description": [
-			"Multiplayer strategic card game where player can choose their own deck and play against each other.",
+			"Multiplayer turn-based strategic card game where each card has several complex abilities.",
+			"Player's goal is to either conquer opponent's base or eliminate all of their cards.",
 			"The game is based on a board game developed by my friend."
+		],
+		"focus_points": [
+			"Uses Gameplay Framework to create a turn-based game as well as Gameplay Ability System for character abilities.",
+			"Implemented complex attack system using component-based approach, that allows character to bind to different stages & scenarios of the attack.",
+			"Created elegant solution for gameboard management and querying with the use of InstancedStructs and Gameplay Tags."
 		],
 		"technologies": [
 			{
@@ -42,6 +48,11 @@
 			"We had a lot of fun working on it, and we learned a lot about game development and project management.",
 			"Me personally, were responsible for the coordination of the project, as well as the programming most important parts of the game."
 		],
+		"focus_points": [
+			"Complex and dynamic inventory & equipment system with drag & drop functionality.",
+			"Advanced attack system with combo attacks and special abilities also depending on the weapon type.",
+			"Simple but effective AI system with different types of enemies."
+		],
 		"technologies": [
 			{
 				"name": "Unreal Engine 5",
@@ -70,6 +81,11 @@
 			"We were inspired by the game of our childhood - IcyTower.",
 			"I was responsible for developing the levels and programming procedural generation of the platforms."
 		],
+		"focus_points": [
+			"Procedural generation of the platforms, each fitting like a puzzle piece.",
+			"Dynamic camera system that follows the player and speeds up depending on the traveled distance.",
+			"Different obstacles and power-ups that diversify the gameplay."
+		],
 		"technologies": [
 			{
 				"name": "Unity Engine",
@@ -95,9 +111,13 @@
 		"short_description": "A tool for procedural terrain generation in Unreal Engine",
 		"description": [
 			"Tool for procedural terrain generation in UE5 developed as a part of my engineer degree.",
-			"Works for Unreal's built-in Landscape actor by attaching a component to it and adding special Terrain Modifier.",
-			"There are two built-in modifiers: Perlin Noise and Radial-FadeOut.",
+			"Uses for Unreal's built-in Landscape actor and allows to specify a list of modifiers that modify its heightmap.",
+			"Comes with two ready modifiers: Perlin Noise and Radial FadeOut.",
 			"I used them both to create an island visible on the screenshot."
+		],
+		"focus_points": [
+			"Works on Unreal's built-it Landscape actor by attaching a component with a list of modifiers.",
+			"Built-in modifiers like Perlin Noise and Radial FadeOut, but system is extensible and allows to create custom modifiers."
 		],
 		"technologies": [
 			{
