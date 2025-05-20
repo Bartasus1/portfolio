@@ -40,38 +40,37 @@
 	height: 100%;
 	padding: 1%;
 	overflow: hidden;
-	z-index: 10;
-	.welcome {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		justify-content: center;
-		width: 40%;
-		height: 100%;
-		padding-left: 2%;
-		padding-top: 15%;
-		background-color: #f2c53dff;
-		.myName {
-			width: 100%;
-			font-size: 7rem;
-			color: white;
-			font-weight: 1000;
-		}
-		.separator {
-			width: 90%;
-			height: 8px;
-			border-radius: 4px;
-			background-color: #fff;
-			margin-bottom: 20px;
-		}
-		.myProfession {
-			width: 100%;
-			font-size: 4rem;
-			color: #1a202c;
-			font-weight: 600;
-			line-height: 6rem;
-		}
-	}
+	background-color: #f2c53dff;
+}
+
+.welcome {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	height: auto;
+	position: relative;
+	top: 50%;
+}
+
+.myName {
+	font-size: 7rem;
+	color: white;
+	font-weight: 1000;
+}
+.separator {
+	width: 90%;
+	height: 8px;
+	border-radius: 4px;
+	background-color: #fff;
+	/* margin-top: 10px; */
+	margin-bottom: 20px;
+}
+.myProfession {
+	font-size: 4rem;
+	color: #1a202c;
+	font-weight: 600;
+	line-height: 6rem;
 }
 
 @media screen and (max-width: 1024px) {
