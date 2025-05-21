@@ -28,7 +28,7 @@
 	right: 0;
 	height: 100%;
 	width: 60%;
-	background: url(@/assets/profile_picture.jpg);
+	background: url(/images/profile_picture.jpg);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	z-index: -1;
@@ -73,12 +73,11 @@
 	.homepage {
 		display: flex;
 		flex-direction: column !important;
-		align-items: center;
 		justify-content: flex-end;
 	}
 	.welcomeImage {
 		width: 100%;
-		background-size: 140%;
+		background-size: 140% 60%;
 		background-position: top;
 	}
 

@@ -123,7 +123,7 @@
 
 @media screen and (max-width: 1024px) {
 	.aboutMe {
-		flex-direction: column;
+		flex-direction: column-reverse;
 		width: 100vw;
 		max-width: 100vw;
 		height: 100vh;
