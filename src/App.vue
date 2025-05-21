@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
 import animateScrollTo from 'animated-scroll-to'
 import Navbar from './sections/Navbar.vue';
 import NavbarVertical from './sections/NavbarVertical.vue';
@@ -15,11 +15,11 @@ const handleWheel = (event: WheelEvent) => {
 	console.log('[Debug] handleWheel triggered');
 	
 	//TODO: Enable scroll prevention when pushing to production
-	// if (preventScroll) {
-	// 	return;
-	// }
+	if (preventScroll) {
+		return;
+	}
 
-	console.log('[Debug] event.deltaY:', event.deltaY);
+	//console.log('[Debug] event.deltaY:', event.deltaY);
 	prevScrollTarget = scrollTarget;
 	let newScrollTarget = scrollTarget;
 
@@ -28,15 +28,11 @@ const handleWheel = (event: WheelEvent) => {
 	} else {
 		newScrollTarget -= 1;
 	}
-	console.log('[Debug] scrollTarget before clamp:', newScrollTarget);
-	console.log('[Debug] scrollableSections.length:', scrollableSections.length);
 
 	scrollTarget = Math.min(Math.max(newScrollTarget, 0), scrollableSections.length - 1);
-	console.log('[Debug] scrollTarget after clamp:', scrollTarget);
-	console.log('[Debug] prevScrollTarget:', prevScrollTarget);
+
 
 	if(prevScrollTarget === scrollTarget) {
-		console.log('[Debug] scrollTarget did not change, returning.');
 		return;
 	}
 
@@ -59,8 +55,6 @@ onMounted(() => {
 	scrollableSections = Array.from(app.children).filter(child => {
 		return child.classList.contains('section-page')
 	}) as HTMLElement[]
-	console.log('[Debug] Number of scrollable sections detected:', scrollableSections.length);
-	console.log('[Debug] Sections from getSections():', JSON.stringify(getSections(), null, 2));
 	
 	// Set initial scroll target based on current route
 	const currentRouteName = router.currentRoute.value.name;
@@ -84,6 +78,20 @@ onMounted(() => {
 		}
 	})
 })
+
+watch(
+    () => router.currentRoute.value.name,
+    (newName) => {
+        const sectionIndex = getSections().findIndex(section => section.name === newName);
+        if (sectionIndex !== -1 && scrollableSections[sectionIndex]) {
+            scrollTarget = sectionIndex;
+            animateScrollTo(scrollableSections[scrollTarget], {
+                speed: 200,
+                easing: t => t * (2 - t),
+            });
+        }
+    }
+);
 
 const getSections = () => {
 	return router.getRoutes()

@@ -1,17 +1,17 @@
 [
 	{
 		"name": "LinkedIn",
-		"icon": "/icons/linkedin.svg",
+		"icon": "icons/linkedin.svg",
 		"link": "https://www.linkedin.com/in/bartasus1"
 	},
 	{
 		"name": "GitHub",
-		"icon": "/icons/github.svg",
+		"icon": "icons/github.svg",
 		"link": "https://github.com/Bartasus1"
 	},
 	{
 		"name": "Steam",
-		"icon": "/icons/steam.svg",
+		"icon": "icons/steam.svg",
 		"link": "https://steamcommunity.com/profiles/76561198244377476/"
 	}
 ]

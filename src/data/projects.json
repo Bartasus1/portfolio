@@ -1,7 +1,7 @@
 [
 	{
 		"title": "Krzywe Karty",
-		"image": "/images/CrookedCards.png",
+		"image": "images/CrookedCards.png",
 		"scope": "PERSONAL",
 		"short_description": "Multiplayer strategic card game",
 		"description": [
@@ -17,29 +17,29 @@
 		"technologies": [
 			{
 				"name": "Unreal Engine 5",
-				"icon": "/icons/unreal-engine.svg"
+				"icon": "icons/unreal-engine.svg"
 			},
 			{
 				"name": "C++",
-				"icon": "/icons/cpp.svg"
+				"icon": "icons/cpp.svg"
 			}
 		],
 		"links": [
 			{
 				"name": "GitHub",
-				"icon": "/icons/github.svg",
+				"icon": "icons/github.svg",
 				"url": "https://github.com/Bartasus1/CrookedCards"
 			},
 			{
 				"name": "Itch.io",
-				"icon": "/icons/itch-io.svg",
+				"icon": "icons/itch-io.svg",
 				"url": "https://bartasus1.itch.io/krzywe-karty/download/9Sc2bvmDh9CR3fQUhWmbddVfOS1raOG9hiL6aNGI"
 			}
 		]
 	},
 	{
 		"title": "Andromeda",
-		"image": "/images/Andromeda.png",
+		"image": "images/Andromeda.png",
 		"scope": "PERSONAL",
 		"short_description": "A prototype of an Action-Adventure RPG game",
 		"description": [
@@ -56,24 +56,24 @@
 		"technologies": [
 			{
 				"name": "Unreal Engine 5",
-				"icon": "/icons/unreal-engine.svg"
+				"icon": "icons/unreal-engine.svg"
 			},
 			{
 				"name": "C++",
-				"icon": "/icons/cpp.svg"
+				"icon": "icons/cpp.svg"
 			}
 		],
 		"links": [
 			{
 				"name": "YouTube",
-				"icon": "/icons/youtube.svg",
+				"icon": "icons/youtube.svg",
 				"url": "https://www.youtube.com/watch?v=w7NvI6eKasY"
 			}
 		]
 	},
 	{
 		"title": "Coco Jumpo",
-		"image": "/images/CocoJumpo.jpg",
+		"image": "images/CocoJumpo.jpg",
 		"scope": "PERSONAL",
 		"short_description": "A fast-paced vertical platformer",
 		"description": [
@@ -89,24 +89,24 @@
 		"technologies": [
 			{
 				"name": "Unity Engine",
-				"icon": "/icons/unity.svg"
+				"icon": "icons/unity.svg"
 			},
 			{
 				"name": "C++",
-				"icon": "/icons/csharp.svg"
+				"icon": "icons/csharp.svg"
 			}
 		],
 		"links": [
 			{
 				"name": "YouTube",
-				"icon": "/icons/youtube.svg",
+				"icon": "icons/youtube.svg",
 				"url": "https://www.youtube.com/watch?v=mSn-LewtKOs"
 			}
 		]
 	},
 	{
 		"title": "Procedural terrain generator",
-		"image": "/images/Terrain.png",
+		"image": "images/Terrain.png",
 		"scope": "PERSONAL",
 		"short_description": "A tool for procedural terrain generation in Unreal Engine",
 		"description": [
@@ -122,17 +122,17 @@
 		"technologies": [
 			{
 				"name": "Unreal Engine 5",
-				"icon": "/icons/unreal-engine.svg"
+				"icon": "icons/unreal-engine.svg"
 			},
 			{
 				"name": "C++",
-				"icon": "/icons/cpp.svg"
+				"icon": "icons/cpp.svg"
 			}
 		],
 		"links": [
 			{
 				"name": "GitHub",
-				"icon": "/icons/github.svg",
+				"icon": "icons/github.svg",
 				"url": "https://github.com/Bartasus1/LandmassGeneration"
 			}
 		]

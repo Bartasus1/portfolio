@@ -2,6 +2,7 @@
 import { computed, onMounted, ref } from 'vue';
 import type { RouteRecordNormalized } from 'vue-router';
 import socials from '@/data/socials.json';
+import router from '@/router';
 
 console.log('[Debug] NavbarVertical.vue script setup executed');
 
@@ -20,24 +21,10 @@ const isOpen = ref(false);
 const toggleMenu = () => {
   isOpen.value = !isOpen.value;
 };
-
-onMounted(() => {
-  console.log('[Debug] NavbarVertical.vue MOUNTED. Props:', props);
-});
-
 const currentSectionName = computed(() => {
-  return props.sections[props.currentSectionIndex]?.name;
+	const currentRoute = router.currentRoute.value;
+	return currentRoute.name;
 });
-
-const scrollToSection = (sectionName: string | symbol | undefined | null) => {
-  if (sectionName) {
-    const element = document.getElementById(String(sectionName).toLowerCase());
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      isOpen.value = false; // Close menu after clicking
-    }
-  }
-};
 </script>
 
 <template>
@@ -50,14 +37,11 @@ const scrollToSection = (sectionName: string | symbol | undefined | null) => {
     
     <nav class="navbar-vertical" :class="{ 'is-open': isOpen }">
       <ul class="nav-links">
-        <li
-          v-for="(section, index) in sections"
-          :key="index"
-          :class="{ active: section.name === currentSectionName }"
-          @click="scrollToSection(section.name)"
-        >
-          <a :href="`#${String(section.name).toLowerCase()}`">{{ String(section.name) }}</a>
-        </li>
+				<li v-for="(route, index) in router.getRoutes()" :class="{ active: route.name === currentSectionName }">
+					<RouterLink :key="index" :to="{ name: route.name }" @click="toggleMenu()">
+						{{ String(route.name) }}
+					</RouterLink>
+				</li>
       </ul>
       
       <div class="socials">

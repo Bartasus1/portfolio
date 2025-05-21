@@ -12,19 +12,19 @@
 			"technologies": [
 				{
 					"name": "Java 21",
-					"icon": "/icons/java.svg"
+					"icon": "icons/java.svg"
 				},
 				{
 					"name": "Spring Boot",
-					"icon": "/icons/spring.svg"
+					"icon": "icons/spring.svg"
 				},
 				{
 					"name": "Docker & Docker Compose",
-					"icon": "/icons/docker.svg"
+					"icon": "icons/docker.svg"
 				},
 				{
 					"name": "Git",
-					"icon": "/icons/git.svg"
+					"icon": "icons/git.svg"
 				}
 			],
 			"responsibilities": [
@@ -46,15 +46,15 @@
 			"technologies": [
 				{
 					"name": "Unreal Engine 5",
-					"icon": "/icons/unreal-engine.svg"
+					"icon": "icons/unreal-engine.svg"
 				},
 				{
 					"name": "C++",
-					"icon": "/icons/cpp.svg"
+					"icon": "icons/cpp.svg"
 				},
 				{
 					"name": "Helix Perforce",
-					"icon": "/icons/perforce.svg"
+					"icon": "icons/perforce.svg"
 				}
 			],
 			"responsibilities": [
@@ -75,15 +75,15 @@
 			"technologies": [
 				{
 					"name": "Unreal Engine 5",
-					"icon": "/icons/unreal-engine.svg"
+					"icon": "icons/unreal-engine.svg"
 				},
 				{
 					"name": "C++",
-					"icon": "/icons/cpp.svg"
+					"icon": "icons/cpp.svg"
 				},
 				{
 					"name": "Subversion",
-					"icon": "/icons/svn.svg"
+					"icon": "icons/svn.svg"
 				}
 			],
 			"responsibilities": [
@@ -103,11 +103,11 @@
 			"technologies": [
 				{
 					"name": "Unreal Engine 4",
-					"icon": "/icons/unreal-engine.svg"
+					"icon": "icons/unreal-engine.svg"
 				},
 				{
 					"name": "Git",
-					"icon": "/icons/git.svg"
+					"icon": "icons/git.svg"
 				}
 			],
 			"responsibilities": [

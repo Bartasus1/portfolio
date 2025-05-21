@@ -8,10 +8,13 @@
 <template>
 	<nav class="navbar">
 		<nav class="sections">
-			<!-- <RouteLink v-for="(route, index) in router.getRoutes()" :to="route.path"-->
-			<a v-for="(route, index) in router.getRoutes()" :key="index" :href="`#${String(route.name).toLowerCase()}`">
+			<RouterLink
+				v-for="(route, index) in router.getRoutes()"
+				:key="index"
+				:to="{ name: route.name }"
+			>
 				{{ String(route.name) }}
-			</a>
+			</RouterLink>
 		</nav>
 		<div class="socials">
 			<a v-for="(social, index) in socials" :key="index" :href="social.link" target="_blank" rel="noopener noreferrer" class="social-icon">

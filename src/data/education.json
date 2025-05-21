@@ -4,7 +4,7 @@
 		"institution": {
 			"name": "University of Wroclaw",
 			"link": "https://www.uwr.edu.pl",
-			"logo": "/images/logo-UWr.png"
+			"logo": "images/logo-UWr.png"
 		},
 		"start_date": "2019",
 		"end_date": "2023",
@@ -21,7 +21,7 @@
 		"institution": {
 			"name": "Jagiellonian University",
 			"link": "https://www.uj.edu.pl/pl",
-			"logo": "/images/logo-UJ.png"
+			"logo": "images/logo-UJ.png"
 		},
 		"start_date": "2024",
 		"end_date": "Present",

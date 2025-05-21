@@ -45,9 +45,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	h1 {
-		font-size: clamp(1rem, 4rem, 4.5rem);
-	}
+	font-size: clamp(1rem, 4rem, 4.5rem);
 }
 
 .separator {

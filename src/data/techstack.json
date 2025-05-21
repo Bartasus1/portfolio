@@ -1,87 +1,87 @@
 [
 	{
 		"tech": "Unreal Engine",
-		"icon": "/icons/unreal-engine.svg",
+		"icon": "icons/unreal-engine.svg",
 		"proficiency": 5
 	},
 	{
 		"tech": "C++",
-		"icon": "/icons/cpp.svg",
+		"icon": "icons/cpp.svg",
 		"proficiency": 5
 	},
 	{
 		"tech": "Java",
-		"icon": "/icons/java-transparent.svg",
+		"icon": "icons/java-transparent.svg",
 		"proficiency": 5
 	},
 	{
 		"tech": "Spring Boot",
-		"icon": "/icons/spring.svg",
+		"icon": "icons/spring.svg",
 		"proficiency": 5
 	},
 	{
 		"tech": "Docker",
-		"icon": "/icons/docker.svg",
+		"icon": "icons/docker.svg",
 		"proficiency": 4
 	},
 	{
 		"tech": "Git",
-		"icon": "/icons/git.svg",
+		"icon": "icons/git.svg",
 		"proficiency": 4
 	},
 	{
 		"tech": "Helix Perforce",
-		"icon": "/icons/perforce.svg",
+		"icon": "icons/perforce.svg",
 		"proficiency": 3
 	},
 	{
 		"tech": "Python",
-		"icon": "/icons/python.svg",
+		"icon": "icons/python.svg",
 		"proficiency": 3
 	},
 	{
 		"tech": "Streamlit",
-		"icon": "/icons/streamlit.svg",
+		"icon": "icons/streamlit.svg",
 		"proficiency": 4
 	},
 	{
 		"tech": "Subversion",
-		"icon": "/icons/svn.svg",
+		"icon": "icons/svn.svg",
 		"proficiency": 2.3
 	},
 	{
 		"tech": "Blender",
-		"icon": "/icons/blender.svg",
+		"icon": "icons/blender.svg",
 		"proficiency": 4
 	},
 	{
 		"tech": "Javascript",
-		"icon": "/icons/javascript.svg",
+		"icon": "icons/javascript.svg",
 		"proficiency": 3
 	},
 	{
 		"tech": "Vue.js",
-		"icon": "/icons/vue.svg",
+		"icon": "icons/vue.svg",
 		"proficiency": 2.3
 	},
 	{
 		"tech": "Android",
-		"icon": "/icons/android.svg",
+		"icon": "icons/android.svg",
 		"proficiency": 3
 	},
 	{
 		"tech": "Math",
-		"icon": "/icons/math.svg",
+		"icon": "icons/math.svg",
 		"proficiency": 3
 	},
 	{
 		"tech": "Physics",
-		"icon": "/icons/physics.svg",
+		"icon": "icons/physics.svg",
 		"proficiency": 3
 	},
 	{
 		"tech": "PostgreSQL",
-		"icon": "/icons/postgresql.svg",
+		"icon": "icons/postgresql.svg",
 		"proficiency": 3
 	}
 ]
