@@ -34,9 +34,14 @@
 	z-index: -1;
 }
 .headerContainer {
-	width: 40%;
+	position: relative;
+	top: 50%;
+	display: flex;
+	justify-content: center;
 	height: 100%;
+	width: 40%;
 	padding: 1%;
+	padding-right: 2%;
 	overflow: hidden;
 	background-color: #f2c53dff;
 }
@@ -44,7 +49,7 @@
 .welcome {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
+	align-items: center;
 	width: 100%;
 	height: auto;
 }
@@ -87,6 +92,8 @@
 		justify-content: flex-start;
 		height: 40vh;
 		width: 100%;
+		top: 0;
+		padding: 1rem;
 	}
 	.welcome {
 		display: flex;
@@ -102,7 +109,7 @@
 		}
 
 		.separator {
-			width: 60%;
+			width: 90%;
 		}
 
 		.myProfession {
