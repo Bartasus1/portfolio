@@ -8,23 +8,25 @@ import router from '@/router';
 
 const scrollTarget = ref(0);
 const horizontalNavbar = ref(true); 
-const preventScroll = ref<boolean>(false);
+const preventScroll = ref(false);
 var scrollableSections: HTMLElement[] = [];
 
 
 const scrollToSection = (index: number) => {
-	if(preventScroll.value) {
+	if(preventScroll.value || index < 0 || index >= scrollableSections.length) {
 		return;
 	}
 
-	scrollTarget.value = index;
 	preventScroll.value = true;
-	animateScrollTo(scrollableSections[scrollTarget.value], {
+	animateScrollTo(scrollableSections[index], {
 		speed: 400,
-		easing: t => t * (2 - t), // Custom easing function
+		easing: t => t * (2 - t),
+		cancelOnUserAction: false
 	}).then(() => {
+		scrollTarget.value = index;
 		preventScroll.value = false;
 		horizontalNavbar.value = scrollTarget.value === 0 ? true : false;
+
 		const newRouteName = getSections()[scrollTarget.value].name as string;
 		if (router.currentRoute.value.name !== newRouteName) {
 			router.push({ name: newRouteName });
@@ -39,14 +41,14 @@ const handleWheel = (event: WheelEvent) => {
 		return;
 	}
 
-	let newScrollTarget = scrollTarget;
+	let newScrollTarget = scrollTarget.value;
 	if (event.deltaY > 0) {
-		newScrollTarget.value += 1;
+		newScrollTarget += 1;
 	} else {
-		newScrollTarget.value -= 1;
+		newScrollTarget -= 1;
 	}
 
-	scrollToSection(Math.min(Math.max(newScrollTarget.value, 0), scrollableSections.length - 1));
+	scrollToSection(newScrollTarget);
 }
 
 onMounted(() => {
