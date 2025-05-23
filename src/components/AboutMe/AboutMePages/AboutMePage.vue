@@ -44,14 +44,13 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	background-color: #f2c53d;
 	overflow-y: auto;
 	padding: 1rem;
 	box-sizing: border-box;
 }
 .title {
 	width: 100%;
-	font-size: 4.5rem;
+	font-size: clamp(2rem, 2.8vw, 4rem);
 	color: black;
 	font-weight: 800;
 	text-align: center;
@@ -67,12 +66,12 @@
 }
 .description {
 	flex-shrink: 0;
-	padding: 1%;
 	width: 100%;
-	font-size: 1.8rem;
+	font-size: clamp(1.2rem, 1.6vw, 1.8rem);
 	color: black;
 	text-align: justify;
 	margin: 0;
+	padding: 2rem;
 }
 .others {
 	width: 100%;
@@ -93,26 +92,18 @@
 	font-size: 1.2rem;
 }
 
-@media screen and (max-width: 1024px) {
-	.about-me-page {
-		padding: 0.5rem;
-		justify-content: flex-start;
-	}
+h3 {
+	font-weight: 500 !important;
+}
+ul {
+	font-weight: normal;
+}
 
-	.title {
-		font-size: 2rem;
-		margin-top: 0.5rem;
-	}
-
-	.separator {
-		width: 80%;
-		margin: 10px 0;
-	}
+@media screen and (max-width: 1400px) {
 
 	.description {
-		font-size: 1.1rem;
-		padding: 0.5rem;
-		margin: 0;
+		font-size: clamp(1.2rem, 2vw, 1.4rem);
+		padding: 10px 2rem;
 	}
 
 	.others {
@@ -123,10 +114,48 @@
 	}
 
 	.hobbies, .skills, .languages {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 		max-width: 100%;
 		width: 100%;
-		font-size: 1rem;
+		font-size: clamp(1rem, 1.6vw, 1.3rem);
 		margin: 0;
 	}
+
+	ul {
+		width: 100%;
+	}
+
+
+	h3 {
+		text-align: left;
+		font-size: 1.4rem;
+		width: 90%;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.about-me-page {
+		align-items: center !important;
+		justify-content: flex-start !important;
+	}
+
+	.title {
+		font-size: 2rem;
+		margin-top: 0.5rem;
+	}
+
+	.separator {
+		margin: 10px 0;
+	}
+
+	.description {
+		font-size: clamp(1.1rem, 3vw, 1.2rem);
+		padding: 10px 2rem;
+	}
+
+
 }
 </style>

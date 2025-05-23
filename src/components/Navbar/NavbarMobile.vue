@@ -1,20 +1,8 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
-import type { RouteRecordNormalized } from 'vue-router';
+import { computed, ref } from 'vue';
 import socials from '@/data/socials.json';
 import router from '@/router';
 
-console.log('[Debug] NavbarVertical.vue script setup executed');
-
-interface Section {
-  name: string | symbol | undefined | null;
-  path: string;
-}
-
-const props = defineProps<{
-  sections: Section[];
-  currentSectionIndex: number;
-}>();
 
 const isOpen = ref(false);
 
@@ -58,7 +46,7 @@ const currentSectionName = computed(() => {
   display: none;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1400px) {
   .mobile-nav {
     display: block;
   }

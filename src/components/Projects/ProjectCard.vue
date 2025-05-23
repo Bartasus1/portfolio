@@ -5,6 +5,7 @@
 		image:        string;
 		short_description: string;
 		description:  string[];
+		focus_points: string[];
 		technologies: Technology[];
 		links:        Link[];
 	}

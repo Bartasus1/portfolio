@@ -9,6 +9,7 @@
 		image: string;
 		short_description: string;
 		description: string[];
+		focus_points: string[];
 		technologies: Technology[];
 		links: Link[];
 	}
@@ -74,8 +75,8 @@
 		</div>
 
 		<ProjectOverlay
-			:project="selectedProject"
 			:isVisible="isOverlayVisible"
+			:project="selectedProject"
 			@close="closeOverlay"
 		/>
 	</div>
@@ -91,6 +92,7 @@
 	align-items: center;
 	background-color: #1a202c; 
 	padding: 2% 0;
+	padding-left: 10%;
 }
 
 .title {

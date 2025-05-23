@@ -7,7 +7,7 @@
 				<h2 class="myProfession">Gameplay & UI Programmer</h2>
 			</div>
 		</div>
-		<div class="welcomeImage"></div>
+		<img src="/images/profile_picture.jpg" class="welcomeImage">
 	</div>
 </template>
 
@@ -28,15 +28,13 @@
 	right: 0;
 	height: 100%;
 	width: 60%;
-	background: url(/images/profile_picture.jpg);
-	background-size: 100%;
-	background-repeat: no-repeat;
 	z-index: -1;
+	background-color: #1a202c;
+	object-fit: cover;
 }
 .headerContainer {
-	position: relative;
-	top: 50%;
 	display: flex;
+	align-items: center;
 	justify-content: center;
 	height: 100%;
 	width: 40%;
@@ -52,10 +50,11 @@
 	align-items: center;
 	width: 100%;
 	height: auto;
+	margin-top: 50%;
 }
 
 .myName {
-	font-size: 7rem;
+	font-size: clamp(2.5rem, 4vw, 7rem);
 	color: white;
 	font-weight: 1000;
 }
@@ -65,14 +64,17 @@
 	border-radius: 4px;
 	background-color: #fff;
 	/* margin-top: 10px; */
-	margin-bottom: 20px;
+	margin-bottom: clamp(0, 20px, 20px);
+	flex-shrink: 0;
 }
 .myProfession {
-	font-size: 4rem;
+	font-size: clamp(1.5rem, 2.5vw, 4rem);
 	color: #1a202c;
 	font-weight: 600;
-	line-height: 6rem;
+	line-height: clamp(3.5rem, 6vw, 6rem);
 }
+
+
 
 @media screen and (max-width: 1024px) {
 	.homepage {
@@ -80,10 +82,14 @@
 		flex-direction: column !important;
 		justify-content: flex-end;
 	}
+
 	.welcomeImage {
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 60%;
 		width: 100%;
-		background-size: 140% 60%;
-		background-position: top;
+		z-index: -1;
 	}
 
 	.headerContainer {
@@ -104,18 +110,22 @@
 		justify-content: center;
 		text-align: center;
 		padding-top: 5%;
-		.myName {
-			font-size: 3rem;
-		}
+		margin-top: 0;
+	}
+	
+	.separator {
+		width: 90%;
 
-		.separator {
-			width: 90%;
-		}
+	}
+}
 
-		.myProfession {
-			font-size: 2rem;
-			line-height: 3rem;
-		}
+@media screen and (max-width: 400px) {
+
+	.separator {
+		height: 4px;
+	}
+	.headerContainer {
+		padding: 0.5rem;
 	}
 }
 </style>

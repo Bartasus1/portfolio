@@ -29,37 +29,33 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	margin: 1%;
-	margin-top: 2.5%;
-	width: 38%;
-	height: 64px;
-	padding: 0 2%;
+	width: 8%;
+	height: 100%;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
-	justify-content: space-between;
+	padding: 5% 10px;
 	background: #1a202c;
 	backdrop-filter: blur(6px);
 	z-index: 1000;
-	border-radius: 16px;
-}
-
-@media (max-width: 1024px) {
-	.navbar {
-		display: none;
-	}
+	box-shadow: 16px 0 16px 0 rgba(18, 17, 22, 0.5);
 }
 
 .sections {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	height: 70%;
-	gap: 3rem;
+	width: 90%;
+	gap: 7rem;
+	flex: 3;
+
+	margin-top: 10vh;
+	margin-bottom: 100px;
 
 	a {
 		text-decoration: none;
 		color: #f2c53dff;
-		font-size: 1.2rem;
+		font-size: clamp(1rem, 1vw, 1.2rem);
 		font-weight: 500;
 		letter-spacing: 1px;
 	}
@@ -67,11 +63,14 @@
 
 .socials {
 	display: flex;
-	align-items: center;
-	height: 70%;
-	gap: 2rem;
-	margin-right: 5%;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-end;
+	width: 80%;
+	flex: 1;
 	color: #f2c53dff;
+	padding-bottom: 50px;
+	border-top: 1px solid rgba(242, 197, 61, 0.2);
 }
 
 .social-icon {
@@ -84,6 +83,14 @@
 		height: 100%;
 		/* https://isotropic.co/tool/hex-color-to-css-filter/  =>  #f2c53d */
 		filter: invert(92%) sepia(53%) saturate(5944%) hue-rotate(322deg) brightness(96%) contrast(98%);
+
+	}
+}
+
+
+@media (max-width: 1400px) {
+	.navbar {
+		display: none;
 	}
 }
 

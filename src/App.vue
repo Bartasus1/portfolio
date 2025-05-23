@@ -1,53 +1,52 @@
 <script setup lang="ts">
-import { onMounted, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import animateScrollTo from 'animated-scroll-to'
-import Navbar from './sections/Navbar.vue';
-import NavbarVertical from './sections/NavbarVertical.vue';
+import Navbar from './components/Navbar/Navbar.vue';
+import NavbarVertical from './components/Navbar/NavbarVertical.vue';
+import NavbarMobile from './components/Navbar/NavbarMobile.vue';
 import router from '@/router';
 
-var prevScrollTarget = 0;
-var scrollTarget = 0;
+const scrollTarget = ref(0);
+const horizontalNavbar = ref(true); 
+const preventScroll = ref<boolean>(false);
 var scrollableSections: HTMLElement[] = [];
-var preventScroll = false;
 
-const handleWheel = (event: WheelEvent) => {
-	event.preventDefault()
-	console.log('[Debug] handleWheel triggered');
-	
-	//TODO: Enable scroll prevention when pushing to production
-	if (preventScroll) {
+
+const scrollToSection = (index: number) => {
+	if(preventScroll.value) {
 		return;
 	}
 
-	//console.log('[Debug] event.deltaY:', event.deltaY);
-	prevScrollTarget = scrollTarget;
-	let newScrollTarget = scrollTarget;
-
-	if (event.deltaY > 0) {
-		newScrollTarget += 1;
-	} else {
-		newScrollTarget -= 1;
-	}
-
-	scrollTarget = Math.min(Math.max(newScrollTarget, 0), scrollableSections.length - 1);
-
-
-	if(prevScrollTarget === scrollTarget) {
-		return;
-	}
-
-	preventScroll = true;
-	animateScrollTo(scrollableSections[scrollTarget], {
+	scrollTarget.value = index;
+	preventScroll.value = true;
+	animateScrollTo(scrollableSections[scrollTarget.value], {
 		speed: 400,
-		easing: t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1, // Custom easing function
-		cancelOnUserAction: false
+		easing: t => t * (2 - t), // Custom easing function
 	}).then(() => {
-		preventScroll = false;
-		const newRouteName = getSections()[scrollTarget].name as string;
+		preventScroll.value = false;
+		horizontalNavbar.value = scrollTarget.value === 0 ? true : false;
+		const newRouteName = getSections()[scrollTarget.value].name as string;
 		if (router.currentRoute.value.name !== newRouteName) {
 			router.push({ name: newRouteName });
 		}
 	})
+}
+
+const handleWheel = (event: WheelEvent) => {
+	event.preventDefault()
+
+	if(preventScroll.value) {
+		return;
+	}
+
+	let newScrollTarget = scrollTarget;
+	if (event.deltaY > 0) {
+		newScrollTarget.value += 1;
+	} else {
+		newScrollTarget.value -= 1;
+	}
+
+	scrollToSection(Math.min(Math.max(newScrollTarget.value, 0), scrollableSections.length - 1));
 }
 
 onMounted(() => {
@@ -60,23 +59,11 @@ onMounted(() => {
 	const currentRouteName = router.currentRoute.value.name;
 	const initialSectionIndex = getSections().findIndex(section => section.name === currentRouteName);
 	if (initialSectionIndex !== -1) {
-		scrollTarget = initialSectionIndex;
+		scrollToSection(initialSectionIndex);
 	}
 	
 	// Add wheel event listener
 	window.addEventListener('wheel', handleWheel, { passive: false })
-
-	// Scroll to the initial section
-	animateScrollTo(scrollableSections[scrollTarget], {
-		speed: 400,
-		easing: t => t * (2 - t), // Custom easing function
-	}).then(() => {
-		// Ensure the URL is correct on initial load if not already matching
-		const currentSectionName = getSections()[scrollTarget].name as string;
-		if (router.currentRoute.value.name !== currentSectionName) {
-			router.push({ name: currentSectionName });
-		}
-	})
 })
 
 watch(
@@ -84,11 +71,7 @@ watch(
     (newName) => {
         const sectionIndex = getSections().findIndex(section => section.name === newName);
         if (sectionIndex !== -1 && scrollableSections[sectionIndex]) {
-            scrollTarget = sectionIndex;
-            animateScrollTo(scrollableSections[scrollTarget], {
-                speed: 200,
-                easing: t => t * (2 - t),
-            });
+            scrollToSection(sectionIndex);
         }
     }
 );
@@ -105,20 +88,19 @@ const getSections = () => {
 </script>
 
 <template>
-	<!-- <Transition name="navbar-switch" mode="out-in"> -->
-		<Navbar />
-		<NavbarVertical :sections="getSections()" :currentSectionIndex="scrollTarget" />
-	<!-- </Transition> -->
-	<!-- <RouterView /> -->
-	<div 
-		v-for="(section, index) in getSections()" 
-		:key="index" 
-		:id="String(section.name).toLowerCase()" 
-		class="section-page" >
+	
+	<Navbar v-if="horizontalNavbar" />
+	<NavbarVertical v-else />
+	<NavbarMobile/>
+
+	<div v-for="(section, index) in getSections()" 
+		:id="String(section.name).toLowerCase()" :key="index" 
+		class="section-page " >
 
 		<component :is="section.component" />
 		
 	</div>
+
 </template>
 
 <style scoped>

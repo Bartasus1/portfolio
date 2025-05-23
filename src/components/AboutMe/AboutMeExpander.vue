@@ -45,7 +45,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	font-size: clamp(1rem, 4rem, 4.5rem);
+	font-size: clamp(1.3rem, 4vw, 4.5rem);
 }
 
 .separator {
@@ -53,10 +53,11 @@
 	height: 2px;
 	background-color: #202020;
 	margin: 5px 0;
+	flex-shrink: 0
 }
 
 .quote {
-	font-size: 1.4rem;
+	font-size: clamp(0.9rem, 2vw, 2rem);
 	font-style: italic;
 }
 
@@ -79,19 +80,16 @@
 		transform: translateY(-3px);
 	}
 
-	.title {
-		font-size: clamp(1rem, 1.5rem, 2rem);
-		line-height: 1.2;
-	}
-
-	.quote {
-		font-size: 0.9rem;
-		line-height: 1.2;
-	}
-
 	.separator {
-		width: 60%;
+		width: 90%;
 		margin: 3px 0;
 	}
 }
+
+@media screen and (max-width: 400px) {
+	.title {
+		font-size: 1.3rem;
+	}
+}
+
 </style>

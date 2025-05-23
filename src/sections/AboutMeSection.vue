@@ -58,6 +58,7 @@
 	width: 100vw;
 	height: 100vh; 
 	overflow: hidden;
+	
 }
 .sidebar {
 	display: flex;
@@ -66,10 +67,9 @@
 	justify-content: space-evenly; /* Distributes items evenly */
 	width: 40%; /* Or adjust as needed */
 	height: 100%;
-	padding-left: 2%; /* Original padding */
 	padding-top: 5%; /* Added padding for better spacing */
 	padding-bottom: 5%; /* Added padding for better spacing */
-	background-color: #f2c53d; /* Original background */
+	padding-left: 10%;
 	box-sizing: border-box;
 }
 .content {
@@ -157,6 +157,7 @@
 		align-items: flex-start;
 		justify-content: flex-start;
 		padding: 1rem;
+		padding-top: 3rem;
 		overflow-y: auto;
 		-webkit-overflow-scrolling: touch;
 	}
