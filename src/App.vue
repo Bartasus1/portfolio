@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref, watch, computed } from 'vue'
 import animateScrollTo from 'animated-scroll-to'
 import Navbar from './components/Navbar/Navbar.vue';
 import NavbarVertical from './components/Navbar/NavbarVertical.vue';
 import NavbarMobile from './components/Navbar/NavbarMobile.vue';
 import router from '@/router';
 
+const nexScrollTarget = ref(0);
 const scrollTarget = ref(0);
-const horizontalNavbar = ref(true); 
 const preventScroll = ref(false);
 var scrollableSections: HTMLElement[] = [];
 
@@ -17,6 +17,7 @@ const scrollToSection = (index: number) => {
 		return;
 	}
 
+	nexScrollTarget.value = index;
 	preventScroll.value = true;
 	animateScrollTo(scrollableSections[index], {
 		speed: 400,
@@ -25,7 +26,6 @@ const scrollToSection = (index: number) => {
 	}).then(() => {
 		scrollTarget.value = index;
 		preventScroll.value = false;
-		horizontalNavbar.value = scrollTarget.value === 0 ? true : false;
 
 		const newRouteName = getSections()[scrollTarget.value].name as string;
 		if (router.currentRoute.value.name !== newRouteName) {
@@ -50,6 +50,14 @@ const handleWheel = (event: WheelEvent) => {
 
 	scrollToSection(newScrollTarget);
 }
+
+
+const displayRegularNavbar = computed(() => {
+	if(nexScrollTarget.value >= 1 && scrollTarget.value != 0)
+		return false;
+	if(nexScrollTarget.value === 0)
+		return true;
+})
 
 onMounted(() => {
 	const app = document.querySelector('#app') as HTMLElement
@@ -91,8 +99,12 @@ const getSections = () => {
 
 <template>
 	
-	<Navbar v-if="horizontalNavbar" />
-	<NavbarVertical v-else />
+	<Transition name="navbar-switch" mode="out-in">
+		<component
+			:is="displayRegularNavbar ? Navbar : NavbarVertical"
+			:key="displayRegularNavbar ? 'navbar' : 'navbar-vertical'"
+		/>
+	</Transition>
 	<NavbarMobile/>
 
 	<div v-for="(section, index) in getSections()" 
