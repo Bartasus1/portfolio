@@ -82,17 +82,41 @@ leaf.append("text")
 
 leaf.append("title")
   .text(d => d.data.tech);
+
+leaf.on("touchstart", function(event, d) {
+	event.stopPropagation();
+  // Remove 'active' from all
+  d3.selectAll(".tech-leaf").classed("active", false);
+  // Add 'active' to the clicked one
+  d3.select(this).classed("active", true);
+});
+
+// Optional: Remove highlight if user taps background (not a leaf)
+// svg.on("touchend", function(event) {
+//   if (event.target.tagName === "svg") {
+//     d3.selectAll(".tech-leaf").classed("active", false);
+//   }
+// });
     
 </script>
 
 <style>
 .tech-leaf:hover circle,
-.tech-leaf:hover image {
+.tech-leaf.active circle,
+.tech-leaf:hover image,
+.tech-leaf.active image {
+  opacity: 0.2;
+  transition: opacity 0.3s;
+}
+
+.tech-leaf:hover .fog-circle,
+.tech-leaf.active .fog-circle {
   opacity: 0.7;
   transition: opacity 0.3s;
 }
 
-.tech-leaf:hover text, .tech-leaf:hover fog-circle {
+.tech-leaf:hover text,
+.tech-leaf.active text {
   opacity: 1 !important;
   font-weight: bold;
   transition: opacity 0.3s;
