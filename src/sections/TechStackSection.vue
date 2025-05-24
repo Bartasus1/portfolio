@@ -4,7 +4,7 @@
 			Techstack
 		</h1>
 		<p class="description">
-			Here are the technologies I have worked with. The size of the circle represents my proficiency in that technology.
+			Here are the technologies and topics I have worked with or have some experience in. The size of the circle represents my proficiency in that technology.
 		</p>
 		<div class="chart-container" v-html="createChart()">
 		</div>
@@ -48,7 +48,8 @@ const svg = d3.create("svg")
 const leaf = svg.selectAll("g")
 	.data(root.leaves())
 	.join("g")
-		.attr("transform", d =>  `translate(${d.x },${d.y})`)
+			.attr("class", "tech-leaf") // Add class for CSS
+			.attr("transform", d =>  `translate(${d.x },${d.y})`);
 
 leaf.append("circle")
 	.attr("id", d => d.data.tech)
@@ -63,10 +64,40 @@ leaf.append("image")
 	.attr("width", d => d.r)
 	.attr("height", d => d.r);
 
+leaf.append("circle")
+	.attr("class", "fog-circle")
+	.attr("r", d => d.r)
+	.attr("fill", "#fff")
+	.attr("opacity", 0)
+	.style("filter", "blur(8px)");
+
+leaf.append("text")
+	.text(d => d.data.tech)
+	.attr("text-anchor", "middle")
+	.attr("dy", "0.35em")
+	.attr("font-size", d => d.r / 3)
+	.attr("fill", "black")
+	.style("opacity", 0) // Hidden by default
+	.attr("pointer-events", "none"); // Let mouse events pass through
+
 leaf.append("title")
   .text(d => d.data.tech);
     
 </script>
+
+<style>
+.tech-leaf:hover circle,
+.tech-leaf:hover image {
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.tech-leaf:hover text, .tech-leaf:hover fog-circle {
+  opacity: 1 !important;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+</style>
 
 <style scoped>
 .section-container {
