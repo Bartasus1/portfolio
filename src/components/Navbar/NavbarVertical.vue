@@ -69,7 +69,8 @@
 	width: 80%;
 	flex: 1;
 	color: #f2c53dff;
-	padding-bottom: 50px;
+	padding-bottom: 2%;
+	padding-top: 10px;
 	border-top: 1px solid rgba(242, 197, 61, 0.2);
 }
 

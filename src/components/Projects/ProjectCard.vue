@@ -76,19 +76,25 @@
 	align-items: center;
 	height: 20%;
 	width: 100%;
-	background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+	padding: 17% 2%;
+	background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
 	color: white;
+	overflow: hidden;
 }
 
 .info > h1 {
 	text-align: center;
-	text-wrap: break-word;
+	/* text-wrap: nowrap; */
+	font-size: clamp(1.7rem, 1vw + 1vh, 1.8rem);
 }
 
 .description {
+	flex-shrink: 0;
+	text-wrap: balance;
 	color: #e0e0e0;
 	text-align: center;
 	padding: 10px;
+	font-size: clamp(0.8rem, 1vw + 1vh, 1rem);
 }
 
 </style>

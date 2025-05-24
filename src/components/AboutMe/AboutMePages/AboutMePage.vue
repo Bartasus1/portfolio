@@ -47,6 +47,7 @@
 	overflow-y: auto;
 	padding: 1rem;
 	box-sizing: border-box;
+	overflow-y: scroll;
 }
 .title {
 	width: 100%;

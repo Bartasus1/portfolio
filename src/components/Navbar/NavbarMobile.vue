@@ -141,7 +141,8 @@ const currentSectionName = computed(() => {
   display: flex;
   justify-content: center;
   gap: 2rem;
-  padding: 20px 0;
+  padding: 10% 0;
+
   border-top: 1px solid rgba(242, 197, 61, 0.2);
 }
 

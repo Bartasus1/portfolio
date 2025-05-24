@@ -143,7 +143,7 @@
 }
 
 /* Add responsive styles */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
 	.projects-section {
 		height: 100vh;
 		padding: 4% 0;
@@ -162,6 +162,7 @@
 
 	.projects {
 		flex-direction: column;
+		justify-content: flex-start;
 		overflow: scroll;
 		gap: 30px;
 		padding: 20px;

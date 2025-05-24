@@ -34,18 +34,52 @@ const scrollToSection = (index: number) => {
 	})
 }
 
-const handleWheel = (event: WheelEvent) => {
-	event.preventDefault()
+const isScrollable = (el: HTMLElement, deltaY: number) => {
+	while (el && el !== document.body) {
+			const style = window.getComputedStyle(el);
+			const overflowY = style.overflowY;
+			const isScroll = overflowY === 'auto' || overflowY === 'scroll';
+			const canScroll = el.scrollHeight > el.clientHeight;
+			if (isScroll && canScroll) {
+					if (deltaY < 0 && el.scrollTop > 0) return true; // can scroll up
+					if (deltaY > 0 && el.scrollTop + el.clientHeight < el.scrollHeight) return true; // can scroll down
+			}
+			el = el.parentElement as HTMLElement;
+	}
+	return false;
+};
 
-	if(preventScroll.value) {
-		return;
+const isDirectlyOverSection = (el: HTMLElement) => {
+	while (el && el !== document.body) {
+			if (el.classList.contains('section-page')) return true;
+			// If we hit a scrollable element before the section, return false
+			const style = window.getComputedStyle(el);
+			const overflowY = style.overflowY;
+			const isScroll = overflowY === 'auto' || overflowY === 'scroll';
+			const canScroll = el.scrollHeight > el.clientHeight;
+			if (isScroll && canScroll) return false;
+			el = el.parentElement as HTMLElement;
+	}
+	return false;
+};
+
+const handleWheel = (event: WheelEvent) => {
+	// Only handle wheel if mouse is directly over a section (not over a scrollable child)
+	if (!isDirectlyOverSection(event.target as HTMLElement)) {
+			return;
+	}
+
+	event.preventDefault();
+
+	if (preventScroll.value) {
+			return;
 	}
 
 	let newScrollTarget = scrollTarget.value;
 	if (event.deltaY > 0) {
-		newScrollTarget += 1;
+			newScrollTarget += 1;
 	} else {
-		newScrollTarget -= 1;
+			newScrollTarget -= 1;
 	}
 
 	scrollToSection(newScrollTarget);

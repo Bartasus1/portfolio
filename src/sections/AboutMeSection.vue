@@ -71,6 +71,7 @@
 	padding-bottom: 5%; /* Added padding for better spacing */
 	padding-left: 10%;
 	box-sizing: border-box;
+	background-color: #f2c53dff;
 }
 .content {
 	position: relative; /* For absolute positioning of section-content */

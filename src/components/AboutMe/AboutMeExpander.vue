@@ -6,7 +6,7 @@
 </script>
 
 <template>
-	<div class="section">
+	<div class="expander">
 			<h1 class="title">{{ name }}</h1>
 		<div class="separator"></div>
 			<p class="quote">
@@ -16,7 +16,7 @@
 </template>
 
 <style scoped>
-.section {
+.expander {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -30,12 +30,12 @@
 	margin-bottom: 5px;
 }
 
-.section:hover {
+.expander:hover {
 	transform: translateX(10px);
 	background-color: rgba(255, 255, 255, 0.05);
 }
 
-.section.active { 
+.expander.active { 
 	transform: translateX(20px); 
 	background-color: rgba(255, 255, 255, 0.2); 
 	font-weight: bold; 
@@ -45,7 +45,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	font-size: clamp(1.3rem, 4vw, 4.5rem);
+	font-size: clamp(1rem, 2vw + 2vh, 4.5rem);
 }
 
 .separator {
@@ -57,13 +57,13 @@
 }
 
 .quote {
-	font-size: clamp(0.9rem, 2vw, 2rem);
+	font-size: clamp(0.9rem, 1vw + 1vh, 2rem);
 	font-style: italic;
 }
 
 @media screen and (max-width: 1024px) {
-	.section {
-		width: 100%;
+	.expander {
+		width: 33%;
 		height: 100%;
 		align-items: center;
 		justify-content: flex-start;
@@ -72,11 +72,21 @@
 		margin: 0;
 	}
 
-	.section:hover {
+	.title {
+		font-size: clamp(1rem, 1vw + 2vh, 4.5rem);
+		text-wrap: nowrap;
+	}
+
+	.quote {
+		font-size: clamp(0.9rem, 1vw + 0.5vh, 2rem);
+		text-wrap: nowrap;
+	}
+		
+	.expander:hover {
 		transform: translateY(-3px);
 	}
 
-	.section.active {
+	.expander.active {
 		transform: translateY(-3px);
 	}
 
