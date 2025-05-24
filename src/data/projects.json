@@ -98,6 +98,11 @@
 		],
 		"links": [
 			{
+				"name": "GitHub",
+				"icon": "icons/github.svg",
+				"url": "https://github.com/xdexer/HackYeah2020"
+			},
+			{
 				"name": "YouTube",
 				"icon": "icons/youtube.svg",
 				"url": "https://www.youtube.com/watch?v=mSn-LewtKOs"
