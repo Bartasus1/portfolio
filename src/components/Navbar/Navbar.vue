@@ -69,6 +69,7 @@
 	justify-content: space-around;
 	height: 70%;
 	color: #f2c53dff;
+	border-left: 1px solid rgba(242, 197, 61, 0.2);
 }
 
 .social-icon {

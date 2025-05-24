@@ -21,10 +21,41 @@ interface Job {
 	responsibilities: string[];
 }
 
-defineProps<{
-	index: number;
+const props = defineProps<{
+	index: number; 
 	job: Job;
 }>();
+
+
+const calculateDuration = computed(() => {
+	let startDate: Date, endDate: Date;
+
+	if (props.job.start_date.toLowerCase() === 'present') {
+		startDate = new Date();
+	} else {
+		const [startMonth, startYear] = props.job.start_date.split('.').map(Number);
+		startDate = new Date(startYear, startMonth - 1);
+	}
+
+	if (!props.job.end_date || props.job.end_date.toLowerCase() === 'present') {
+		endDate = new Date();
+	} else {
+		const [endMonth, endYear] = props.job.end_date.split('.').map(Number);
+		endDate = new Date(endYear, endMonth - 1);
+	}
+
+	const months =
+		(endDate.getFullYear() - startDate.getFullYear()) * 12 +
+		(endDate.getMonth() - startDate.getMonth());
+
+	if (months >= 12) {
+		const years = Math.floor(months / 12);
+		const remMonths = months % 12;
+		const yearText = `${years} ${years === 1 ? 'year' : 'years'}`;
+		return remMonths > 0 ? `${yearText} ${remMonths} months` : `${yearText}`;
+	}
+	return `${months} months`;
+});
 </script>
 
 <template>
@@ -35,8 +66,10 @@ defineProps<{
 		</h3>
 		<p class="job-details">
 			{{ job.location }}  
-			<span class="details-divider"> | </span>  
-			{{ job.start_date }} - {{ job.end_date }}
+			<span class="details-divider"> &nbsp | &nbsp </span>  
+			{{ job.start_date }} &nbsp- &nbsp{{ job.end_date }} 
+			<span class="details-divider"> &nbsp&nbsp </span>  
+			( {{calculateDuration }} )
 		</p>
 			<ul class="tech-list">
 				<li v-for="(tech, techIndex) in job.technologies" :key="`job-tech-${index}-${techIndex}`">
