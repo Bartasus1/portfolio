@@ -69,7 +69,7 @@
 	height: 100%;
 	padding-top: 5%; /* Added padding for better spacing */
 	padding-bottom: 5%; /* Added padding for better spacing */
-	padding-left: 10%;
+	padding-left: 13%;
 	box-sizing: border-box;
 	background-color: #f2c53dff;
 }

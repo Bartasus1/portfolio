@@ -39,6 +39,7 @@
 	backdrop-filter: blur(6px);
 	z-index: 1000;
 	box-shadow: 16px 0 16px 0 rgba(18, 17, 22, 0.5);
+	overflow: hidden;
 }
 
 .sections {

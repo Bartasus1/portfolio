@@ -34,21 +34,6 @@ const scrollToSection = (index: number) => {
 	})
 }
 
-const isScrollable = (el: HTMLElement, deltaY: number) => {
-	while (el && el !== document.body) {
-			const style = window.getComputedStyle(el);
-			const overflowY = style.overflowY;
-			const isScroll = overflowY === 'auto' || overflowY === 'scroll';
-			const canScroll = el.scrollHeight > el.clientHeight;
-			if (isScroll && canScroll) {
-					if (deltaY < 0 && el.scrollTop > 0) return true; // can scroll up
-					if (deltaY > 0 && el.scrollTop + el.clientHeight < el.scrollHeight) return true; // can scroll down
-			}
-			el = el.parentElement as HTMLElement;
-	}
-	return false;
-};
-
 const isDirectlyOverSection = (el: HTMLElement) => {
 	while (el && el !== document.body) {
 			if (el.classList.contains('section-page')) return true;
