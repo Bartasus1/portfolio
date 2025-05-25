@@ -53,7 +53,8 @@
 
 <style scoped>
 .project-card {
-	width: clamp(800px, 20%, 1200px);
+	width: clamp(400px, 20%, 1200px);
+	min-width: 300px;
 	height: 100%;
 	display: flex;
 	flex-direction: column;

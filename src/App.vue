@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watch, computed } from 'vue'
+import { onMounted, ref, watch, computed, onUnmounted } from 'vue'
 import animateScrollTo from 'animated-scroll-to'
 import Navbar from './components/Navbar/Navbar.vue';
 import NavbarVertical from './components/Navbar/NavbarVertical.vue';
@@ -10,7 +10,6 @@ const nexScrollTarget = ref(0);
 const scrollTarget = ref(0);
 const preventScroll = ref(false);
 var scrollableSections: HTMLElement[] = [];
-
 
 const scrollToSection = (index: number) => {
 	if(preventScroll.value || index < 0 || index >= scrollableSections.length) {
@@ -70,13 +69,43 @@ const handleWheel = (event: WheelEvent) => {
 	scrollToSection(newScrollTarget);
 }
 
-
 const displayRegularNavbar = computed(() => {
 	if(nexScrollTarget.value >= 1 && scrollTarget.value != 0)
 		return false;
 	if(nexScrollTarget.value === 0)
 		return true;
 })
+
+// Add IntersectionObserver setup
+const setupIntersectionObserver = () => {
+	const options = {
+		root: null, // viewport
+		rootMargin: '0px',
+		threshold: 0.5 // Trigger when section is 50% visible
+	};
+
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				const sectionId = entry.target.id;
+				const sectionIndex = scrollableSections.findIndex(section => section.id === sectionId);
+				if (sectionIndex !== -1) {
+					const newRouteName = getSections()[sectionIndex].name as string;
+					if (router.currentRoute.value.name !== newRouteName) {
+						router.replace({ name: newRouteName });
+					}
+				}
+			}
+		});
+	}, options);
+
+	// Observe all sections
+	scrollableSections.forEach(section => {
+		observer.observe(section);
+	});
+
+	return observer;
+};
 
 onMounted(() => {
 	const app = document.querySelector('#app') as HTMLElement
@@ -93,6 +122,14 @@ onMounted(() => {
 	
 	// Add wheel event listener
 	window.addEventListener('wheel', handleWheel, { passive: false })
+
+	// Setup IntersectionObserver
+	const observer = setupIntersectionObserver();
+
+	// Cleanup observer on component unmount
+	onUnmounted(() => {
+		observer.disconnect();
+	});
 })
 
 watch(

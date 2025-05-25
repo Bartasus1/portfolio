@@ -132,14 +132,19 @@
 	height: 100%;
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	gap: 50px; 
 	padding: 40px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
 }
 
 .project-item {
 	height: 90%;
+	scroll-snap-align: start;
 }
 
 /* Add responsive styles */
@@ -161,9 +166,10 @@
 	}
 
 	.projects {
-		flex-direction: column;
+		flex-direction: row;
 		justify-content: flex-start;
-		overflow: scroll;
+		overflow-x: auto;
+		overflow-y: hidden;
 		gap: 30px;
 		padding: 20px;
 	}
@@ -177,10 +183,11 @@
 /* Additional breakpoint for very small devices */
 @media screen and (max-width: 480px) {
 	.projects {
-		flex-direction: column;
-		align-items: flex-start;
+		flex-direction: row;
+		align-items: center;
 		justify-content: flex-start;
-		overflow: scroll;
+		overflow-x: auto;
+		overflow-y: hidden;
 		gap: 30px;
 		padding: 15px;
 	}
@@ -191,7 +198,7 @@
 
 	.project-item {
 		min-height: 400px;
-		width: 100%;
-}
+		width: 90%;
+	}
 }
 </style>
