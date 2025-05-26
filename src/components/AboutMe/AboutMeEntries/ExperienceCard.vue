@@ -67,9 +67,11 @@ const calculateDuration = computed(() => {
 		<p class="job-details">
 			{{ job.location }}  
 			<span class="details-divider"> &nbsp | &nbsp </span>  
-			{{ job.start_date }} &nbsp- &nbsp{{ job.end_date }} 
-			<span class="details-divider"> &nbsp&nbsp </span>  
-			( {{calculateDuration }} )
+			<span class="date"> 
+				{{ job.start_date }} - {{ job.end_date }} 
+				<span class="details-divider"> &nbsp&nbsp </span>  
+				( {{calculateDuration }} )
+			</span>
 		</p>
 			<ul class="tech-list">
 				<li v-for="(tech, techIndex) in job.technologies" :key="`job-tech-${index}-${techIndex}`">
@@ -111,8 +113,12 @@ const calculateDuration = computed(() => {
 
 .job-details {
 	font-size: 0.9em;
-
 	margin-bottom: 0.5rem;
+}
+
+.date {
+	display: inline-block;
+	text-wrap: nowrap;
 }
 
 
@@ -122,6 +128,7 @@ ul {
 }
 li {
 	margin-bottom: 0.5rem;
+	text-wrap: balance;
 }
 
 .tech-list {
@@ -151,5 +158,20 @@ li {
 	color: #e0e0e0;
 	font-weight: bold;
 	margin: 0 5px; /* Added margin for spacing */
+}
+
+@media screen and (max-width: 600px) {
+	.job-title, .job-details {
+		text-wrap: balance;
+	}
+
+	.date {
+		display: block;
+		text-wrap: nowrap;
+	}
+
+	.details-divider {
+		visibility: hidden;
+	}
 }
 </style>

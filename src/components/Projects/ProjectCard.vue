@@ -53,9 +53,8 @@
 
 <style scoped>
 .project-card {
-	width: clamp(400px, 20%, 1200px);
-	min-width: 300px;
-	height: 100%;
+	aspect-ratio: 6 / 10;
+	flex-shrink: 0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -96,6 +95,16 @@
 	text-align: center;
 	padding: 10px;
 	font-size: clamp(0.8rem, 1vw + 1vh, 1rem);
+}
+
+@media screen and (max-width: 500px) {
+	.project-card {
+		min-width: 90%;
+	}
+
+	.info > h1 {
+		font-size: clamp(1.4rem, 1vw + 1vh, 1.8rem);
+	}
 }
 
 </style>

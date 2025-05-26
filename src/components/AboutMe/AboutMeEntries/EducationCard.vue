@@ -76,6 +76,7 @@
 }
 
 .education-title {
+	text-wrap: balance;
 	margin-top: 0;
 	color: white; /* Accent color for titles */
 
@@ -105,6 +106,15 @@ li {
 	padding: 0 5%;
 	border-radius: 4px;
 	background-color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+
+	.divider {
+		width: 90%;
+		align-self: center;
+	}
+	
 }
 
 </style>

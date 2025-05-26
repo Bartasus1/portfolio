@@ -41,9 +41,9 @@
 		"title": "Andromeda",
 		"image": "images/Andromeda.png",
 		"scope": "PERSONAL",
-		"short_description": "A prototype of an Action-Adventure RPG game",
+		"short_description": "Prototype of an Action-Adventure RPG game",
 		"description": [
-			"The game me & my friends developed during our last semester at university of Wroclaw.",
+			"The game me and my friends developed during our last semester at university of Wroclaw.",
 			"Our goal was to make a prototype of an Action-Adventure RPG for the narrative we came up with (watch the video).",
 			"We had a lot of fun working on it, and we learned a lot about game development and project management.",
 			"Me personally, were responsible for the coordination of the project, as well as the programming most important parts of the game."
@@ -75,7 +75,7 @@
 		"title": "Coco Jumpo",
 		"image": "images/CocoJumpo.jpg",
 		"scope": "PERSONAL",
-		"short_description": "A fast-paced vertical platformer",
+		"short_description": "Fast-paced vertical platformer",
 		"description": [
 			"A game developed during Hackathon 2020 with my friends. We had 48 hours to create this game.",
 			"We were inspired by the game of our childhood - IcyTower.",

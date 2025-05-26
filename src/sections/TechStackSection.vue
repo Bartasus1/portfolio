@@ -132,6 +132,7 @@ leaf.on("touchstart", function(event, d) {
 	height: 100vh;
 	background-color: #1a202c; /* Dark background */
 	padding: 2% 5%;
+	padding-left: 13%;
 }
 
 .chart-container {
@@ -152,5 +153,18 @@ leaf.on("touchstart", function(event, d) {
 	color: grey;
 	font-size: 1.2rem;
 	text-align: center;
+}
+
+@media screen and (max-width: 1024px) {
+	.section-container {
+		padding-top: 15%;
+		padding-left: 5%;
+	}
+	.title {
+		font-size: 2rem;
+	}
+	.description {
+		font-size: 1rem;
+	}
 }
 </style>

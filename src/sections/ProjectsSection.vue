@@ -97,9 +97,8 @@
 
 .title {
 	width: 100%;
-	font-size: 3rem;
+	font-size: 2.5rem;
 	color: white;
-	font-weight: 400;
 	text-align: center;
 }
 
@@ -144,20 +143,20 @@
 
 .project-item {
 	height: 90%;
-	scroll-snap-align: start;
+	scroll-snap-align: center;
+}
+
+@media screen and (max-width: 1400px) {
+	.projects-section {
+		height: 100vh;
+		padding: 5% 0;
+		padding-top: 10%;
+		
+	}
 }
 
 /* Add responsive styles */
 @media screen and (max-width: 1024px) {
-	.projects-section {
-		height: 100vh;
-		padding: 4% 0;
-	}
-
-	.title {
-		font-size: 3rem;
-		margin-bottom: 1rem;
-	}
 
 	.filters {
 		width: 90%;
@@ -166,7 +165,6 @@
 	}
 
 	.projects {
-		flex-direction: row;
 		justify-content: flex-start;
 		overflow-x: auto;
 		overflow-y: hidden;
@@ -176,7 +174,7 @@
 
 	.project-item {
 		min-height: 400px;
-		width: 90%;
+		max-width: 90%;
 	}
 }
 
@@ -190,15 +188,11 @@
 		overflow-y: hidden;
 		gap: 30px;
 		padding: 15px;
-	}
-
-	.title {
-		font-size: 3rem;
+		padding-left: 6%;
 	}
 
 	.project-item {
-		min-height: 400px;
-		width: 90%;
+		width: 80%;
 	}
 }
 </style>

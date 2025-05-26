@@ -66,6 +66,7 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	gap: 15%;
 	align-items: flex-end;
 	width: 80%;
 	flex: 1;

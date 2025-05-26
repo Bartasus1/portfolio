@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watch, computed, onUnmounted } from 'vue'
+import { onMounted, ref, watch, computed } from 'vue'
 import animateScrollTo from 'animated-scroll-to'
 import Navbar from './components/Navbar/Navbar.vue';
 import NavbarVertical from './components/Navbar/NavbarVertical.vue';
@@ -10,6 +10,7 @@ const nexScrollTarget = ref(0);
 const scrollTarget = ref(0);
 const preventScroll = ref(false);
 var scrollableSections: HTMLElement[] = [];
+
 
 const scrollToSection = (index: number) => {
 	if(preventScroll.value || index < 0 || index >= scrollableSections.length) {
@@ -35,7 +36,7 @@ const scrollToSection = (index: number) => {
 
 const isDirectlyOverSection = (el: HTMLElement) => {
 	while (el && el !== document.body) {
-			if (el.classList.contains('section-page')) return true;
+			if (el.classList.contains('section-page') || el.classList.contains('navbar')) return true;
 			// If we hit a scrollable element before the section, return false
 			const style = window.getComputedStyle(el);
 			const overflowY = style.overflowY;
@@ -69,6 +70,7 @@ const handleWheel = (event: WheelEvent) => {
 	scrollToSection(newScrollTarget);
 }
 
+
 const displayRegularNavbar = computed(() => {
 	if(nexScrollTarget.value >= 1 && scrollTarget.value != 0)
 		return false;
@@ -76,60 +78,47 @@ const displayRegularNavbar = computed(() => {
 		return true;
 })
 
-// Add IntersectionObserver setup
-const setupIntersectionObserver = () => {
-	const options = {
-		root: null, // viewport
-		rootMargin: '0px',
-		threshold: 0.5 // Trigger when section is 50% visible
-	};
-
-	const observer = new IntersectionObserver((entries) => {
-		entries.forEach(entry => {
-			if (entry.isIntersecting) {
-				const sectionId = entry.target.id;
-				const sectionIndex = scrollableSections.findIndex(section => section.id === sectionId);
-				if (sectionIndex !== -1) {
-					const newRouteName = getSections()[sectionIndex].name as string;
-					if (router.currentRoute.value.name !== newRouteName) {
-						router.replace({ name: newRouteName });
-					}
-				}
-			}
-		});
-	}, options);
-
-	// Observe all sections
-	scrollableSections.forEach(section => {
-		observer.observe(section);
-	});
-
-	return observer;
-};
-
 onMounted(() => {
 	const app = document.querySelector('#app') as HTMLElement
 	scrollableSections = Array.from(app.children).filter(child => {
-		return child.classList.contains('section-page')
+			return child.classList.contains('section-page')
 	}) as HTMLElement[]
-	
+
 	// Set initial scroll target based on current route
 	const currentRouteName = router.currentRoute.value.name;
 	const initialSectionIndex = getSections().findIndex(section => section.name === currentRouteName);
 	if (initialSectionIndex !== -1) {
-		scrollToSection(initialSectionIndex);
+			scrollToSection(initialSectionIndex);
 	}
-	
-	// Add wheel event listener
+
+	// Add wheel event listener for section scrolling
 	window.addEventListener('wheel', handleWheel, { passive: false })
 
-	// Setup IntersectionObserver
-	const observer = setupIntersectionObserver();
-
-	// Cleanup observer on component unmount
-	onUnmounted(() => {
-		observer.disconnect();
-	});
+	// Add wheel event listener to consume scroll on scrollable elements
+	window.addEventListener('wheel', (event: WheelEvent) => {
+    let el = event.target as HTMLElement | null;
+    while (el && el !== document.body) {
+        const style = window.getComputedStyle(el);
+        const overflowY = style.overflowY;
+        const isScroll = overflowY === 'auto' || overflowY === 'scroll';
+        const canScroll = el.scrollHeight > el.clientHeight;
+        if (isScroll) {
+            if (canScroll) {
+                const atTop = el.scrollTop === 0;
+                const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
+                if ((event.deltaY < 0 && atTop) || (event.deltaY > 0 && atBottom)) {
+                    event.preventDefault();
+                    return;
+                }
+                return;
+            } else {
+                event.preventDefault();
+                return;
+            }
+        }
+        el = el.parentElement;
+    }
+}, { passive: false });
 })
 
 watch(

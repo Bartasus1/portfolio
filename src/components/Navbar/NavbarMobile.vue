@@ -54,7 +54,7 @@ const currentSectionName = computed(() => {
 
 .hamburger {
   position: fixed;
-  top: 2.5%;
+  top: 0.8%;
   left: 1%;
   z-index: 1001;
   background: #1a202c;

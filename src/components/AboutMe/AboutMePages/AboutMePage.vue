@@ -98,6 +98,7 @@ h3 {
 }
 ul {
 	font-weight: normal;
+	text-wrap: balance;
 }
 
 @media screen and (max-width: 1400px) {

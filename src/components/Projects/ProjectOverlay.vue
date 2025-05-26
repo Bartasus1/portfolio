@@ -158,7 +158,7 @@ const emit = defineEmits<{
 .titleLinksRow {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-around;
 	gap: 1.5rem;
 	margin-bottom: 1.5rem;
 }
@@ -169,14 +169,18 @@ const emit = defineEmits<{
 	font-weight: 700;
 	line-height: 1;
 	display: flex;
+	width: auto;
+	flex: 1.1;
 }
 
 .links {
 	display: flex;
 	align-items: center;
+	justify-content: flex-end;
 	flex-wrap: wrap;
 	gap: 0.5rem;
 	margin: 0;
+	flex: 1;
 }
 
 .overlayRight {
@@ -234,7 +238,7 @@ const emit = defineEmits<{
 	align-items: center;
 	gap: 1rem;
 	background-color: #ffe082;
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 0.8rem;
 	border-radius: 8px;
 	text-decoration: none;
 	color: #222;
@@ -253,11 +257,7 @@ h2 {
 }
 
 /* Responsive styles */
-@media (max-width: 900px) {
-	.projectTitle {
-		width: 100%;
-	}
-
+@media (max-width: 1200px) {
 	.overlayContent {
 		flex-direction: column;
 		width: 95%;

@@ -79,7 +79,7 @@
 
 	.quote {
 		font-size: clamp(0.9rem, 1vw + 0.5vh, 2rem);
-		text-wrap: nowrap;
+		text-wrap: balance;
 	}
 		
 	.expander:hover {
