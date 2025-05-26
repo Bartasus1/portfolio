@@ -180,44 +180,16 @@ const getSections = () => {
 	height: 100vh;
 }
 
-/* Navbar transitions - Temporarily commented out or remove if not needed without Transition component
-.navbar-switch-enter-active,
-.navbar-switch-leave-active {
-	transition-property: opacity, transform;
-	transition-duration: 0.5s;
-	transition-timing-function: ease-in-out;
+.navbar-switch-enter-active, .navbar-switch-leave-active {
+	transition: transform 0.1s ease;
 }
 
-.navbar.navbar-switch-enter-from,
-.navbar.navbar-switch-leave-to {
-	opacity: 0;
-	transform: translateY(-20px); 
+.navbar-switch-enter-from {
+	transform: translateX(-100%); /* Slide in from the left*/
 }
 
-.navbar.navbar-switch-enter-to,
-.navbar.navbar-switch-leave-from {
-	opacity: 1;
-	transform: translateY(0);
+.navbar-switch-leave-to {
+	transform: translateX(-100%); /* Slide out to the left */
 }
 
-.navbar-vertical.navbar-switch-enter-from {
-	opacity: 0;
-	transform: translateX(-100%);
-}
-
-.navbar-vertical.navbar-switch-enter-to {
-	opacity: 1;
-	transform: translateX(0);
-}
-
-.navbar-vertical.navbar-switch-leave-from {
-	opacity: 1;
-	transform: translateX(0);
-}
-
-.navbar-vertical.navbar-switch-leave-to {
-	opacity: 0;
-	transform: translateX(-100%);
-}
-*/
 </style>
