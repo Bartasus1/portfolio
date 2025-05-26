@@ -131,7 +131,7 @@
 	height: 100%;
 	display: flex;
 	flex-direction: row;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	gap: 50px; 
 	padding: 40px;

@@ -181,7 +181,7 @@ const getSections = () => {
 }
 
 .navbar-switch-enter-active, .navbar-switch-leave-active {
-	transition: transform 0.1s ease;
+	transition: transform 0.2s ease-in-out;
 }
 
 .navbar-switch-enter-from {

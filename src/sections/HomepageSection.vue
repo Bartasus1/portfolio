@@ -34,12 +34,12 @@
 }
 .headerContainer {
 	display: flex;
-	align-items: center;
-	justify-content: center;
+	align-items: flex-end;
 	height: 100%;
 	width: 40%;
 	padding: 1%;
 	padding-right: 2%;
+	padding-bottom: 10%;
 	overflow: hidden;
 	background-color: #f2c53dff;
 }
@@ -50,7 +50,6 @@
 	align-items: center;
 	width: 100%;
 	height: auto;
-	margin-top: 50%;
 }
 
 .myName {
@@ -100,6 +99,7 @@
 		width: 100%;
 		top: 0;
 		padding: 1rem;
+		padding-bottom: 15%;
 	}
 	.welcome {
 		display: flex;
@@ -107,9 +107,8 @@
 		width: 100%;
 		height: 100%;
 		align-items: center;
-		justify-content: flex-start;
+		justify-content: center;
 		text-align: center;
-		padding-top: 20%;
 		margin-top: 0;
 	}
 	
@@ -123,9 +122,6 @@
 
 	.separator {
 		height: 4px;
-	}
-	.headerContainer {
-		padding: 0.5rem;
 	}
 }
 </style>
