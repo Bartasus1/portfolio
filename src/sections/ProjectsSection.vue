@@ -129,12 +129,14 @@
 .projects {
 	width: 100%;
 	height: 100%;
+	padding: 40px;
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	flex-wrap: nowrap;
+	flex-grow: 1;
 	align-items: center;
-	gap: 50px; 
-	padding: 40px;
+	justify-content: space-around;
+	gap: 50px;
 	overflow-x: auto;
 	overflow-y: hidden;
 	scroll-snap-type: x mandatory;
@@ -149,15 +151,17 @@
 @media screen and (max-width: 1400px) {
 	.projects-section {
 		height: 100vh;
-		padding: 5% 0;
-		padding-top: 10%;
-		
+		padding: 2% 2%;
 	}
+
 }
 
 /* Add responsive styles */
 @media screen and (max-width: 1024px) {
 
+	.title {
+		margin-top: 5%;
+	}
 	.filters {
 		width: 90%;
 		flex-wrap: wrap;

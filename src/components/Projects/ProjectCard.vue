@@ -53,9 +53,9 @@
 
 <style scoped>
 .project-card {
-	aspect-ratio: 6 / 10;
-	flex-shrink: 0;
+	aspect-ratio: 6.5 / 10;
 	display: flex;
+	flex-shrink: 0;
 	flex-direction: column;
 	justify-content: center;
 	color: white;
@@ -97,13 +97,23 @@
 	font-size: clamp(0.8rem, 1vw + 1vh, 1rem);
 }
 
+@media screen and (max-width: 1400px) {
+	.info > h1 {
+		font-size: clamp(1.4rem, 1vw + 1vh, 1.8rem);
+	}
+
+	.description { 
+		font-size: clamp(0.6rem, 1vw + 1vh, 0.9rem);
+	}
+}
+
 @media screen and (max-width: 500px) {
 	.project-card {
 		min-width: 90%;
 	}
 
-	.info > h1 {
-		font-size: clamp(1.4rem, 1vw + 1vh, 1.8rem);
+	.description { 
+		font-size: clamp(1rem, 1vw + 1vh, 1.1rem);
 	}
 }
 
