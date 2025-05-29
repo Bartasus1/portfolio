@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { marked } from 'marked';
 import { computed } from 'vue';
 
 interface Company {
@@ -62,7 +63,7 @@ const calculateDuration = computed(() => {
 	<div class="job-card">
 		<h3 class="job-title">
 			{{ job.title }} at 
-			<a :href="job.company.link" target="_blank" rel="noopener noreferrer" class="external-link">{{job.company.name}}</a>
+			<a :href="job.company.link" target="_blank" rel="noopener noreferrer">{{job.company.name}}</a>
 		</h3>
 		<p class="job-details">
 			{{ job.location }}  
@@ -81,8 +82,8 @@ const calculateDuration = computed(() => {
 			</ul>
 			<div class="responsibilities">
 				<ul>
-					<li v-for="(resp, respIndex) in job.responsibilities" :key="`job-resp-${index}-${respIndex}`">
-						{{ resp }}
+					<li v-for="(resp, respIndex) in job.responsibilities" :key="`job-resp-${index}-${respIndex}`" 
+						v-html="marked(resp)">
 					</li>
 				</ul>
 			</div>
@@ -105,10 +106,10 @@ const calculateDuration = computed(() => {
 .job-title {
 	margin-top: 0;
 	color: white; /* Accent color for titles */
+}
 
-	a {
-		color: #f2c53d; /* Accent color for links */
-	}
+a, :deep(a) {
+	color: #f2c53d; /* Accent color for links */
 }
 
 .job-details {
