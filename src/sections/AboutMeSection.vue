@@ -8,6 +8,11 @@
 	const sectionIndex = ref(-1); 
 	
 	function setActiveSection(index: number) {
+		if(index == sectionIndex.value) {
+			sectionIndex.value = -1; // Deselect if the same section is clicked
+			return;
+		}
+		
 		sectionIndex.value = index;
 	}
 

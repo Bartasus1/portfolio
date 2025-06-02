@@ -204,11 +204,13 @@ const emit = defineEmits<{
 
 .projectInfo {
 	color: #222;
+	margin: 1% 0;
+	overflow-y: auto;
 }
 
 .description {
 	padding: 2rem 1rem;
-	font-size: 1.3rem;
+	font-size: clamp(1.1rem, 1vw, 1.3rem);
 	font-weight: 450;
 	line-height: 1.6;
 }
@@ -217,7 +219,7 @@ const emit = defineEmits<{
 	padding: 0.5rem 1rem;
 	border-radius: 8px;
 	margin-bottom: 0.5rem;
-	font-size: 1.2rem;
+	font-size: clamp(1rem, 1vw, 1.2rem);
 	font-weight: 420;
 	line-height: 1.4;
 }

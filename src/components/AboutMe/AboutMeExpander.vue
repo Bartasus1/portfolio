@@ -45,7 +45,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-	font-size: clamp(1rem, 2vw + 2vh, 4.5rem);
+	font-size: clamp(1rem, 2vw + 1.5vh, 4.5rem);
 }
 
 .separator {
@@ -59,6 +59,41 @@
 .quote {
 	font-size: clamp(0.9rem, 1vw + 1vh, 2rem);
 	font-style: italic;
+}
+
+@media screen and (max-width: 1400px) {
+	.expander {
+		width: 50%;
+		height: 100%;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		padding: 10px;
+		margin: 0;
+	}
+
+	.title {
+		font-size: clamp(1rem, 1vw + 2vh, 4.5rem);
+		text-wrap: nowrap;
+	}
+
+	.quote {
+		font-size: clamp(0.9rem, 1vw + 0.5vh, 2rem);
+		text-wrap: balance;
+	}
+		
+	.expander:hover {
+		transform: translateY(-3px);
+	}
+
+	.expander.active {
+		transform: translateY(-3px);
+	}
+
+	.separator {
+		width: 90%;
+		margin: 3px 0;
+	}
 }
 
 @media screen and (max-width: 1024px) {

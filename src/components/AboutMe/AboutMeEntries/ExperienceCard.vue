@@ -113,6 +113,7 @@ a, :deep(a) {
 }
 
 .job-details {
+	display: flex;
 	font-size: 0.9em;
 	margin-bottom: 0.5rem;
 }
@@ -166,13 +167,17 @@ li {
 		text-wrap: balance;
 	}
 
+	.job-details {
+		flex-direction: column-reverse;
+	}
+
 	.date {
 		display: block;
 		text-wrap: nowrap;
 	}
 
 	.details-divider {
-		visibility: hidden;
+		display: none;
 	}
 }
 </style>
