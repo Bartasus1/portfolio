@@ -1,8 +1,3 @@
-<script setup lang="ts">
-	import experience from "@/data/experience.json";
-	import ExperienceCard from '@/components/AboutMe/AboutMeEntries/ExperienceCard.vue';
-</script>
-
 <template>
 	<div class="experience">
 		<div class="jobs">
@@ -15,6 +10,11 @@
 		</div>
 	</div>
 </template>
+
+<script setup lang="ts">
+	import experience from "@/data/experience.json";
+	import ExperienceCard from '@/components/AboutMe/AboutMeEntries/ExperienceCard.vue';
+</script>
 
 <style scoped>
 .jobs {

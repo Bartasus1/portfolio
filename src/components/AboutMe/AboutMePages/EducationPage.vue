@@ -1,8 +1,3 @@
-<script setup lang="ts">
-	import education from "@/data/education.json";
-	import EducationCard from '@/components/AboutMe/AboutMeEntries/EducationCard.vue';
-</script>
-
 <template>
 	<div>
 		<div class="education">
@@ -14,6 +9,11 @@
 		</div>
 	</div>
 </template>
+
+<script setup lang="ts">
+	import education from "@/data/education.json";
+	import EducationCard from '@/components/AboutMe/AboutMeEntries/EducationCard.vue';
+</script>
 
 <style scoped>
 .education {

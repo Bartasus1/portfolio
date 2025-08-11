@@ -1,26 +1,40 @@
+<template>
+	<div class="job-card">
+		<h3 class="job-title">
+			{{ job.title }} at 
+			<a :href="job.company.link" target="_blank" rel="noopener noreferrer">{{job.company.name}}</a>
+		</h3>
+		<p class="job-details">
+			{{ job.location }}  
+			<span class="details-divider"> &nbsp | &nbsp </span>  
+			<span class="date"> 
+				{{ job.start_date }} - {{ job.end_date }} 
+				<span class="details-divider"> &nbsp&nbsp </span>  
+				( {{calculateDuration }} )
+			</span>
+		</p>
+			<ul class="tech-list">
+				<li v-for="(tech, techIndex) in job.technologies" :key="`job-tech-${index}-${techIndex}`">
+					<img v-if="tech.icon" :src="tech.icon" class="tech-icon" />
+					{{ tech.name }}
+				</li>
+			</ul>
+			<div class="responsibilities">
+				<ul>
+					<li v-for="(resp, respIndex) in job.responsibilities" :key="`job-resp-${index}-${respIndex}`" 
+						v-html="marked(resp)">
+					</li>
+				</ul>
+			</div>
+	</div>
+</template>
+
+
 <script setup lang="ts">
+import type { Job } from './types';
 import { marked } from 'marked';
 import { computed } from 'vue';
 
-interface Company {
-	name: string;
-	link: string;
-}
-
-interface Technology {
-	name: string;
-	icon: string;
-}
-
-interface Job {
-	title: string;
-	company: Company;
-	location: string;
-	start_date: string;
-	end_date: string;
-	technologies: Technology[];
-	responsibilities: string[];
-}
 
 const props = defineProps<{
 	index: number; 
@@ -58,38 +72,6 @@ const calculateDuration = computed(() => {
 	return `${months} months`;
 });
 </script>
-
-<template>
-	<div class="job-card">
-		<h3 class="job-title">
-			{{ job.title }} at 
-			<a :href="job.company.link" target="_blank" rel="noopener noreferrer">{{job.company.name}}</a>
-		</h3>
-		<p class="job-details">
-			{{ job.location }}  
-			<span class="details-divider"> &nbsp | &nbsp </span>  
-			<span class="date"> 
-				{{ job.start_date }} - {{ job.end_date }} 
-				<span class="details-divider"> &nbsp&nbsp </span>  
-				( {{calculateDuration }} )
-			</span>
-		</p>
-			<ul class="tech-list">
-				<li v-for="(tech, techIndex) in job.technologies" :key="`job-tech-${index}-${techIndex}`">
-					<img v-if="tech.icon" :src="tech.icon" class="tech-icon" />
-					{{ tech.name }}
-				</li>
-			</ul>
-			<div class="responsibilities">
-				<ul>
-					<li v-for="(resp, respIndex) in job.responsibilities" :key="`job-resp-${index}-${respIndex}`" 
-						v-html="marked(resp)">
-					</li>
-				</ul>
-			</div>
-	</div>
-</template>
-
 
 
 <style scoped>

@@ -1,7 +1,3 @@
-<script setup lang="ts">
-	import aboutme from "@/data/about_me.json";
-</script>
-
 <template>
 	<div class="about-me-page">
 		<h2 class="title">
@@ -12,29 +8,17 @@
 			{{ aboutme.description.join(" ") }}
 		</p>
 		<div class="others">
-			<div class="hobbies">
-				<h3>Hobbies</h3>
-				<ul>
-					<li v-for="(hobby, hIndex) in aboutme.hobbies" :key="`hobby-${hIndex}`">{{ hobby }}</li>
-				</ul>
-			</div>
-			<div class="skills">
-				<h3>Soft Skills</h3>
-				<ul>
-					<li v-for="(skill, sIndex) in aboutme.soft_skills" :key="`skill-${sIndex}`">{{ skill }}</li>
-				</ul>
-			</div>
-			<div class="languages">
-				<h3>Languages</h3>
-				<ul>
-					<li v-for="(language, sIndex) in aboutme.languages" :key="`language-${sIndex}`">{{ language.name + ": " + language.level }}</li>
-				</ul>
-			</div>
+			<TitledListing class="skills" title="Skills" :elements="aboutme.soft_skills" />
+			<TitledListing class="hobbies" title="Hobbies" :elements="aboutme.hobbies" />
+			<TitledListing class="languages" title="Languages" :elements="aboutme.languages.map(lang => `${lang.name}: ${lang.level}`)" />
 		</div>
 	</div>
 </template>
 
-
+<script setup lang="ts">
+import aboutme from "@/data/about_me.json";
+import TitledListing from "./elements/TitledListing.vue";
+</script>
 
 <style  scoped>
 .about-me-page {
@@ -71,6 +55,8 @@
 	font-size: clamp(1.2rem, 1.6vw, 1.8rem);
 	color: black;
 	text-align: justify;
+	text-wrap: balance;
+	word-break: keep-all;
 	margin: 0;
 	padding: 2rem;
 }

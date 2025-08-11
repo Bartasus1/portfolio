@@ -1,26 +1,3 @@
-<script setup lang="ts">
-
-	interface Institution {
-		name: string;
-		link: string;
-		logo: string;
-	}
-
-	interface Education {
-		degree: string;
-		institution: Institution;
-		start_date: string;
-		end_date: string;
-		skills?: string[];
-	}
-
-	defineProps<{
-		index: number;
-		education: Education;
-	}>();
-</script>
-
-
 <template>
 	<div class="education-card">
 		<div class="institution">
@@ -40,6 +17,16 @@
 	</div>
 </template>
 
+
+<script setup lang="ts">
+import type { Education } from './types';
+
+
+defineProps<{
+	index: number;
+	education: Education;
+}>();
+</script>
 
 
 <style scoped>

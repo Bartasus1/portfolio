@@ -1,29 +1,36 @@
+<template>
+	<div class="projects-section">
+		<h2 class="title">
+			Projects
+		</h2>
+		<!-- <div class="filters"> -->
+			<!-- <div class="filter-button" @click="filter = Filter.ALL">All</div> -->
+			<!-- <div class="filter-button" @click="filter = Filter.PERSONAL">Personal</div> -->
+			<!-- <div class="filter-button" @click="filter = Filter.WORK">Work</div> -->
+			<!-- <div class="filter-button" @click="filter = Filter.OPEN_SOURCE">Open Source</div> -->
+		<!-- </div> -->
+		<HorizontalScroll class="projects">
+				<ProjectCard class="project-item"
+					v-for="(project, index) in filteredData()"
+					:project="project"
+					:key="index"
+					@click="showProjectDetails(project)"
+				/>
+		</HorizontalScroll>
+
+		<ProjectOverlay v-if="toggleOverlay" :project="selectedProject" @close="closeOverlay" />
+
+	</div>
+</template>
+
+
 <script setup lang="ts">
 	import ProjectCard from '@/components/Projects/ProjectCard.vue';
 	import ProjectOverlay from '@/components/Projects/ProjectOverlay.vue';
+	import HorizontalScroll from '@/components/utils/HorizontalScroll.vue';
 	import data from '@/data/projects.json';
 	import { ref } from 'vue';
-
-	interface Project {
-		title: string;
-		image: string;
-		short_description: string;
-		description: string[];
-		focus_points: string[];
-		technologies: Technology[];
-		links: Link[];
-	}
-
-	interface Link {
-		name: string;
-		url: string;
-		icon: string;
-	}
-
-	interface Technology {
-		name: string;
-		icon: string;
-	}
+	import type { Project } from '@/components/Projects/types';
 
 	enum Filter {
 		ALL = 'ALL',
@@ -34,7 +41,7 @@
 
 	const filter = ref(Filter.ALL);
 	const selectedProject = ref<Project | null>(null);
-	const isOverlayVisible = ref(false);
+	const toggleOverlay = ref(false);
 
 	const filteredData = () => {
 		return filter.value === Filter.ALL ? data : data.filter(project => project.scope === filter.value);
@@ -42,45 +49,14 @@
 
 	const showProjectDetails = (project: Project) => {
 		selectedProject.value = project;
-		isOverlayVisible.value = true;
+		toggleOverlay.value = true;
 	};
 
 	const closeOverlay = () => {
-		isOverlayVisible.value = false;
+		toggleOverlay.value = false;
 		selectedProject.value = null;
 	};
 </script>
-
-
-<template>
-	<div class="projects-section">
-		<h2 class="title">
-			Projects
-		</h2>
-		<div class="filters">
-			<!-- <div class="filter-button" @click="filter = Filter.ALL">All</div> -->
-			<!-- <div class="filter-button" @click="filter = Filter.PERSONAL">Personal</div> -->
-			<!-- <div class="filter-button" @click="filter = Filter.WORK">Work</div> -->
-			<!-- <div class="filter-button" @click="filter = Filter.OPEN_SOURCE">Open Source</div> -->
-		</div>
-		<div class="projects">
-			<ProjectCard 
-				v-for="(project, index) in filteredData()"
-				:key="index"
-				:index="index"
-				:project="project"
-				class="project-item"
-				@showDetails="showProjectDetails"
-			/>
-		</div>
-
-		<ProjectOverlay
-			:isVisible="isOverlayVisible"
-			:project="selectedProject"
-			@close="closeOverlay"
-		/>
-	</div>
-</template>
 
 
 <style scoped>
@@ -129,7 +105,8 @@
 .projects {
 	width: 100%;
 	height: 100%;
-	padding: 40px;
+	margin: 2%;
+	padding-right: 40px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -137,14 +114,12 @@
 	align-items: center;
 	justify-content: space-around;
 	gap: 50px;
-	overflow-x: auto;
-	overflow-y: hidden;
-	scroll-snap-type: x mandatory;
 	-webkit-overflow-scrolling: touch;
 }
 
 .project-item {
 	height: 90%;
+	margin-bottom: 20px;
 	scroll-snap-align: center;
 }
 

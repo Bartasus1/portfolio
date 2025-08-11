@@ -1,13 +1,13 @@
 [
 	{
 		"title": "Krzywe Karty",
-		"image": "images/CrookedCards.png",
+		"image": "images/CrookedCards.jpg",
 		"scope": "PERSONAL",
 		"short_description": "Multiplayer strategic card game",
 		"description": [
-			"Multiplayer turn-based strategic card game where each card has several complex abilities.",
-			"Player's goal is to either conquer opponent's base or eliminate all of their cards.",
-			"The game is based on a board game developed by my friend."
+			"Multiplayer turn-based card game, based on a board game prototype, developed by my friend when we were in primary school.",
+			"The game is designed to be highly strategic, with players needing to carefully plan their moves and anticipate their opponent's actions.",
+			"Features a unique card system with unique cards, allowing for a wide variety of strategies and playstyles."
 		],
 		"focus_points": [
 			"Uses Gameplay Framework to create a turn-based game as well as Gameplay Ability System for character abilities.",
@@ -39,7 +39,7 @@
 	},
 	{
 		"title": "Andromeda",
-		"image": "images/Andromeda.png",
+		"image": "images/Andromeda.jpg",
 		"scope": "PERSONAL",
 		"short_description": "Prototype of an Action-Adventure RPG game",
 		"description": [
@@ -77,8 +77,7 @@
 		"scope": "PERSONAL",
 		"short_description": "Fast-paced vertical platformer",
 		"description": [
-			"A game developed during Hackathon 2020 with my friends. We had 48 hours to create this game.",
-			"We were inspired by the game of our childhood - IcyTower.",
+			"A game developed during Hackathon 2020 with my friends. We had 48 hours to create this game and were inspired by the game of our childhood - IcyTower.",
 			"I was responsible for developing the levels and programming procedural generation of the platforms."
 		],
 		"focus_points": [
@@ -115,9 +114,9 @@
 		"scope": "PERSONAL",
 		"short_description": "A tool for procedural terrain generation in Unreal Engine",
 		"description": [
-			"Tool for procedural terrain generation in UE5 developed as a part of my engineer degree.",
-			"Uses for Unreal's built-in Landscape actor and allows to specify a list of modifiers that modify its heightmap.",
-			"Comes with two ready modifiers: Perlin Noise and Radial FadeOut.",
+			"A Tool for procedural terrain generation in UE5 developed as a part of my engineer degree.",
+			"Uses Unreal's built-in Landscape actor and allows to specify a list of modifiers that modify its heightmap.",
+			"Comes with two built-in modifiers: Perlin Noise and Radial FadeOut.",
 			"I used them both to create an island visible on the screenshot."
 		],
 		"focus_points": [

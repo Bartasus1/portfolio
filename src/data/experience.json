@@ -3,8 +3,8 @@
 		{
 			"title": "Java Backend Developer",
 			"company": {
-				"name": "Getmen",
-				"link": "https://getmen.com"
+				"name": "ClickJobs.pl",
+				"link": "https://clickjobs.pl"
 			},
 			"location": "Opole, Poland",
 			"start_date": "10.2024",
@@ -112,8 +112,8 @@
 			],
 			"responsibilities": [
 				"Implemented various UI panels and elements according to the design specifications for [Creature Lab](https://store.steampowered.com/app/1309990/Creature_Lab/)",
-				"Developed many gameplay mechanics and connected them with the user interface",
-				"Introduced plenty optimizations & fixes for smoother gameplay experience",
+				"Developed various gameplay mechanics and connected them with the user interface",
+				"Introduced optimizations & fixes for smoother gameplay experience",
 				"Created procedural solutions for visual elements in the game"
 			]
 		}

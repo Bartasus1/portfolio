@@ -30,4 +30,14 @@ const router = createRouter({
 	]
 })
 
+export const getSections = () => {
+	return router.getRoutes()
+		.filter(r => r.components && r.components.default)
+		.map(route => ({
+			component: route.components?.default,
+			name: route.name,
+			path: route.path
+		}))
+}
+
 export default router

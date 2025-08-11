@@ -1,43 +1,5 @@
-<script setup lang="ts">
-
-	interface Project {
-		title:        string;
-		image:        string;
-		short_description: string;
-		description:  string[];
-		focus_points: string[];
-		technologies: Technology[];
-		links:        Link[];
-	}
-
-	interface Link {
-		name: string;
-		url:  string;
-		icon: string;
-	}
-
-	interface Technology {
-		name: string;
-		icon: string;
-	}
-
-	const props = defineProps<{
-		index: number,
-		project: Project
-	}>();
-
-	const emit = defineEmits<{
-		(e: 'showDetails', project: Project): void;
-	}>();
-
-	const handleClick = () => {
-		emit('showDetails', props.project);
-	};
-
-</script>
-
 <template>
-	<div class="project-card" @click="handleClick">
+	<div class="project-card">
 		<img :src="project.image" :alt="project.title" class="project-image" />
 		<div class="info">
 			<h1>
@@ -50,6 +12,15 @@
 	</div>
 </template>
 
+
+<script setup lang="ts">
+import type { Project } from './types';
+
+defineProps<{
+	project: Project
+}>();
+
+</script>
 
 <style scoped>
 .project-card {

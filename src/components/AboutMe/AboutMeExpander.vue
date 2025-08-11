@@ -1,10 +1,3 @@
-<script setup lang="ts">
-	defineProps<{
-		name: string;
-		quote: string;
-	}>()
-</script>
-
 <template>
 	<div class="expander">
 			<h1 class="title">{{ name }}</h1>
@@ -14,6 +7,13 @@
 			</p>
 	</div>
 </template>
+
+<script setup lang="ts">
+	defineProps<{
+		name: string;
+		quote: string;
+	}>()
+</script>
 
 <style scoped>
 .expander {

@@ -5,17 +5,6 @@
 	import ExperiencePage from '@/components/AboutMe/AboutMePages/ExperiencePage.vue';
 	import EducationPage from '@/components/AboutMe/AboutMePages/EducationPage.vue';
 
-	const sectionIndex = ref(-1); 
-	
-	function setActiveSection(index: number) {
-		if(index == sectionIndex.value) {
-			sectionIndex.value = -1; // Deselect if the same section is clicked
-			return;
-		}
-		
-		sectionIndex.value = index;
-	}
-
 	const sections = [
 		{
 			name: 'About Me',
@@ -33,6 +22,17 @@
 			component: EducationPage,
 		},
 	];
+
+	const sectionIndex = ref(-1); 
+	
+	function setActiveSection(index: number) {
+		if(index == sectionIndex.value) {
+			sectionIndex.value = -1; // Deselect if the same section is clicked
+			return;
+		}
+		
+		sectionIndex.value = index;
+	}
 
 </script>
 

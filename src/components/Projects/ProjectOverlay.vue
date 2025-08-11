@@ -1,81 +1,66 @@
+<template>
+    <div class="overlay" @click="$emit('close')">
+			<button class="closeButton" @click="$emit('close')">
+				<img src="/icons/close.svg" alt="">
+			</button>
+			<div class="overlayContent" @click.stop>
+					<div class="overlayLeft">
+							<div class="titleLinksRow">
+									<h1 class="projectTitle">{{ project?.title }}</h1>
+									<div class="links">
+										<a v-for="link in project?.links" 
+												:key="link.name" 
+												:href="link.url" 
+												target="_blank" 
+												class="linkItem">
+												<img :src="link.icon" :alt="link.name" class="linkIcon" />
+												{{ link.name }}
+										</a>
+									</div>
+							</div>
+							<span class="separator"></span>
+							<div class="projectInfo">
+								<div class="technologies">
+									<div class="techList">
+										<div v-for="tech in project?.technologies" :key="tech.name" class="techItem">
+											<img :src="tech.icon" :alt="tech.name" class="techIcon" />
+											<span>{{ tech.name }}</span>
+										</div>
+									</div>
+								</div>
+								<div class="description">
+									{{ project?.description.join(' ') }}
+								</div>
+								<div class="focusPoints">
+									<ul>
+										<li v-for="(point, index) in project?.focus_points" :key="index">
+											{{ point }}
+										</li>
+									</ul>
+								</div>
+							</div>
+					</div>
+					<div class="overlayRight">
+							<img :src="project?.image" :alt="project?.title" class="projectImage" />
+					</div>
+			</div>
+    </div>
+</template>
+
+
 <script setup lang="ts">
-	interface Project {
-		title:        string;
-		image:        string;
-		short_description: string;
-		focus_points:  string[];
-		description:  string[];
-		technologies: Technology[];
-		links:        Link[];
-	}
+import type { Project } from './types';
 
-	interface Link {
-		name: string;
-		url:  string;
-		icon: string;
-	}
+defineProps<{
+	project: Project | null
+}>();
 
-	interface Technology {
-		name: string;
-		icon: string;
-	}
-
-	const props = defineProps<{
-		isVisible: boolean,
-		project: Project | null
-	}>();
-
-const emit = defineEmits<{
-    (e: 'close'): void;
+defineEmits<{
+	(e: 'close'): void;
 }>();
 </script>
 
-<template>
-    <div v-if="isVisible" class="overlay" @click="emit('close')">
-        <button class="closeButton" @click="emit('close')">×</button>
-        <div class="overlayContent" @click.stop>
-            <div class="overlayLeft">
-                <div class="titleLinksRow">
-                    <h1 class="projectTitle">{{ project?.title }}</h1>
-                    <div class="links">
-											<a v-for="link in project?.links" 
-													:key="link.name" 
-													:href="link.url" 
-													target="_blank" 
-													class="linkItem">
-													<img :src="link.icon" :alt="link.name" class="linkIcon" />
-													{{ link.name }}
-											</a>
-                    </div>
-                </div>
-								<span class="separator"></span>
-                <div class="projectInfo">
-									<div class="description">
-										{{ project?.description.join(' ') }}
-									</div>
-									<div class="focusPoints">
-										<ul>
-											<li v-for="(point, index) in project?.focus_points" :key="index">
-												{{ point }}
-											</li>
-										</ul>
-									</div>
-									<div class="technologies">
-										<div class="techList">
-											<div v-for="tech in project?.technologies" :key="tech.name" class="techItem">
-												<img :src="tech.icon" :alt="tech.name" class="techIcon" />
-												<span>{{ tech.name }}</span>
-											</div>
-										</div>
-									</div>
-                </div>
-            </div>
-            <div class="overlayRight">
-                <img :src="project?.image" :alt="project?.title" class="projectImage" />
-            </div>
-        </div>
-    </div>
-</template>
+
 
 <style scoped>
 .overlay {
@@ -89,6 +74,8 @@ const emit = defineEmits<{
 	justify-content: center;
 	align-items: center;
 	z-index: 1000;
+	overflow-x: hidden !important; 
+	overflow-y: scroll !important;
 }
 
 .closeButton {
@@ -97,10 +84,8 @@ const emit = defineEmits<{
 	right: 2rem;
 	background-color: white;
 	border: none;
-	color: #ff4444;
 	font-size: 2.5rem;
 	cursor: pointer;
-	padding: 0.5rem;
 	z-index: 1001;
 	transition: all 0.2s ease;
 	width: 3rem;
@@ -109,13 +94,23 @@ const emit = defineEmits<{
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	line-height: 1;
+
+	img {
+		width: 80%;
+		height: 80%;
+		filter: brightness(0) saturate(100%) invert(31%) sepia(68%) saturate(1973%) hue-rotate(337deg) brightness(107%) contrast(96%);
+	}
 }
 
 .closeButton:hover {
 	transform: scale(1.1);
 	background-color: #ff4444;
-	color: white;
+	
+	img {
+		width: 80%;
+		height: 80%;
+		filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+	}
 }
 
 .separator {
@@ -209,10 +204,11 @@ const emit = defineEmits<{
 }
 
 .description {
-	padding: 2rem 1rem;
+	padding: 1rem 1rem;
 	font-size: clamp(1.1rem, 1vw, 1.3rem);
 	font-weight: 450;
 	line-height: 1.6;
+	text-align: justify;
 }
 
 .focusPoints li {
@@ -222,10 +218,6 @@ const emit = defineEmits<{
 	font-size: clamp(1rem, 1vw, 1.2rem);
 	font-weight: 420;
 	line-height: 1.4;
-}
-
-.technologies{
-	margin-top: 10%;
 }
 
 .techList, .linkList {
