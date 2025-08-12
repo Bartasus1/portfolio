@@ -144,8 +144,8 @@
 		flex-wrap: nowrap;
 		justify-content: space-between;
 		align-items: center;
-		padding: 0.5rem 10px;
-		margin-bottom: 20px;
+		padding: 0.5rem;
+		padding-bottom: 34px;
 		
 		:deep(.section) {
 			width: calc((100% / 3) - 10px) !important;
