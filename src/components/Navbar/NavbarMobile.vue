@@ -96,7 +96,7 @@ const currentSectionName = computed(() => {
   max-width: 300px;
   height: 100vh;
   background-color: #1a202c;
-  padding: 80px 20px 40px;
+  padding: 80px 20px 50px;
   z-index: 1000;
   transition: left 0.3s ease;
   display: flex;

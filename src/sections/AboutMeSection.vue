@@ -145,7 +145,7 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 0.5rem;
-		padding-bottom: 34px;
+		padding-bottom: 50px;
 		
 		:deep(.section) {
 			width: calc((100% / 3) - 10px) !important;
