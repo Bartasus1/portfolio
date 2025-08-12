@@ -104,7 +104,7 @@ ul {
 	.hobbies, .skills, .languages {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-start;
 		justify-content: center;
 		max-width: 100%;
 		width: 100%;
@@ -113,6 +113,7 @@ ul {
 	}
 
 	ul {
+		text-align: center;
 		width: 100%;
 	}
 

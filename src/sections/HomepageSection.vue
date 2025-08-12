@@ -78,7 +78,7 @@
 @media screen and (max-width: 1024px) {
 	.homepage {
 		display: flex;
-		flex-direction: column !important;
+		flex-direction: column-reverse !important;
 		justify-content: flex-end;
 	}
 

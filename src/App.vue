@@ -20,10 +20,10 @@
 
 
 <script setup lang="ts">
-import SectionsScroll from './components/utils/SectionsScroll.vue';
 import Navbar from './components/Navbar/Navbar.vue';
 import NavbarVertical from './components/Navbar/NavbarVertical.vue';
 import NavbarMobile from './components/Navbar/NavbarMobile.vue';
+import SectionsScroll from './components/utils/SectionsScroll.vue';
 
 import { watch } from 'vue';
 import router, { getSections} from '@/router';

@@ -145,9 +145,11 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 0.5rem 10px;
-		:deep(.section){
-		width: calc((100% / 3) - 10px) !important;
-	}
+		margin-bottom: 20px;
+		
+		:deep(.section) {
+			width: calc((100% / 3) - 10px) !important;
+		}
 	}
 
 

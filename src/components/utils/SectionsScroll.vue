@@ -6,24 +6,18 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { scrollSections, assignScrollableSections } from './sections_scroll';
+import { initScroll, wheelScroll, mobile } from './sections_scroll';
 
-const scrollContainer = ref(null);
-var scrollableSections: Element[] = [];
-
-	
-const onWheel = (event: WheelEvent) => {
-  if (scrollContainer.value) {
-		scrollSections(event);
-  }
-};
-
+const scrollContainer = ref<HTMLElement>();
 
 onMounted(() => {
-	window.addEventListener('wheel', onWheel, { passive: false });
-
-	scrollableSections = Array.from(document.querySelectorAll('.section-page'));
-	assignScrollableSections(scrollableSections);
+	if(scrollContainer.value) {
+		initScroll(scrollContainer.value);
+		window.addEventListener('wheel', wheelScroll, { passive: false });
+		window.addEventListener('touchstart', mobile.handleTouchStart);
+		window.addEventListener('touchmove', mobile.handleTouchMove, { passive: false });
+		window.addEventListener('touchend', mobile.handleTouchEnd);
+	}
 });
 </script>
 
