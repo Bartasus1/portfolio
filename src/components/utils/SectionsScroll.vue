@@ -12,11 +12,13 @@ const scrollContainer = ref<HTMLElement>();
 
 onMounted(() => {
 	if(scrollContainer.value) {
+
 		initScroll(scrollContainer.value);
+		
 		window.addEventListener('wheel', wheelScroll, { passive: false });
-		window.addEventListener('touchstart', mobile.handleTouchStart);
-		window.addEventListener('touchmove', mobile.handleTouchMove, { passive: false });
-		window.addEventListener('touchend', mobile.handleTouchEnd);
+		// window.addEventListener('touchstart', mobile.handleTouchStart);
+		// window.addEventListener('touchmove', mobile.handleTouchMove, { passive: false });
+		// window.addEventListener('touchend', mobile.handleTouchEnd);
 	}
 });
 </script>
