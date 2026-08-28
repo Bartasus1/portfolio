@@ -25,6 +25,6 @@ onMounted(() => {
 .sections-scroll {
 	overflow-x: auto;
 	overflow-y: hidden;
-	scroll-snap-type: x mandatory;
+	scroll-snap-type: y mandatory;
 }
 </style>

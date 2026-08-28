@@ -13,21 +13,21 @@ export const initScroll = (parent: Element) => {
 
 export const wheelScroll = (event: WheelEvent) => {
 	const isOverScrollableElement = isScrollableElement(event);
-	console.log("Is element scrollable: ", isOverScrollableElement);
 
 	if (isOverScrollableElement) {
 		return;
 	}
 
 	// Something prevents scroll or we're in the middle of sections scroll
-	if(preventScroll.value || scrollTarget.value != nextScrollTarget.value) {
+	if(scrollTarget.value != nextScrollTarget.value) {
 		return;
 	}
-
 	// Check if we're over a section for section navigation
 	if (!isDirectlyOverSection(event)) {
 		return;
 	}
+	
+	
 
 	// Prevent default behavior for section scrolling
 	event.preventDefault();
@@ -122,7 +122,6 @@ const mobileTouch = () => {
                 scrollSections('up');
             }
             
-            // Reset prevent scroll after animation completes + buffer
             setTimeout(() => {
                 preventScroll.value = false;
             }, 500);
@@ -154,7 +153,7 @@ export const scrollToSection = (index: number) => {
 	if( index < 0 || index >= scrollableSections.value.length) {
 		return;
 	}
-
+	
 	nextScrollTarget.value = index;
 	animateScrollTo(scrollableSections.value[index], {
 		speed: 400,
@@ -200,8 +199,10 @@ const isScrollableElement = (event: WheelEvent) => {
 			}
 			return true;
 		}
+
 		el = el.parentElement as HTMLElement;
 	}
+
 	return false;
 };
 

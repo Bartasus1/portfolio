@@ -3,9 +3,9 @@
 		<h1 class="title">
 			Techstack
 		</h1>
-		<p class="description">
+		<!-- <p class="description">
 			Here are the technologies and topics I have worked with or have some experience in. The size of the circle represents my proficiency in that technology.
-		</p>
+		</p> -->
 		<div class="chart-container" v-html="createChart()">
 		</div>
 	</div>

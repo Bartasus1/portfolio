@@ -7,13 +7,13 @@
 		</div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue';
 import { preventScroll } from './sections_scroll';
 
-const scrollContainer = ref(null);
+const scrollContainer = ref<HTMLElement>();
 
-const onHover = (enable) => {
+const onHover = (enable: boolean) => {
 	preventScroll.value = enable;
   if(enable) {
 		window.addEventListener('wheel', onWheel, { passive: false });
@@ -22,8 +22,8 @@ const onHover = (enable) => {
 	}
 };
 
-const onWheel = (event) => {
-  if (scrollContainer.value) {
+const onWheel = (event: WheelEvent) => {
+  if (scrollContainer.value && event.deltaX != 0) {
     event.preventDefault();
     scrollContainer.value.scrollLeft += event.deltaY;
   }
