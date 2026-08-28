@@ -24,7 +24,12 @@ onMounted(() => {
 <style scoped>
 .sections-scroll {
 	overflow-x: auto;
-	overflow-y: hidden;
+	overflow-y: auto;
 	scroll-snap-type: y mandatory;
+}
+.sections-scroll > div {
+	min-height: 100dvh;
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
 }
 </style>

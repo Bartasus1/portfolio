@@ -1,3 +1,24 @@
+<template>
+	<div class="aboutMe">
+		<div class="sidebar">
+				<AboutMeExpander v-for="(section, index) in sections" :key="index"
+					:name="section.name" 
+					:quote="section.quote" 
+					:class="{ active: sectionIndex === index }" 
+					@click="setActiveSection(index)" 
+				/>
+		</div>	
+		<div class="content">
+			<Transition name="slide" mode="out-in">
+				<div v-if="sectionIndex != -1" :key="sectionIndex" class="content-wrapper">
+					<component :is="sections[sectionIndex].component" class="section-content"/>
+				</div>
+			</Transition>
+		</div>
+	</div>
+</template>
+
+
 <script setup lang="ts">
 	import { ref } from 'vue';
 	import AboutMeExpander from '@/components/AboutMe/AboutMeExpander.vue';
@@ -36,25 +57,6 @@
 
 </script>
 
-<template>
-	<div class="aboutMe">
-		<div class="sidebar">
-				<AboutMeExpander v-for="(section, index) in sections" :key="index"
-					:name="section.name" 
-					:quote="section.quote" 
-					:class="{ active: sectionIndex === index }" 
-					@click="setActiveSection(index)" 
-				/>
-		</div>	
-		<div class="content">
-			<Transition name="slide" mode="out-in">
-				<div v-if="sectionIndex != -1" :key="sectionIndex" class="content-wrapper">
-					<component :is="sections[sectionIndex].component" class="section-content"/>
-				</div>
-			</Transition>
-		</div>
-	</div>
-</template>
 
 <style scoped>
 .aboutMe {
